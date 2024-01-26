@@ -7,26 +7,26 @@ output:
     variant: markdown_github
   html_document: default
 ---
-##Descripcion del Dataset
+### Descripcion del Dataset \n
 El archivo junio2022_minuto_sin_interpolación.csv y el archivo junio2022_minuto_con_interpolación.csv contienen datos medidos clasificados en: 
-*Variables Energeticas:* 
--   **Voltaje:**
--   **Corriente:**
--   **Potencia:**
--   **Frecuencia:**
--   **Energia:**
--   **Factor de Potencia (fp):**
--   **Temperatura (esp32_temp):**
+*Variables Energéticas:* 
+- **Voltaje**
+- **Corriente**
+- **Potencia**
+- **Frecuencia**
+- **Energía**
+- **Factor de Potencia (fp)**
+- **Temperatura (esp32_temp)**
 
-*Variables de Rendimiento :* 
--   **CPU (workstation_cpu):**
--   **Potencia CPU(workstation_cpu_power):**
--   **Temperatura CPU(workstation_cpu_temp:**
--   **GPU:**
--   **Potencia GPU:**
--   **Temperatura GPU:**
--   **RAM (workstation_ram):**
--   **Potencia de RAM (workstation_ram_power):**
+*Variables de Rendimiento:* 
+- **CPU (workstation_cpu)**
+- **Potencia CPU (workstation_cpu_power)**
+- **Temperatura CPU (workstation_cpu_temp)**
+- **GPU**
+- **Potencia GPU**
+- **Temperatura GPU**
+- **RAM (workstation_ram)**
+- **Potencia de RAM (workstation_ram_power)**
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -49,8 +49,10 @@ summary(datos_con_interpolacion)
 ### Voltaje 
 ```{r}
 voltaje <- datos_con_interpolacion[['voltaje']]
-cat("\nEjemplos:\n")
-print(head(voltaje))
+```
+**Ejemplos**
+```{r}
+head(voltaje)
 mean_voltaje <- mean(voltaje, na.rm = TRUE)
 median_voltaje <- median(voltaje, na.rm = TRUE)
 sd_voltaje <- sd(voltaje, na.rm = TRUE)
