@@ -36,17 +36,20 @@ library(ggplot2)
 library(dplyr)
 library(leaps)
 ```
-### Carga de los dataset
+### Datos sin interpolacion
 ```{r}
-datos_con_interpolacion <- read.csv("junio2022_minuto_sin_interpolacion.csv")
+datos_sin_interpolacion <- read.csv("junio2022_minuto_sin_interpolacion.csv")
+head(datos_sin_interpolacion)
+summary(datos_sin_interpolacion)
+
+```
+### Datos con interpolacion
+```{r}
 datos_con_interpolacion <- read.csv("junio2022_minuto_con_interpolacion.csv")
 head(datos_con_interpolacion)
-```
-
-
-```{r}
 summary(datos_con_interpolacion)
 ```
+
 ### Voltaje 
 ```{r}
 voltaje <- datos_con_interpolacion[['voltaje']]
