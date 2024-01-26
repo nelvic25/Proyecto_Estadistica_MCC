@@ -552,8 +552,21 @@ interpolación.* *Hipotesis Alternativa: La media de la variable
 interpolación.*
 
 ``` r
-#t_test_result <- t.test(voltaje_sin_interpolacion, voltaje_con_interpolacion)
+t_test_result <- t.test(energia_sin_interpolacion, energia_con_interpolacion)
+t_test_result
 ```
+
+    ## 
+    ##  Welch Two Sample t-test
+    ## 
+    ## data:  energia_sin_interpolacion and energia_con_interpolacion
+    ## t = 0, df = 86398, p-value = 1
+    ## alternative hypothesis: true difference in means is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -4.577681e-06  4.577681e-06
+    ## sample estimates:
+    ##   mean of x   mean of y 
+    ## 0.001958704 0.001958704
 
 ### Comparacion de Varianzas
 
@@ -567,6 +580,23 @@ directamente en la precisión de las predicciones de consumo energético.
 significativamente después de aplicar la interpolación.* *Hipotesis
 Alternativa: La varianza de la serie de tiempo cambia significativamente
 después de la interpolación.*
+
+``` r
+#Levene Test 
+levene_result<- leveneTest(energia_sin_interpolacion, energia_con_interpolacion)
+```
+
+    ## Warning in leveneTest.default(energia_sin_interpolacion,
+    ## energia_con_interpolacion): energia_con_interpolacion coerced to factor.
+
+``` r
+levene_result
+```
+
+    ## Levene's Test for Homogeneity of Variance (center = median)
+    ##          Df F value Pr(>F)
+    ## group   314     NaN    NaN
+    ##       42885
 
 ### Regresion
 

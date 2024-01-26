@@ -38,6 +38,7 @@ library(readODS)
 library(ggplot2)
 library(dplyr)
 library(leaps)
+library(car)
 ```
 ### Datos sin interpolacion
 ```{r}
@@ -372,7 +373,8 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
 *Hipotesis Alternativa: La media de la variable 'energía' cambia significativamente después de aplicar la interpolación.* 
 
 ```{r}
-#t_test_result <- t.test(voltaje_sin_interpolacion, voltaje_con_interpolacion)
+t_test_result <- t.test(energia_sin_interpolacion, energia_con_interpolacion)
+t_test_result
 ```
 
 ### Comparacion de Varianzas
@@ -382,7 +384,9 @@ La alteración significativa de la varianza por la interpolación puede distorsi
 *Hipotesis Nula: La varianza de la serie de tiempo no cambia significativamente después de aplicar la interpolación.* 
 *Hipotesis Alternativa: La varianza de la serie de tiempo cambia significativamente después de la interpolación.*
 ```{r}
-
+#Levene Test 
+levene_result<- leveneTest(energia_sin_interpolacion, energia_con_interpolacion)
+levene_result
 ```
 
 ### Regresion
