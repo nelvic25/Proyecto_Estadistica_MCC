@@ -370,9 +370,11 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
 
 ```
 
-### Prueba de significancia sobre la Media 
-*Hipotesis Nula: La media de la variable 'energía' en la serie de tiempo no experimenta un cambio significativo después de aplicar la interpolación.\n* 
-*Hipotesis Alternativa: La media de la variable 'energía' cambia significativamente después de aplicar la interpolación.\n* 
+### Prueba de significancia sobre la Media
+
+- *Hipótesis Nula:* La media de la variable 'energía' en la serie de tiempo no experimenta un cambio significativo después de aplicar la interpolación.
+
+- *Hipótesis Alternativa:* La media de la variable 'energía' cambia significativamente después de aplicar la interpolación.
 
 ```{r}
 t_test_result <- t.test(energia_sin_interpolacion, energia_con_interpolacion)
@@ -384,8 +386,11 @@ t_test_result
 La alteración significativa de la varianza por la interpolación puede distorsionar la volatilidad de la serie de tiempo, impactando directamente en la precisión de las predicciones de consumo energético.
 
 ### Prueba de significancia sobre la Varianza
-*Hipotesis Nula: La varianza de la serie de tiempo no cambia significativamente después de aplicar la interpolación.\n* 
-*Hipotesis Alternativa: La varianza de la serie de tiempo cambia significativamente después de la interpolación.\n*
+
+- *Hipótesis Nula:* La varianza de la serie de tiempo no cambia significativamente después de aplicar la interpolación.
+
+- *Hipótesis Alternativa:* La varianza de la serie de tiempo cambia significativamente después de la interpolación.
+
 ```{r}
 f_test_result <- var.test(energia_sin_interpolacion, energia_con_interpolacion)
 f_test_result
@@ -399,6 +404,16 @@ f_test_result
 ```
 ### Matriz de Correlacion
 ```{r}
+library(ggplot2)
+library(corrplot)
+variables_interes <- datos_con_interpolacion[, c("workstation_ram", "workstation_ram_power",
+                                                 "workstation_cpu", "workstation_cpu_power",
+                                                 "workstation_cpu_temp", "workstation_gpu",
+                                                 "workstation_gpu_power", "workstation_gpu_temp",
+                                                 "voltaje", "corriente", "potencia",
+                                                 "frecuencia", "energia", "fp", "esp32_temp")]
 
+matriz_correlacion <- cor(variables_interes, use = "complete.obs")
+corrplot(matriz_correlacion, method = "circle")
 ```
 ### Regresion Lineal Multiple
