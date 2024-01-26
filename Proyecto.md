@@ -2,14 +2,17 @@
 
 El archivo junio2022_minuto_sin_interpolación.csv y el archivo
 junio2022_minuto_con_interpolación.csv contienen datos medidos
-clasificados en: *Variables Energéticas:* - **Voltaje** -
-**Corriente** - **Potencia** - **Frecuencia** - **Energía** - **Factor
-de Potencia (fp)** - **Temperatura (esp32_temp)**
+clasificados en :
 
-*Variables de Rendimiento:* - **CPU (workstation_cpu)** - **Potencia CPU
-(workstation_cpu_power)** - **Temperatura CPU (workstation_cpu_temp)** -
-**GPU** - **Potencia GPU** - **Temperatura GPU** - **RAM
-(workstation_ram)** - **Potencia de RAM (workstation_ram_power)**
+*Variables Energéticas:* - **Voltaje**<br> - **Corriente**<br> -
+**Potencia**<br> - **Frecuencia**<br> - **Energía**<br> - **Factor de
+Potencia (fp)**<br> - **Temperatura (esp32_temp)**<br>
+
+*Variables de Rendimiento:* - **CPU (workstation_cpu)**<br> - **Potencia
+CPU (workstation_cpu_power)**<br> - **Temperatura CPU
+(workstation_cpu_temp)**<br> - **GPU**<br> - **Potencia GPU**<br> -
+**Temperatura GPU**<br> - **RAM (workstation_ram)**<br> - **Potencia de
+RAM (workstation_ram_power)**<br>
 
 ### Carga de los dataset
 
