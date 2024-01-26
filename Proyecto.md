@@ -545,7 +545,7 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
 
 ### Prueba de significancia sobre la Media
 
-*Hipotesis Nula:La media de la variable ‘energía’ en la serie de tiempo
+*Hipotesis Nula: La media de la variable ‘energía’ en la serie de tiempo
 no experimenta un cambio significativo después de aplicar la
 interpolación.* *Hipotesis Alternativa: La media de la variable
 ‘energía’ cambia significativamente después de aplicar la
