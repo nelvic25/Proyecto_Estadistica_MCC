@@ -359,15 +359,20 @@ El enfoque principal de nuestro análisis será la variable 'energía', debido a
 Es esencial asegurar que la interpolación no haya sesgado significativamente la media, ya que cambios notables podrían llevar a interpretaciones erróneas de las tendencias en la serie de tiempo, afectando las predicciones sobre el consumo.
 ### Prueba de bondad de ajuste
 ```{r}
+energia_sin_interpolacion <- datos_sin_interpolacion[['energia']]
+energia_con_interpolacion <- datos_con_interpolacion[['energia']]
+
+ks.test(energia_sin_interpolacion, "pnorm", mean=mean(energia_sin_interpolacion), sd=sd(energia_sin_interpolacion))
+ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion), sd=sd(energia_con_interpolacion))
 
 ```
-
 
 ### Prueba de significancia sobre la Media 
 *Hipotesis Nula:La media de la variable 'energía' en la serie de tiempo no experimenta un cambio significativo después de aplicar la interpolación.* 
 *Hipotesis Alternativa: La media de la variable 'energía' cambia significativamente después de aplicar la interpolación.* 
 
 ```{r}
+t_test_result <- t.test(voltaje_sin_interpolacion, voltaje_con_interpolacion, paired = TRUE)
 
 ```
 

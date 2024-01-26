@@ -510,6 +510,39 @@ interpretaciones erróneas de las tendencias en la serie de tiempo,
 afectando las predicciones sobre el consumo. \### Prueba de bondad de
 ajuste
 
+``` r
+voltaje_sin_interpolacion <- datos_sin_interpolacion[['voltaje']]
+voltaje_con_interpolacion <- datos_con_interpolacion[['voltaje']]
+
+ks.test(energia, "pnorm", mean=mean(voltaje_sin_interpolacion), sd=sd(voltaje_sin_interpolacion))
+```
+
+    ## Warning in ks.test.default(energia, "pnorm", mean =
+    ## mean(voltaje_sin_interpolacion), : ties should not be present for the
+    ## Kolmogorov-Smirnov test
+
+    ## 
+    ##  Asymptotic one-sample Kolmogorov-Smirnov test
+    ## 
+    ## data:  energia
+    ## D = NA, p-value = NA
+    ## alternative hypothesis: two-sided
+
+``` r
+ks.test(energia, "pnorm", mean=mean(voltaje_con_interpolacion), sd=sd(voltaje_con_interpolacion))
+```
+
+    ## Warning in ks.test.default(energia, "pnorm", mean =
+    ## mean(voltaje_con_interpolacion), : ties should not be present for the
+    ## Kolmogorov-Smirnov test
+
+    ## 
+    ##  Asymptotic one-sample Kolmogorov-Smirnov test
+    ## 
+    ## data:  energia
+    ## D = 1, p-value < 2.2e-16
+    ## alternative hypothesis: two-sided
+
 ### Prueba de significancia sobre la Media
 
 *Hipotesis Nula:La media de la variable ‘energía’ en la serie de tiempo
@@ -517,6 +550,10 @@ no experimenta un cambio significativo después de aplicar la
 interpolación.* *Hipotesis Alternativa: La media de la variable
 ‘energía’ cambia significativamente después de aplicar la
 interpolación.*
+
+``` r
+t_test_result <- t.test(voltaje_sin_interpolacion, voltaje_con_interpolacion, paired = TRUE)
+```
 
 ### Comparacion de Varianzas
 
