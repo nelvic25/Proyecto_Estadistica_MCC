@@ -629,5 +629,6 @@ de tiempo de ‘energía’ cambia después de aplicar la interpolación.*
 
     ## corrplot 0.92 loaded
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-51-1.png) \###
-Regresion Lineal Multiple
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-51-1.png)
+
+### Regresion Lineal Multiple

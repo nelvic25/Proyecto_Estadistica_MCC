@@ -416,4 +416,5 @@ variables_interes <- datos_con_interpolacion[, c("workstation_ram", "workstation
 matriz_correlacion <- cor(variables_interes, use = "complete.obs")
 corrplot(matriz_correlacion, method = "circle")
 ```
+
 ### Regresion Lineal Multiple
