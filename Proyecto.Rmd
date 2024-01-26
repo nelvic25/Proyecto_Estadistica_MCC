@@ -67,14 +67,11 @@ sd_voltaje <- sd(voltaje, na.rm = TRUE)
 cat('Media: ', mean_voltaje, '\n')
 cat('Mediana: ', median_voltaje, '\n')
 cat('Desviación Estándar: ', sd_voltaje, '\n')
-```
-**Graficas de Voltaje**
-```{r echo=FALSE}
 hist(voltaje)
 boxplot(voltaje)
 ```
 
-###Corriente
+### Corriente
 ```{r}
 corriente <- datos_con_interpolacion[['corriente']]
 ```
@@ -91,7 +88,7 @@ cat('Desviación Estándar: ', sd_corriente, '\n')
 hist(corriente)
 boxplot(corriente)
 ```
-###potencia
+### Potencia
 ```{r}
 potencia <- datos_con_interpolacion[['potencia']]
 ```
@@ -108,7 +105,7 @@ cat('Desviación Estándar: ', sd_potencia, '\n')
 hist(potencia)
 boxplot(potencia)
 ```
-###frecuencia
+### Frecuencia
 ```{r}
 frecuencia <- datos_con_interpolacion[['frecuencia']]
 ```
@@ -125,7 +122,7 @@ cat('Desviación Estándar: ', sd_frecuencia, '\n')
 hist(frecuencia)
 boxplot(frecuencia)
 ```
-###energia
+### Energia
 ```{r}
 energia <- datos_con_interpolacion[['energia']]
 ```
@@ -142,7 +139,7 @@ cat('Desviación Estándar: ', sd_energia, '\n')
 hist(energia)
 boxplot(energia)
 ```
-###Factor de Potencia
+### Factor de Potencia
 ```{r}
 fp <- datos_con_interpolacion[['fp']]
 ```
@@ -159,7 +156,7 @@ cat('Desviación Estándar: ', sd_fp, '\n')
 hist(fp)
 boxplot(fp)
 ```
-###Temperatura ESP32 (Sensor)
+### Temperatura ESP32 (Sensor)
 ```{r}
 esp32_temp <- datos_con_interpolacion[['esp32_temp']]
 ```
@@ -177,7 +174,7 @@ hist(esp32_temp)
 boxplot(esp32_temp)
 ```
 ### Variables de Rendimiento
-###workstation_cpu
+### Workstation CPU
 ```{r}
 workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
 ```
@@ -194,7 +191,7 @@ cat('Desviación Estándar: ', sd_workstation_cpu, '\n')
 hist(workstation_cpu)
 boxplot(workstation_cpu)
 ```
-###workstation_cpu_power
+### Potencia Workstation CPU
 ```{r}
 workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
 ```
@@ -211,7 +208,7 @@ cat('Desviación Estándar: ', sd_workstation_cpu_power, '\n')
 hist(workstation_cpu_power)
 boxplot(workstation_cpu_power)
 ```
-###workstation_cpu_temp
+### Temperatura Workstation CPU 
 ```{r}
 workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
 ```
@@ -228,7 +225,7 @@ cat('Desviación Estándar: ', sd_workstation_cpu_temp, '\n')
 hist(workstation_cpu_temp)
 boxplot(workstation_cpu_temp)
 ```
-###workstation_gpu
+### Workstation GPU 
 ```{r}
 workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
 ```
@@ -245,7 +242,7 @@ cat('Desviación Estándar: ', sd_workstation_gpu, '\n')
 hist(workstation_gpu)
 boxplot(workstation_gpu)
 ```
-###workstation_gpu_power
+### Potencia Workstation GPU
 ```{r}
 workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
 ```
@@ -262,7 +259,7 @@ cat('Desviación Estándar: ', sd_workstation_gpu_power, '\n')
 hist(workstation_gpu_power)
 boxplot(workstation_gpu_power)
 ```
-###workstation_gpu_temp
+### Temperatura Workstation GPU
 ```{r}
 workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
 ```
@@ -279,7 +276,7 @@ cat('Desviación Estándar: ', sd_workstation_gpu_temp, '\n')
 hist(workstation_gpu_temp)
 boxplot(workstation_gpu_temp)
 ```
-###workstation_ram
+### Workstation RAM
 ```{r}
 workstation_ram <- datos_con_interpolacion[['workstation_ram']]
 ```
@@ -296,7 +293,7 @@ cat('Desviación Estándar: ', sd_workstation_ram, '\n')
 hist(workstation_ram)
 boxplot(workstation_ram)
 ```
-###workstation_ram_power
+### Potencia Workstation RAM
 ```{r}
 workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
 ```
