@@ -203,7 +203,7 @@ corriente <- datos_con_interpolacion[['corriente']]
 
     ## [1] 1.141783 1.080950 1.082900 1.068617 1.070567 1.185650
 
-    ## Métricas de corriente:
+**Métricas de corriente**
 
     ## Media:  1.081759
 
@@ -211,8 +211,9 @@ corriente <- datos_con_interpolacion[['corriente']]
 
     ## Desviación Estándar:  0.07263775
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-7-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-7-2.png)
-\### Potencia
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-2.png)
+
+### Potencia
 
 ``` r
 potencia <- datos_con_interpolacion[['potencia']]
@@ -222,7 +223,7 @@ potencia <- datos_con_interpolacion[['potencia']]
 
     ## [1] 124.9933 117.0683 117.4250 115.4533 115.7667 130.1133
 
-    ## Métricas de potencia:
+**Métricas de potencia**
 
     ## Media:  117.4814
 
@@ -230,8 +231,9 @@ potencia <- datos_con_interpolacion[['potencia']]
 
     ## Desviación Estándar:  8.242344
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-9-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-9-2.png)
-\### Frecuencia
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-2.png)
+
+### Frecuencia
 
 ``` r
 frecuencia <- datos_con_interpolacion[['frecuencia']]
@@ -241,7 +243,7 @@ frecuencia <- datos_con_interpolacion[['frecuencia']]
 
     ## [1] 59.92833 59.98833 60.00000 59.99833 59.95500 59.97833
 
-    ## Métricas de frecuencia:
+**Métricas de frecuencia**
 
     ## Media:  59.96451
 
@@ -249,8 +251,9 @@ frecuencia <- datos_con_interpolacion[['frecuencia']]
 
     ## Desviación Estándar:  0.02228845
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-2.png)
-\### Energia
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-2.png)
+
+### Energia
 
 ``` r
 energia <- datos_con_interpolacion[['energia']]
@@ -268,7 +271,7 @@ energia <- datos_con_interpolacion[['energia']]
 
     ## Desviación Estándar:  0.0003432561
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-13-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-13-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-2.png)
 \### Factor de Potencia
 
 ``` r
@@ -279,7 +282,7 @@ fp <- datos_con_interpolacion[['fp']]
 
     ## [1] 0.9158333 0.9071667 0.9073333 0.9043333 0.9055000 0.9181667
 
-    ## Métricas de fp:
+**Métricas de fp**
 
     ## Media:  0.90845
 
@@ -287,7 +290,7 @@ fp <- datos_con_interpolacion[['fp']]
 
     ## Desviación Estándar:  0.0151849
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-15-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-15-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-2.png)
 \### Temperatura ESP32 (Sensor)
 
 ``` r
@@ -298,7 +301,7 @@ esp32_temp <- datos_con_interpolacion[['esp32_temp']]
 
     ## [1] 49.75923 49.79627 51.54627 49.78701 50.65738 48.02775
 
-    ## Métricas de esp32_temp:
+**Métricas de esp32_temp**
 
     ## Media:  49.64942
 
@@ -306,7 +309,7 @@ esp32_temp <- datos_con_interpolacion[['esp32_temp']]
 
     ## Desviación Estándar:  3.221471
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-17-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-17-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-22-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-22-2.png)
 \### Variables de Rendimiento \### Workstation CPU
 
 ``` r
@@ -317,7 +320,7 @@ workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
 
     ## [1] 14.33467 11.76633 11.34200 11.22467 11.42617 16.55817
 
-    ## Métricas de workstation_cpu:
+**Métricas de workstation_cpu**
 
     ## Media:  10.68684
 
@@ -325,7 +328,7 @@ workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
 
     ## Desviación Estándar:  3.811164
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-25-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-25-2.png)
 \### Potencia Workstation CPU
 
 ``` r
@@ -336,7 +339,7 @@ workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
 
     ## [1] 41.89000 41.19183 41.89000 41.89000 41.89000 41.89000
 
-    ## Métricas de workstation_cpu_power:
+**Métricas de workstation_cpu_power**
 
     ## Media:  41.04985
 
@@ -344,7 +347,7 @@ workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
 
     ## Desviación Estándar:  5.643873
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-21-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-21-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-28-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-28-2.png)
 \### Temperatura Workstation CPU
 
 ``` r
@@ -355,7 +358,7 @@ workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
 
     ## [1] 34.53333 30.76667 30.51667 30.00000 30.10000 39.25000
 
-    ## Métricas de workstation_cpu_temp:
+**Métricas de workstation_cpu_temp**
 
     ## Media:  31.47522
 
@@ -363,7 +366,7 @@ workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
 
     ## Desviación Estándar:  5.916378
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-23-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-23-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-31-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-31-2.png)
 \### Workstation GPU
 
 ``` r
@@ -374,7 +377,7 @@ workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
 
     ## [1] 0.01666667 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 
-    ## Métricas de workstation_gpu:
+**Métricas de workstation_gpu**
 
     ## Media:  0.2361078
 
@@ -382,7 +385,7 @@ workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
 
     ## Desviación Estándar:  1.154715
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-25-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-25-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-34-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-34-2.png)
 \### Potencia Workstation GPU
 
 ``` r
@@ -393,7 +396,7 @@ workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
 
     ## [1] 35.00000 34.41667 35.00000 35.00000 35.00000 35.00000
 
-    ## Métricas de workstation_gpu_power:
+**Métricas de workstation_gpu_power**
 
     ## Media:  34.7802
 
@@ -401,7 +404,7 @@ workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
 
     ## Desviación Estándar:  4.719184
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-27-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-27-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-37-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-37-2.png)
 \### Temperatura Workstation GPU
 
 ``` r
@@ -412,7 +415,7 @@ workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
 
     ## [1] 14.54300 14.28000 14.54233 14.54950 14.56000 14.52117
 
-    ## Métricas de workstation_gpu_temp:
+**Métricas de workstation_gpu_temp**
 
     ## Media:  14.24204
 
@@ -420,7 +423,7 @@ workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
 
     ## Desviación Estándar:  1.959539
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-29-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-29-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-40-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-40-2.png)
 \### Workstation RAM
 
 ``` r
@@ -431,7 +434,7 @@ workstation_ram <- datos_con_interpolacion[['workstation_ram']]
 
     ## [1] 48.33317 47.18517 48.13800 47.94800 47.94333 47.90600
 
-    ## Métricas de workstation_ram:
+**Métricas de workstation_ram**
 
     ## Media:  43.27864
 
@@ -439,7 +442,7 @@ workstation_ram <- datos_con_interpolacion[['workstation_ram']]
 
     ## Desviación Estándar:  10.11205
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-31-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-31-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-43-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-43-2.png)
 \### Potencia Workstation RAM
 
 ``` r
@@ -450,7 +453,7 @@ workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
 
     ## [1]  8.626667  6.558000  6.598000  6.428833  6.423167 11.830833
 
-    ## Métricas de workstation_ram_power:
+**Métricas de workstation_ram_power**
 
     ## Media:  8.110815
 
@@ -458,7 +461,7 @@ workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
 
     ## Desviación Estándar:  2.592748
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-33-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-33-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-46-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-46-2.png)
 
 ### Prueba de bondad de ajuste
 
