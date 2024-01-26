@@ -18,12 +18,12 @@ energético.
 
 Los archivos ‘junio2022_minuto_sin_interpolación.csv’ y
 ‘junio2022_minuto_con_interpolación.csv’ contienen datos de mediciones
-clasificados en dos categorías: variables energéticas y variables de
-rendimiento. El archivo ‘junio2022_minuto_sin_interpolación.csv’
-presenta la data original, incluyendo los datos faltantes. Por otro
-lado, el archivo ‘junio2022_minuto_con_interpolación.csv’ contiene los
-mismos datos, pero después de haber aplicado la técnica de interpolación
-para completar los valores faltantes. :
+clasificados en dos categorías: *variables energéticas* y *variables de
+rendimiento*. El archivo ‘junio2022_minuto_sin_interpolación.csv’
+presenta la data original, con datos faltantes. Por otro lado, el
+archivo ‘junio2022_minuto_con_interpolación.csv’ contiene los mismos
+datos, pero después de haber aplicado la técnica de interpolación para
+completar los valores faltantes. :
 
 *Variables Energéticas:* <br> - **Voltaje**<br> - **Corriente**<br> -
 **Potencia**<br> - **Frecuencia**<br> - **Energía**<br> - **Factor de
