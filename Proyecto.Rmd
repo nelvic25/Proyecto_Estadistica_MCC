@@ -11,7 +11,7 @@ output:
 El propósito de este proyecto es aplicar conocimientos de Estadística Descriptiva e Inferencial en un proyecto titulado 'Preprocesamiento, extracción de características y predicción de consumo de energía en tiempo real basada en Inteligencia Artificial en el borde o en la niebla'. Este trabajo implica la medición de diversas variables energéticas y de consumo en dispositivos Workstation, cuyas características son similares a las de dispositivos en un datacenter. El objetivo es predecir su consumo energético. Se han recopilado mediciones de estas variables a lo largo de los años. Un desafío identificado es la presencia de datos incompletos, los cuales se propone completar mediante técnicas de interpolación. Una vez resuelto este problema, se utilizarán métodos como la regresión lineal múltiple para predecir el consumo energético.
 
 ### Descripcion del Dataset \n
-Los archivos 'junio2022_minuto_sin_interpolación.csv' y 'junio2022_minuto_con_interpolación.csv' contienen datos de mediciones clasificados en dos categorías: *variables energéticas* y *variables de rendimiento*. El archivo 'junio2022_minuto_sin_interpolación.csv' presenta la data original, con datos faltantes. Por otro lado, el archivo 'junio2022_minuto_con_interpolación.csv' contiene los mismos datos, pero después de haber aplicado la técnica de interpolación para completar los valores faltantes.  \n: 
+Los archivos 'junio2022_minuto_sin_interpolación.csv' y 'junio2022_minuto_con_interpolación.csv' contienen datos de mediciones clasificados en dos categorías: *variables energéticas* y *variables de rendimiento*. El archivo 'junio2022_minuto_sin_interpolación.csv' presenta la data original, con datos faltantes (546). Por otro lado, el archivo 'junio2022_minuto_con_interpolación.csv' contiene los mismos datos, pero después de haber aplicado la técnica de interpolación para completar los valores faltantes.  \n: 
 
 *Variables Energéticas:* <br>
 - **Voltaje**<br>
@@ -42,14 +42,16 @@ library(car)
 ```
 ### Datos sin interpolacion
 ```{r}
-datos_sin_interpolacion <- read.csv("junio2022_minuto_sin_interpolacion.csv")
+#datos_sin_interpolacion <- read.csv("junio2022_07_minuto_sin_interpolacion.csv")
+datos_sin_interpolacion <- read.csv("julio2022_minuto_sin_interpolacion.csv")
 head(datos_sin_interpolacion)
 summary(datos_sin_interpolacion)
 
 ```
 ### Datos con interpolacion
 ```{r}
-datos_con_interpolacion <- read.csv("junio2022_minuto_con_interpolacion.csv")
+#datos_con_interpolacion <- read.csv("junio2022_07_minuto_con_interpolacion.csv")
+datos_con_interpolacion <- read.csv("julio2022_minuto_con_interpolacion.csv")
 head(datos_con_interpolacion)
 summary(datos_con_interpolacion)
 ```
@@ -360,8 +362,8 @@ El enfoque principal de nuestro análisis será la variable 'energía', debido a
 Es esencial asegurar que la interpolación no haya sesgado significativamente la media, ya que cambios notables podrían llevar a interpretaciones erróneas de las tendencias en la serie de tiempo, afectando las predicciones sobre el consumo.
 ### Prueba de bondad de ajuste
 ```{r}
-energia_sin_interpolacion <- datos_sin_interpolacion[['energia']]
-energia_con_interpolacion <- datos_con_interpolacion[['energia']]
+energia_sin_interpolacion <- na.omit(datos_sin_interpolacion[['energia']])
+energia_con_interpolacion <- na.omit(datos_con_interpolacion[['energia']])
 
 ks.test(energia_sin_interpolacion, "pnorm", mean=mean(energia_sin_interpolacion), sd=sd(energia_sin_interpolacion))
 ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion), sd=sd(energia_con_interpolacion))
@@ -376,6 +378,7 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
 t_test_result <- t.test(energia_sin_interpolacion, energia_con_interpolacion)
 t_test_result
 ```
+*No hay evidencia suficiente para afirmar que la media de la variable 'energía' cambia significativamente después de aplicar la interpolación. Las medias de ambas muestras son estadísticamente similares.*
 
 ### Comparacion de Varianzas
 La alteración significativa de la varianza por la interpolación puede distorsionar la volatilidad de la serie de tiempo, impactando directamente en la precisión de las predicciones de consumo energético.
@@ -384,10 +387,10 @@ La alteración significativa de la varianza por la interpolación puede distorsi
 *Hipotesis Nula: La varianza de la serie de tiempo no cambia significativamente después de aplicar la interpolación.\n* 
 *Hipotesis Alternativa: La varianza de la serie de tiempo cambia significativamente después de la interpolación.\n*
 ```{r}
-#Levene Test 
-levene_result<- leveneTest(energia_sin_interpolacion, energia_con_interpolacion)
-levene_result
+f_test_result <- var.test(energia_sin_interpolacion, energia_con_interpolacion)
+f_test_result
 ```
+*Hay evidencia estadística significativa de que la varianza de la serie de tiempo de 'energía' cambia después de aplicar la interpolación.*
 
 ### Regresion
 ### Mixed Selection

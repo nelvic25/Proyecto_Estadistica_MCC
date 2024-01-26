@@ -20,7 +20,7 @@ Los archivos ‘junio2022_minuto_sin_interpolación.csv’ y
 ‘junio2022_minuto_con_interpolación.csv’ contienen datos de mediciones
 clasificados en dos categorías: *variables energéticas* y *variables de
 rendimiento*. El archivo ‘junio2022_minuto_sin_interpolación.csv’
-presenta la data original, con datos faltantes. Por otro lado, el
+presenta la data original, con datos faltantes (546). Por otro lado, el
 archivo ‘junio2022_minuto_con_interpolación.csv’ contiene los mismos
 datos, pero después de haber aplicado la técnica de interpolación para
 completar los valores faltantes. :
@@ -38,159 +38,173 @@ RAM (workstation_ram_power)**<br>
 ### Datos sin interpolacion
 
 ``` r
-datos_sin_interpolacion <- read.csv("junio2022_minuto_sin_interpolacion.csv")
+#datos_sin_interpolacion <- read.csv("junio2022_07_minuto_sin_interpolacion.csv")
+datos_sin_interpolacion <- read.csv("julio2022_minuto_sin_interpolacion.csv")
 head(datos_sin_interpolacion)
 ```
 
     ##                 mac weekday         fecha_esp32  voltaje corriente potencia
-    ## 1 3C:61:05:12:96:30       3 2022-06-01 00:01:00 119.4133  1.141783 124.9933
-    ## 2 3C:61:05:12:96:30       3 2022-06-01 00:02:00 119.4100  1.080950 117.0683
-    ## 3 3C:61:05:12:96:30       3 2022-06-01 00:03:00 119.4000  1.082900 117.4250
-    ## 4 3C:61:05:12:96:30       3 2022-06-01 00:04:00 119.4067  1.068617 115.4533
-    ## 5 3C:61:05:12:96:30       3 2022-06-01 00:05:00 119.4233  1.070567 115.7667
-    ## 6 3C:61:05:12:96:30       3 2022-06-01 00:06:00 119.3967  1.185650 130.1133
+    ## 1 3C:61:05:12:96:30       6 2022-07-02 00:00:00 119.4100  1.077083 117.5867
+    ## 2 3C:61:05:12:96:30       6 2022-07-02 00:01:00 119.4100  1.085217 118.6383
+    ## 3 3C:61:05:12:96:30       6 2022-07-02 00:02:00 119.4000  1.087017 118.6633
+    ## 4 3C:61:05:12:96:30       6 2022-07-02 00:03:00 119.4033  1.082417 118.1600
+    ## 5 3C:61:05:12:96:30       6 2022-07-02 00:04:00 119.4067  1.085350 118.5233
+    ## 6 3C:61:05:12:96:30       6 2022-07-02 00:05:00 119.4067  1.083950 118.3850
     ##   frecuencia energia        fp esp32_temp workstation_cpu workstation_cpu_power
-    ## 1   59.92833   0.000 0.9158333   49.75923        14.33467              41.89000
-    ## 2   59.98833   0.002 0.9071667   49.79627        11.76633              41.19183
-    ## 3   60.00000   0.002 0.9073333   51.54627        11.34200              41.89000
-    ## 4   59.99833   0.001 0.9043333   49.78701        11.22467              41.89000
-    ## 5   59.95500   0.002 0.9055000   50.65738        11.42617              41.89000
-    ## 6   59.97833   0.003 0.9181667   48.02775        16.55817              41.89000
+    ## 1   59.95833   0.002 0.9140000   49.36108       10.376833                  43.1
+    ## 2   59.98333   0.002 0.9151667   48.92590       10.375667                  43.1
+    ## 3   59.98000   0.002 0.9143333   48.04627        9.723500                  43.1
+    ## 4   59.98500   0.002 0.9145000   48.05553        9.487167                  43.1
+    ## 5   59.97333   0.002 0.9141667   50.24997        9.707333                  43.1
+    ## 6   59.96167   0.002 0.9146667   50.69442       10.461500                  43.1
     ##   workstation_cpu_temp workstation_gpu workstation_gpu_power
-    ## 1             34.53333      0.01666667              35.00000
-    ## 2             30.76667      0.00000000              34.41667
-    ## 3             30.51667      0.00000000              35.00000
-    ## 4             30.00000      0.00000000              35.00000
-    ## 5             30.10000      0.00000000              35.00000
-    ## 6             39.25000      0.00000000              35.00000
+    ## 1             33.35000               0              36.00000
+    ## 2             33.43333               0              36.00000
+    ## 3             32.56667               0              36.00000
+    ## 4             32.31667               0              36.00000
+    ## 5             32.53333               0              35.96667
+    ## 6             33.60000               0              36.00000
     ##   workstation_gpu_temp workstation_ram workstation_ram_power
-    ## 1             14.54300        48.33317              8.626667
-    ## 2             14.28000        47.18517              6.558000
-    ## 3             14.54233        48.13800              6.598000
-    ## 4             14.54950        47.94800              6.428833
-    ## 5             14.56000        47.94333              6.423167
-    ## 6             14.52117        47.90600             11.830833
+    ## 1             14.67700        47.17817              9.009000
+    ## 2             14.71567        47.19500              9.744833
+    ## 3             14.76150        47.17983              8.961667
+    ## 4             14.80250        47.24117              8.904667
+    ## 5             14.75950        47.24100              9.256000
+    ## 6             14.59967        47.24117              9.928167
 
 ``` r
 summary(datos_sin_interpolacion)
 ```
 
-    ##      mac               weekday      fecha_esp32           voltaje     
-    ##  Length:43200       Min.   :1.000   Length:43200       Min.   :119.3  
-    ##  Class :character   1st Qu.:2.000   Class :character   1st Qu.:119.5  
-    ##  Mode  :character   Median :4.000   Mode  :character   Median :119.5  
-    ##                     Mean   :3.967                      Mean   :119.5  
-    ##                     3rd Qu.:6.000                      3rd Qu.:119.5  
-    ##                     Max.   :7.000                      Max.   :119.8  
-    ##                                                        NA's   :98     
-    ##    corriente         potencia        frecuencia       energia        
-    ##  Min.   :0.0958   Min.   :  1.25   Min.   :59.84   Min.   :0.000000  
-    ##  1st Qu.:1.0550   1st Qu.:113.94   1st Qu.:59.95   1st Qu.:0.002000  
-    ##  Median :1.0780   Median :116.81   Median :59.97   Median :0.002000  
-    ##  Mean   :1.0818   Mean   :117.49   Mean   :59.96   Mean   :0.001959  
-    ##  3rd Qu.:1.0909   3rd Qu.:118.44   3rd Qu.:59.98   3rd Qu.:0.002000  
-    ##  Max.   :1.6260   Max.   :182.79   Max.   :60.07   Max.   :0.003087  
-    ##  NA's   :98       NA's   :98       NA's   :98                        
-    ##        fp           esp32_temp    workstation_cpu  workstation_cpu_power
-    ##  Min.   :0.1017   Min.   :26.11   Min.   : 0.000   Min.   : 0.00        
-    ##  1st Qu.:0.9038   1st Qu.:49.38   1st Qu.: 7.616   1st Qu.:40.89        
-    ##  Median :0.9068   Median :50.65   Median :10.657   Median :41.55        
-    ##  Mean   :0.9084   Mean   :49.67   Mean   :10.688   Mean   :41.05        
-    ##  3rd Qu.:0.9097   3rd Qu.:51.53   3rd Qu.:12.672   3rd Qu.:42.92        
-    ##  Max.   :0.9705   Max.   :53.33   Max.   :69.023   Max.   :54.87        
-    ##  NA's   :98       NA's   :98      NA's   :98       NA's   :98           
-    ##  workstation_cpu_temp workstation_gpu    workstation_gpu_power
-    ##  Min.   : 0.00        Min.   : 0.00000   Min.   : 0.00        
-    ##  1st Qu.:29.12        1st Qu.: 0.00000   1st Qu.:35.00        
-    ##  Median :31.03        Median : 0.00000   Median :35.07        
-    ##  Mean   :31.48        Mean   : 0.23635   Mean   :34.78        
-    ##  3rd Qu.:32.68        3rd Qu.: 0.01667   3rd Qu.:36.00        
-    ##  Max.   :77.08        Max.   :33.25000   Max.   :40.13        
-    ##  NA's   :98           NA's   :98         NA's   :98           
+    ##      mac               weekday  fecha_esp32           voltaje     
+    ##  Length:10080       Min.   :1   Length:10080       Min.   :119.3  
+    ##  Class :character   1st Qu.:2   Class :character   1st Qu.:119.4  
+    ##  Mode  :character   Median :4   Mode  :character   Median :119.4  
+    ##                     Mean   :4                      Mean   :119.4  
+    ##                     3rd Qu.:6                      3rd Qu.:119.4  
+    ##                     Max.   :7                      Max.   :119.6  
+    ##                                                    NA's   :599    
+    ##    corriente        potencia       frecuencia       energia     
+    ##  Min.   :1.052   Min.   :113.3   Min.   :59.84   Min.   :0.000  
+    ##  1st Qu.:1.085   1st Qu.:118.5   1st Qu.:59.95   1st Qu.:0.000  
+    ##  Median :1.089   Median :118.9   Median :59.97   Median :0.000  
+    ##  Mean   :1.109   Mean   :121.3   Mean   :59.96   Mean   :0.002  
+    ##  3rd Qu.:1.096   3rd Qu.:119.6   3rd Qu.:59.98   3rd Qu.:0.002  
+    ##  Max.   :1.376   Max.   :153.7   Max.   :60.03   Max.   :0.010  
+    ##  NA's   :599     NA's   :599     NA's   :599     NA's   :1160   
+    ##        fp           esp32_temp    workstation_cpu workstation_cpu_power
+    ##  Min.   :0.9000   Min.   :36.81   Min.   : 7.89   Min.   :43.08        
+    ##  1st Qu.:0.9133   1st Qu.:48.87   1st Qu.:10.06   1st Qu.:43.17        
+    ##  Median :0.9147   Median :50.16   Median :10.62   Median :43.22        
+    ##  Mean   :0.9157   Mean   :49.76   Mean   :11.80   Mean   :43.21        
+    ##  3rd Qu.:0.9160   3rd Qu.:51.07   3rd Qu.:11.78   3rd Qu.:43.26        
+    ##  Max.   :0.9373   Max.   :53.33   Max.   :27.07   Max.   :43.28        
+    ##  NA's   :599      NA's   :599     NA's   :599     NA's   :599          
+    ##  workstation_cpu_temp workstation_gpu   workstation_gpu_power
+    ##  Min.   :30.00        Min.   : 0.0000   Min.   :34.00        
+    ##  1st Qu.:33.57        1st Qu.: 0.0000   1st Qu.:35.08        
+    ##  Median :34.08        Median : 0.0333   Median :35.85        
+    ##  Mean   :35.39        Mean   : 0.4774   Mean   :35.61        
+    ##  3rd Qu.:34.90        3rd Qu.: 0.3833   3rd Qu.:36.00        
+    ##  Max.   :55.90        Max.   :20.9000   Max.   :37.05        
+    ##  NA's   :599          NA's   :599       NA's   :599          
     ##  workstation_gpu_temp workstation_ram workstation_ram_power
-    ##  Min.   : 0.00        Min.   : 0.00   Min.   : 0.000       
-    ##  1st Qu.:14.40        1st Qu.:38.25   1st Qu.: 6.456       
-    ##  Median :14.53        Median :44.49   Median : 7.443       
-    ##  Mean   :14.24        Mean   :43.27   Mean   : 8.115       
-    ##  3rd Qu.:14.63        3rd Qu.:49.67   3rd Qu.: 9.430       
-    ##  Max.   :39.85        Max.   :62.50   Max.   :23.360       
-    ##  NA's   :98           NA's   :98      NA's   :98
+    ##  Min.   :13.37        Min.   :44.96   Min.   : 7.118       
+    ##  1st Qu.:14.37        1st Qu.:50.33   1st Qu.: 9.664       
+    ##  Median :14.53        Median :53.63   Median :10.202       
+    ##  Mean   :14.50        Mean   :53.46   Mean   :10.586       
+    ##  3rd Qu.:14.62        3rd Qu.:56.23   3rd Qu.:10.911       
+    ##  Max.   :25.95        Max.   :65.76   Max.   :17.203       
+    ##  NA's   :599          NA's   :599     NA's   :599
 
 ### Datos con interpolacion
 
 ``` r
-datos_con_interpolacion <- read.csv("junio2022_minuto_con_interpolacion.csv")
+#datos_con_interpolacion <- read.csv("junio2022_07_minuto_con_interpolacion.csv")
+datos_con_interpolacion <- read.csv("julio2022_minuto_con_interpolacion.csv")
 head(datos_con_interpolacion)
 ```
 
     ##                 mac weekday         fecha_esp32  voltaje corriente potencia
-    ## 1 3C:61:05:12:96:30       3 2022-06-01 00:01:00 119.4133  1.141783 124.9933
-    ## 2 3C:61:05:12:96:30       3 2022-06-01 00:02:00 119.4100  1.080950 117.0683
-    ## 3 3C:61:05:12:96:30       3 2022-06-01 00:03:00 119.4000  1.082900 117.4250
-    ## 4 3C:61:05:12:96:30       3 2022-06-01 00:04:00 119.4067  1.068617 115.4533
-    ## 5 3C:61:05:12:96:30       3 2022-06-01 00:05:00 119.4233  1.070567 115.7667
-    ## 6 3C:61:05:12:96:30       3 2022-06-01 00:06:00 119.3967  1.185650 130.1133
-    ##   frecuencia energia        fp esp32_temp workstation_cpu workstation_cpu_power
-    ## 1   59.92833   0.000 0.9158333   49.75923        14.33467              41.89000
-    ## 2   59.98833   0.002 0.9071667   49.79627        11.76633              41.19183
-    ## 3   60.00000   0.002 0.9073333   51.54627        11.34200              41.89000
-    ## 4   59.99833   0.001 0.9043333   49.78701        11.22467              41.89000
-    ## 5   59.95500   0.002 0.9055000   50.65738        11.42617              41.89000
-    ## 6   59.97833   0.003 0.9181667   48.02775        16.55817              41.89000
-    ##   workstation_cpu_temp workstation_gpu workstation_gpu_power
-    ## 1             34.53333      0.01666667              35.00000
-    ## 2             30.76667      0.00000000              34.41667
-    ## 3             30.51667      0.00000000              35.00000
-    ## 4             30.00000      0.00000000              35.00000
-    ## 5             30.10000      0.00000000              35.00000
-    ## 6             39.25000      0.00000000              35.00000
-    ##   workstation_gpu_temp workstation_ram workstation_ram_power
-    ## 1             14.54300        48.33317              8.626667
-    ## 2             14.28000        47.18517              6.558000
-    ## 3             14.54233        48.13800              6.598000
-    ## 4             14.54950        47.94800              6.428833
-    ## 5             14.56000        47.94333              6.423167
-    ## 6             14.52117        47.90600             11.830833
+    ## 1 3C:61:05:12:96:30       6 2022-07-02 00:00:00 119.4100  1.077083 117.5867
+    ## 2 3C:61:05:12:96:30       6 2022-07-02 00:01:00 119.4100  1.085217 118.6383
+    ## 3 3C:61:05:12:96:30       6 2022-07-02 00:02:00 119.4000  1.087017 118.6633
+    ## 4 3C:61:05:12:96:30       6 2022-07-02 00:03:00 119.4033  1.082417 118.1600
+    ## 5 3C:61:05:12:96:30       6 2022-07-02 00:04:00 119.4067  1.085350 118.5233
+    ## 6 3C:61:05:12:96:30       6 2022-07-02 00:05:00 119.4067  1.083950 118.3850
+    ##   frecuencia     energia        fp esp32_temp workstation_cpu
+    ## 1   59.95833 0.001916667 0.9140000   49.36108       10.376833
+    ## 2   59.98333 0.002000000 0.9151667   48.92590       10.375667
+    ## 3   59.98000 0.002000000 0.9143333   48.04627        9.723500
+    ## 4   59.98500 0.001933333 0.9145000   48.05553        9.487167
+    ## 5   59.97333 0.002000000 0.9141667   50.24997        9.707333
+    ## 6   59.96167 0.001933333 0.9146667   50.69442       10.461500
+    ##   workstation_cpu_power workstation_cpu_temp workstation_gpu
+    ## 1                  43.1             33.35000               0
+    ## 2                  43.1             33.43333               0
+    ## 3                  43.1             32.56667               0
+    ## 4                  43.1             32.31667               0
+    ## 5                  43.1             32.53333               0
+    ## 6                  43.1             33.60000               0
+    ##   workstation_gpu_power workstation_gpu_temp workstation_ram
+    ## 1              36.00000             14.67700        47.17817
+    ## 2              36.00000             14.71567        47.19500
+    ## 3              36.00000             14.76150        47.17983
+    ## 4              36.00000             14.80250        47.24117
+    ## 5              35.96667             14.75950        47.24100
+    ## 6              36.00000             14.59967        47.24117
+    ##   workstation_ram_power
+    ## 1              9.009000
+    ## 2              9.744833
+    ## 3              8.961667
+    ## 4              8.904667
+    ## 5              9.256000
+    ## 6              9.928167
 
 ``` r
 summary(datos_con_interpolacion)
 ```
 
-    ##      mac               weekday      fecha_esp32           voltaje     
-    ##  Length:43200       Min.   :1.000   Length:43200       Min.   :119.3  
-    ##  Class :character   1st Qu.:2.000   Class :character   1st Qu.:119.5  
-    ##  Mode  :character   Median :4.000   Mode  :character   Median :119.5  
-    ##                     Mean   :3.967                      Mean   :119.5  
-    ##                     3rd Qu.:6.000                      3rd Qu.:119.5  
-    ##                     Max.   :7.000                      Max.   :119.8  
-    ##    corriente         potencia        frecuencia       energia        
-    ##  Min.   :0.0958   Min.   :  1.25   Min.   :59.84   Min.   :0.000000  
-    ##  1st Qu.:1.0549   1st Qu.:113.92   1st Qu.:59.95   1st Qu.:0.002000  
-    ##  Median :1.0780   Median :116.80   Median :59.97   Median :0.002000  
-    ##  Mean   :1.0818   Mean   :117.48   Mean   :59.96   Mean   :0.001959  
-    ##  3rd Qu.:1.0909   3rd Qu.:118.44   3rd Qu.:59.98   3rd Qu.:0.002000  
-    ##  Max.   :1.6260   Max.   :182.79   Max.   :60.07   Max.   :0.003087  
-    ##        fp           esp32_temp    workstation_cpu  workstation_cpu_power
-    ##  Min.   :0.1017   Min.   :26.11   Min.   : 0.000   Min.   : 0.00        
-    ##  1st Qu.:0.9038   1st Qu.:49.37   1st Qu.: 7.616   1st Qu.:40.89        
-    ##  Median :0.9068   Median :50.65   Median :10.651   Median :41.56        
-    ##  Mean   :0.9084   Mean   :49.65   Mean   :10.687   Mean   :41.05        
-    ##  3rd Qu.:0.9097   3rd Qu.:51.53   3rd Qu.:12.670   3rd Qu.:42.92        
-    ##  Max.   :0.9705   Max.   :53.33   Max.   :69.023   Max.   :54.87        
+    ##      mac               weekday  fecha_esp32           voltaje     
+    ##  Length:10080       Min.   :1   Length:10080       Min.   :119.3  
+    ##  Class :character   1st Qu.:2   Class :character   1st Qu.:119.4  
+    ##  Mode  :character   Median :4   Mode  :character   Median :119.4  
+    ##                     Mean   :4                      Mean   :119.4  
+    ##                     3rd Qu.:6                      3rd Qu.:119.4  
+    ##                     Max.   :7                      Max.   :119.6  
+    ##                                                                   
+    ##    corriente        potencia       frecuencia       energia      
+    ##  Min.   :1.052   Min.   :113.3   Min.   :59.84   Min.   :0.0000  
+    ##  1st Qu.:1.085   1st Qu.:118.5   1st Qu.:59.95   1st Qu.:0.0000  
+    ##  Median :1.090   Median :119.0   Median :59.97   Median :0.0000  
+    ##  Mean   :1.110   Mean   :121.4   Mean   :59.96   Mean   :0.0020  
+    ##  3rd Qu.:1.097   3rd Qu.:119.8   3rd Qu.:59.98   3rd Qu.:0.0032  
+    ##  Max.   :1.376   Max.   :153.7   Max.   :60.03   Max.   :0.0100  
+    ##                                                  NA's   :614     
+    ##        fp           esp32_temp    workstation_cpu workstation_cpu_power
+    ##  Min.   :0.9000   Min.   :36.81   Min.   : 7.89   Min.   :43.08        
+    ##  1st Qu.:0.9133   1st Qu.:48.76   1st Qu.:10.09   1st Qu.:43.18        
+    ##  Median :0.9147   Median :50.12   Median :10.70   Median :43.22        
+    ##  Mean   :0.9158   Mean   :49.68   Mean   :11.97   Mean   :43.21        
+    ##  3rd Qu.:0.9165   3rd Qu.:51.06   3rd Qu.:12.22   3rd Qu.:43.26        
+    ##  Max.   :0.9373   Max.   :53.33   Max.   :27.07   Max.   :43.28        
+    ##                                                                        
     ##  workstation_cpu_temp workstation_gpu    workstation_gpu_power
-    ##  Min.   : 0.00        Min.   : 0.00000   Min.   : 0.00        
-    ##  1st Qu.:29.10        1st Qu.: 0.00000   1st Qu.:35.00        
-    ##  Median :31.02        Median : 0.00000   Median :35.07        
-    ##  Mean   :31.48        Mean   : 0.23611   Mean   :34.78        
-    ##  3rd Qu.:32.68        3rd Qu.: 0.01667   3rd Qu.:36.00        
-    ##  Max.   :77.08        Max.   :33.25000   Max.   :40.13        
+    ##  Min.   :30.00        Min.   : 0.00000   Min.   :34.00        
+    ##  1st Qu.:33.60        1st Qu.: 0.00000   1st Qu.:35.07        
+    ##  Median :34.15        Median : 0.03333   Median :35.80        
+    ##  Mean   :35.54        Mean   : 0.53002   Mean   :35.59        
+    ##  3rd Qu.:35.30        3rd Qu.: 0.40000   3rd Qu.:36.00        
+    ##  Max.   :55.90        Max.   :20.90000   Max.   :37.05        
+    ##                                                               
     ##  workstation_gpu_temp workstation_ram workstation_ram_power
-    ##  Min.   : 0.00        Min.   : 0.00   Min.   : 0.000       
-    ##  1st Qu.:14.40        1st Qu.:38.26   1st Qu.: 6.452       
-    ##  Median :14.53        Median :44.50   Median : 7.439       
-    ##  Mean   :14.24        Mean   :43.28   Mean   : 8.111       
-    ##  3rd Qu.:14.63        3rd Qu.:49.66   3rd Qu.: 9.427       
-    ##  Max.   :39.85        Max.   :62.50   Max.   :23.360
+    ##  Min.   :13.37        Min.   :44.96   Min.   : 7.118       
+    ##  1st Qu.:14.36        1st Qu.:50.25   1st Qu.: 9.695       
+    ##  Median :14.53        Median :53.54   Median :10.271       
+    ##  Mean   :14.50        Mean   :53.36   Mean   :10.674       
+    ##  3rd Qu.:14.62        3rd Qu.:56.10   3rd Qu.:11.113       
+    ##  Max.   :25.95        Max.   :65.76   Max.   :17.203       
+    ## 
 
 ### Variables Energeticas
 
@@ -202,15 +216,15 @@ voltaje <- datos_con_interpolacion[['voltaje']]
 
 **Ejemplos**
 
-    ## [1] 119.4133 119.4100 119.4000 119.4067 119.4233 119.3967
+    ## [1] 119.4100 119.4100 119.4000 119.4033 119.4067 119.4067
 
 **Métricas de Voltaje**
 
-    ## Media:  119.5054
+    ## Media:  119.4175
 
-    ## Mediana:  119.5033
+    ## Mediana:  119.405
 
-    ## Desviación Estándar:  0.03832439
+    ## Desviación Estándar:  0.0442743
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-5-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-5-2.png)
 
@@ -222,15 +236,15 @@ corriente <- datos_con_interpolacion[['corriente']]
 
 **Ejemplos**
 
-    ## [1] 1.141783 1.080950 1.082900 1.068617 1.070567 1.185650
+    ## [1] 1.077083 1.085217 1.087017 1.082417 1.085350 1.083950
 
 **Métricas de corriente**
 
-    ## Media:  1.081759
+    ## Media:  1.1096
 
-    ## Mediana:  1.078017
+    ## Mediana:  1.089783
 
-    ## Desviación Estándar:  0.07263775
+    ## Desviación Estándar:  0.0466621
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-2.png)
 
@@ -242,15 +256,15 @@ potencia <- datos_con_interpolacion[['potencia']]
 
 **Ejemplos**
 
-    ## [1] 124.9933 117.0683 117.4250 115.4533 115.7667 130.1133
+    ## [1] 117.5867 118.6383 118.6633 118.1600 118.5233 118.3850
 
 **Métricas de potencia**
 
-    ## Media:  117.4814
+    ## Media:  121.3963
 
-    ## Mediana:  116.8017
+    ## Mediana:  118.9567
 
-    ## Desviación Estándar:  8.242344
+    ## Desviación Estándar:  5.673007
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-2.png)
 
@@ -262,15 +276,15 @@ frecuencia <- datos_con_interpolacion[['frecuencia']]
 
 **Ejemplos**
 
-    ## [1] 59.92833 59.98833 60.00000 59.99833 59.95500 59.97833
+    ## [1] 59.95833 59.98333 59.98000 59.98500 59.97333 59.96167
 
 **Métricas de frecuencia**
 
-    ## Media:  59.96451
+    ## Media:  59.96432
 
     ## Mediana:  59.96667
 
-    ## Desviación Estándar:  0.02228845
+    ## Desviación Estándar:  0.02242196
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-2.png)
 
@@ -282,15 +296,15 @@ energia <- datos_con_interpolacion[['energia']]
 
 **Ejemplos**
 
-    ## [1] 0.000 0.002 0.002 0.001 0.002 0.003
+    ## [1] 0.001916667 0.002000000 0.002000000 0.001933333 0.002000000 0.001933333
 
     ## Métricas de energia:
 
-    ## Media:  0.001958704
+    ## Media:  0.002022937
 
-    ## Mediana:  0.002
+    ## Mediana:  0
 
-    ## Desviación Estándar:  0.0003432561
+    ## Desviación Estándar:  0.002954048
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-2.png)
 
@@ -302,15 +316,15 @@ fp <- datos_con_interpolacion[['fp']]
 
 **Ejemplos**
 
-    ## [1] 0.9158333 0.9071667 0.9073333 0.9043333 0.9055000 0.9181667
+    ## [1] 0.9140000 0.9151667 0.9143333 0.9145000 0.9141667 0.9146667
 
 **Métricas de fp**
 
-    ## Media:  0.90845
+    ## Media:  0.9157751
 
-    ## Mediana:  0.9067925
+    ## Mediana:  0.9146667
 
-    ## Desviación Estándar:  0.0151849
+    ## Desviación Estándar:  0.00468888
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-2.png)
 
@@ -322,15 +336,15 @@ esp32_temp <- datos_con_interpolacion[['esp32_temp']]
 
 **Ejemplos**
 
-    ## [1] 49.75923 49.79627 51.54627 49.78701 50.65738 48.02775
+    ## [1] 49.36108 48.92590 48.04627 48.05553 50.24997 50.69442
 
 **Métricas de esp32_temp**
 
-    ## Media:  49.64942
+    ## Media:  49.679
 
-    ## Mediana:  50.64812
+    ## Mediana:  50.12027
 
-    ## Desviación Estándar:  3.221471
+    ## Desviación Estándar:  1.880728
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-22-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-22-2.png)
 
@@ -344,15 +358,15 @@ workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
 
 **Ejemplos**
 
-    ## [1] 14.33467 11.76633 11.34200 11.22467 11.42617 16.55817
+    ## [1] 10.376833 10.375667  9.723500  9.487167  9.707333 10.461500
 
 **Métricas de workstation_cpu**
 
-    ## Media:  10.68684
+    ## Media:  11.9698
 
-    ## Mediana:  10.65092
+    ## Mediana:  10.69983
 
-    ## Desviación Estándar:  3.811164
+    ## Desviación Estándar:  2.999818
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-25-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-25-2.png)
 
@@ -364,15 +378,15 @@ workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
 
 **Ejemplos**
 
-    ## [1] 41.89000 41.19183 41.89000 41.89000 41.89000 41.89000
+    ## [1] 43.1 43.1 43.1 43.1 43.1 43.1
 
 **Métricas de workstation_cpu_power**
 
-    ## Media:  41.04985
+    ## Media:  43.21241
 
-    ## Mediana:  41.56
+    ## Mediana:  43.22
 
-    ## Desviación Estándar:  5.643873
+    ## Desviación Estándar:  0.05406339
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-28-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-28-2.png)
 
@@ -384,15 +398,15 @@ workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
 
 **Ejemplos**
 
-    ## [1] 34.53333 30.76667 30.51667 30.00000 30.10000 39.25000
+    ## [1] 33.35000 33.43333 32.56667 32.31667 32.53333 33.60000
 
 **Métricas de workstation_cpu_temp**
 
-    ## Media:  31.47522
+    ## Media:  35.5444
 
-    ## Mediana:  31.02326
+    ## Mediana:  34.15
 
-    ## Desviación Estándar:  5.916378
+    ## Desviación Estándar:  3.441627
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-31-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-31-2.png)
 
@@ -404,15 +418,15 @@ workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
 
 **Ejemplos**
 
-    ## [1] 0.01666667 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+    ## [1] 0 0 0 0 0 0
 
 **Métricas de workstation_gpu**
 
-    ## Media:  0.2361078
+    ## Media:  0.5300248
 
-    ## Mediana:  0
+    ## Mediana:  0.03333333
 
-    ## Desviación Estándar:  1.154715
+    ## Desviación Estándar:  1.314101
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-34-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-34-2.png)
 
@@ -424,15 +438,15 @@ workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
 
 **Ejemplos**
 
-    ## [1] 35.00000 34.41667 35.00000 35.00000 35.00000 35.00000
+    ## [1] 36.00000 36.00000 36.00000 36.00000 35.96667 36.00000
 
 **Métricas de workstation_gpu_power**
 
-    ## Media:  34.7802
+    ## Media:  35.59255
 
-    ## Mediana:  35.06667
+    ## Mediana:  35.8
 
-    ## Desviación Estándar:  4.719184
+    ## Desviación Estándar:  0.441901
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-37-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-37-2.png)
 
@@ -444,15 +458,15 @@ workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
 
 **Ejemplos**
 
-    ## [1] 14.54300 14.28000 14.54233 14.54950 14.56000 14.52117
+    ## [1] 14.67700 14.71567 14.76150 14.80250 14.75950 14.59967
 
 **Métricas de workstation_gpu_temp**
 
-    ## Media:  14.24204
+    ## Media:  14.49507
 
-    ## Mediana:  14.5275
+    ## Mediana:  14.53083
 
-    ## Desviación Estándar:  1.959539
+    ## Desviación Estándar:  0.3447513
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-40-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-40-2.png)
 
@@ -464,15 +478,15 @@ workstation_ram <- datos_con_interpolacion[['workstation_ram']]
 
 **Ejemplos**
 
-    ## [1] 48.33317 47.18517 48.13800 47.94800 47.94333 47.90600
+    ## [1] 47.17817 47.19500 47.17983 47.24117 47.24100 47.24117
 
 **Métricas de workstation_ram**
 
-    ## Media:  43.27864
+    ## Media:  53.35972
 
-    ## Mediana:  44.49967
+    ## Mediana:  53.53642
 
-    ## Desviación Estándar:  10.11205
+    ## Desviación Estándar:  3.665711
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-43-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-43-2.png)
 
@@ -484,15 +498,15 @@ workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
 
 **Ejemplos**
 
-    ## [1]  8.626667  6.558000  6.598000  6.428833  6.423167 11.830833
+    ## [1] 9.009000 9.744833 8.961667 8.904667 9.256000 9.928167
 
 **Métricas de workstation_ram_power**
 
-    ## Media:  8.110815
+    ## Media:  10.6743
 
-    ## Mediana:  7.438917
+    ## Mediana:  10.271
 
-    ## Desviación Estándar:  2.592748
+    ## Desviación Estándar:  1.565007
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-46-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-46-2.png)
 
@@ -511,8 +525,8 @@ afectando las predicciones sobre el consumo. \### Prueba de bondad de
 ajuste
 
 ``` r
-energia_sin_interpolacion <- datos_sin_interpolacion[['energia']]
-energia_con_interpolacion <- datos_con_interpolacion[['energia']]
+energia_sin_interpolacion <- na.omit(datos_sin_interpolacion[['energia']])
+energia_con_interpolacion <- na.omit(datos_con_interpolacion[['energia']])
 
 ks.test(energia_sin_interpolacion, "pnorm", mean=mean(energia_sin_interpolacion), sd=sd(energia_sin_interpolacion))
 ```
@@ -525,7 +539,7 @@ ks.test(energia_sin_interpolacion, "pnorm", mean=mean(energia_sin_interpolacion)
     ##  Asymptotic one-sample Kolmogorov-Smirnov test
     ## 
     ## data:  energia_sin_interpolacion
-    ## D = 0.46149, p-value < 2.2e-16
+    ## D = 0.43492, p-value < 2.2e-16
     ## alternative hypothesis: two-sided
 
 ``` r
@@ -540,7 +554,7 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
     ##  Asymptotic one-sample Kolmogorov-Smirnov test
     ## 
     ## data:  energia_con_interpolacion
-    ## D = 0.46149, p-value < 2.2e-16
+    ## D = 0.3063, p-value < 2.2e-16
     ## alternative hypothesis: two-sided
 
 ### Prueba de significancia sobre la Media
@@ -559,13 +573,17 @@ t_test_result
     ##  Welch Two Sample t-test
     ## 
     ## data:  energia_sin_interpolacion and energia_con_interpolacion
-    ## t = 0, df = 86398, p-value = 1
+    ## t = -0.023346, df = 16698, p-value = 0.9814
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -4.577681e-06  4.577681e-06
+    ##  -1.009275e-04  9.855168e-05
     ## sample estimates:
     ##   mean of x   mean of y 
-    ## 0.001958704 0.001958704
+    ## 0.002021749 0.002022937
+
+*No hay evidencia suficiente para afirmar que la media de la variable
+‘energía’ cambia significativamente después de aplicar la interpolación.
+Las medias de ambas muestras son estadísticamente similares.*
 
 ### Comparacion de Varianzas
 
@@ -581,21 +599,24 @@ Alternativa: La varianza de la serie de tiempo cambia significativamente
 después de la interpolación.
 
 ``` r
-#Levene Test 
-levene_result<- leveneTest(energia_sin_interpolacion, energia_con_interpolacion)
+f_test_result <- var.test(energia_sin_interpolacion, energia_con_interpolacion)
+f_test_result
 ```
 
-    ## Warning in leveneTest.default(energia_sin_interpolacion,
-    ## energia_con_interpolacion): energia_con_interpolacion coerced to factor.
+    ## 
+    ##  F test to compare two variances
+    ## 
+    ## data:  energia_sin_interpolacion and energia_con_interpolacion
+    ## F = 1.7044, num df = 8919, denom df = 9465, p-value < 2.2e-16
+    ## alternative hypothesis: true ratio of variances is not equal to 1
+    ## 95 percent confidence interval:
+    ##  1.636094 1.775576
+    ## sample estimates:
+    ## ratio of variances 
+    ##           1.704387
 
-``` r
-levene_result
-```
-
-    ## Levene's Test for Homogeneity of Variance (center = median)
-    ##          Df F value Pr(>F)
-    ## group   314     NaN    NaN
-    ##       42885
+*Hay evidencia estadística significativa de que la varianza de la serie
+de tiempo de ‘energía’ cambia después de aplicar la interpolación.*
 
 ### Regresion
 
