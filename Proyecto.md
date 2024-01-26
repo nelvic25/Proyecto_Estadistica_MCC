@@ -1,8 +1,29 @@
+### Descripcion del proyecto 
+
+El propósito de este proyecto es aplicar conocimientos de Estadística
+Descriptiva e Inferencial en un proyecto titulado ‘Preprocesamiento,
+extracción de características y predicción de consumo de energía en
+tiempo real basada en Inteligencia Artificial en el borde o en la
+niebla’. Este trabajo implica la medición de diversas variables
+energéticas y de consumo en dispositivos Workstation, cuyas
+características son similares a las de dispositivos en un datacenter. El
+objetivo es predecir su consumo energético. Se han recopilado mediciones
+de estas variables a lo largo de los años. Un desafío identificado es la
+presencia de datos incompletos, los cuales se propone completar mediante
+técnicas de interpolación. Una vez resuelto este problema, se utilizarán
+métodos como la regresión lineal múltiple para predecir el consumo
+energético.
+
 ### Descripcion del Dataset 
 
-El archivo junio2022_minuto_sin_interpolación.csv y el archivo
-junio2022_minuto_con_interpolación.csv contienen datos medidos
-clasificados en :
+Los archivos ‘junio2022_minuto_sin_interpolación.csv’ y
+‘junio2022_minuto_con_interpolación.csv’ contienen datos de mediciones
+clasificados en dos categorías: variables energéticas y variables de
+rendimiento. El archivo ‘junio2022_minuto_sin_interpolación.csv’
+presenta la data original, incluyendo los datos faltantes. Por otro
+lado, el archivo ‘junio2022_minuto_con_interpolación.csv’ contiene los
+mismos datos, pero después de haber aplicado la técnica de interpolación
+para completar los valores faltantes. :
 
 *Variables Energéticas:* <br> - **Voltaje**<br> - **Corriente**<br> -
 **Potencia**<br> - **Frecuencia**<br> - **Energía**<br> - **Factor de
@@ -475,14 +496,33 @@ workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-46-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-46-2.png)
 
-### Prueba de bondad de ajuste
+El enfoque principal de nuestro análisis será la variable ‘energía’,
+debido a su relevancia para el proyecto. Esta variable es crucial ya que
+sobre ella se realizarán cálculos de predicción. Con el fin de evaluar
+el impacto de la interpolación, compararemos las medias y varianzas de
+los datos antes y después de aplicar esta técnica.
+
+### Comparacion de Medias
+
+Es esencial asegurar que la interpolación no haya sesgado
+significativamente la media, ya que cambios notables podrían llevar a
+interpretaciones erróneas de las tendencias en la serie de tiempo,
+afectando las predicciones sobre el consumo. \### Prueba de bondad de
+ajuste
 
 ### Prueba de significancia sobre la Media
 
-*Hipotesis Nula: La media de la serie de tiempo no cambia
-significativamente después de aplicar la interpolación.* *Hipotesis
-Alternativa: La media de la serie de tiempo cambia significativamente
-después de la interpolación.*
+*Hipotesis Nula:La media de la variable ‘energía’ en la serie de tiempo
+no experimenta un cambio significativo después de aplicar la
+interpolación.* *Hipotesis Alternativa: La media de la variable
+‘energía’ cambia significativamente después de aplicar la
+interpolación.*
+
+### Comparacion de Varianzas
+
+La alteración significativa de la varianza por la interpolación puede
+distorsionar la volatilidad de la serie de tiempo, impactando
+directamente en la precisión de las predicciones de consumo energético.
 
 ### Prueba de significancia sobre la Varianza
 
