@@ -183,21 +183,17 @@ voltaje <- datos_con_interpolacion[['voltaje']]
 
     ## [1] 119.4133 119.4100 119.4000 119.4067 119.4233 119.3967
 
-    ## Métricas de Voltaje:
+**Métricas de Voltaje** mean_voltaje \<- mean(voltaje, na.rm = TRUE)
+median_voltaje \<- median(voltaje, na.rm = TRUE) sd_voltaje \<-
+sd(voltaje, na.rm = TRUE) cat(‘Media:’, mean_voltaje, ‘’)
+cat(‘Mediana:’, median_voltaje, ‘’) cat(‘Desviación Estándar:’,
+sd_voltaje, ‘’) hist(voltaje) boxplot(voltaje)
 
-    ## Media:  119.5054
 
-    ## Mediana:  119.5033
+    ###Corriente
 
-    ## Desviación Estándar:  0.03832439
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-4-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-4-2.png)
-
-###Corriente
-
-``` r
-corriente <- datos_con_interpolacion[['corriente']]
-```
+    ```r
+    corriente <- datos_con_interpolacion[['corriente']]
 
 **Ejemplos**
 

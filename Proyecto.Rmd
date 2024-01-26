@@ -58,10 +58,11 @@ voltaje <- datos_con_interpolacion[['voltaje']]
 **Ejemplos**
 ```{r echo=FALSE}
 head(voltaje)
+```
+**Métricas de Voltaje**
 mean_voltaje <- mean(voltaje, na.rm = TRUE)
 median_voltaje <- median(voltaje, na.rm = TRUE)
 sd_voltaje <- sd(voltaje, na.rm = TRUE)
-cat('Métricas de Voltaje:\n')
 cat('Media: ', mean_voltaje, '\n')
 cat('Mediana: ', median_voltaje, '\n')
 cat('Desviación Estándar: ', sd_voltaje, '\n')
