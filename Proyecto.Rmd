@@ -372,8 +372,7 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
 *Hipotesis Alternativa: La media de la variable 'energía' cambia significativamente después de aplicar la interpolación.* 
 
 ```{r}
-t_test_result <- t.test(voltaje_sin_interpolacion, voltaje_con_interpolacion, paired = TRUE)
-
+#t_test_result <- t.test(voltaje_sin_interpolacion, voltaje_con_interpolacion)
 ```
 
 ### Comparacion de Varianzas

@@ -511,36 +511,36 @@ afectando las predicciones sobre el consumo. \### Prueba de bondad de
 ajuste
 
 ``` r
-voltaje_sin_interpolacion <- datos_sin_interpolacion[['voltaje']]
-voltaje_con_interpolacion <- datos_con_interpolacion[['voltaje']]
+energia_sin_interpolacion <- datos_sin_interpolacion[['energia']]
+energia_con_interpolacion <- datos_con_interpolacion[['energia']]
 
-ks.test(energia, "pnorm", mean=mean(voltaje_sin_interpolacion), sd=sd(voltaje_sin_interpolacion))
+ks.test(energia_sin_interpolacion, "pnorm", mean=mean(energia_sin_interpolacion), sd=sd(energia_sin_interpolacion))
 ```
 
-    ## Warning in ks.test.default(energia, "pnorm", mean =
-    ## mean(voltaje_sin_interpolacion), : ties should not be present for the
+    ## Warning in ks.test.default(energia_sin_interpolacion, "pnorm", mean =
+    ## mean(energia_sin_interpolacion), : ties should not be present for the
     ## Kolmogorov-Smirnov test
 
     ## 
     ##  Asymptotic one-sample Kolmogorov-Smirnov test
     ## 
-    ## data:  energia
-    ## D = NA, p-value = NA
+    ## data:  energia_sin_interpolacion
+    ## D = 0.46149, p-value < 2.2e-16
     ## alternative hypothesis: two-sided
 
 ``` r
-ks.test(energia, "pnorm", mean=mean(voltaje_con_interpolacion), sd=sd(voltaje_con_interpolacion))
+ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion), sd=sd(energia_con_interpolacion))
 ```
 
-    ## Warning in ks.test.default(energia, "pnorm", mean =
-    ## mean(voltaje_con_interpolacion), : ties should not be present for the
+    ## Warning in ks.test.default(energia_con_interpolacion, "pnorm", mean =
+    ## mean(energia_con_interpolacion), : ties should not be present for the
     ## Kolmogorov-Smirnov test
 
     ## 
     ##  Asymptotic one-sample Kolmogorov-Smirnov test
     ## 
-    ## data:  energia
-    ## D = 1, p-value < 2.2e-16
+    ## data:  energia_con_interpolacion
+    ## D = 0.46149, p-value < 2.2e-16
     ## alternative hypothesis: two-sided
 
 ### Prueba de significancia sobre la Media
@@ -552,7 +552,7 @@ interpolación.* *Hipotesis Alternativa: La media de la variable
 interpolación.*
 
 ``` r
-t_test_result <- t.test(voltaje_sin_interpolacion, voltaje_con_interpolacion, paired = TRUE)
+#t_test_result <- t.test(voltaje_sin_interpolacion, voltaje_con_interpolacion)
 ```
 
 ### Comparacion de Varianzas
