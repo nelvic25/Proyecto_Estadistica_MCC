@@ -272,7 +272,8 @@ energia <- datos_con_interpolacion[['energia']]
     ## Desviación Estándar:  0.0003432561
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-2.png)
-\### Factor de Potencia
+
+### Factor de Potencia
 
 ``` r
 fp <- datos_con_interpolacion[['fp']]
@@ -291,7 +292,8 @@ fp <- datos_con_interpolacion[['fp']]
     ## Desviación Estándar:  0.0151849
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-2.png)
-\### Temperatura ESP32 (Sensor)
+
+### Temperatura ESP32 (Sensor)
 
 ``` r
 esp32_temp <- datos_con_interpolacion[['esp32_temp']]
@@ -310,7 +312,10 @@ esp32_temp <- datos_con_interpolacion[['esp32_temp']]
     ## Desviación Estándar:  3.221471
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-22-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-22-2.png)
-\### Variables de Rendimiento \### Workstation CPU
+
+### Variables de Rendimiento
+
+### Workstation CPU
 
 ``` r
 workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
@@ -329,7 +334,8 @@ workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
     ## Desviación Estándar:  3.811164
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-25-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-25-2.png)
-\### Potencia Workstation CPU
+
+### Potencia Workstation CPU
 
 ``` r
 workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
@@ -348,7 +354,8 @@ workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
     ## Desviación Estándar:  5.643873
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-28-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-28-2.png)
-\### Temperatura Workstation CPU
+
+### Temperatura Workstation CPU
 
 ``` r
 workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
@@ -367,7 +374,8 @@ workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
     ## Desviación Estándar:  5.916378
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-31-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-31-2.png)
-\### Workstation GPU
+
+### Workstation GPU
 
 ``` r
 workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
@@ -386,7 +394,8 @@ workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
     ## Desviación Estándar:  1.154715
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-34-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-34-2.png)
-\### Potencia Workstation GPU
+
+### Potencia Workstation GPU
 
 ``` r
 workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
@@ -405,7 +414,8 @@ workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
     ## Desviación Estándar:  4.719184
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-37-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-37-2.png)
-\### Temperatura Workstation GPU
+
+### Temperatura Workstation GPU
 
 ``` r
 workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
@@ -424,7 +434,8 @@ workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
     ## Desviación Estándar:  1.959539
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-40-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-40-2.png)
-\### Workstation RAM
+
+### Workstation RAM
 
 ``` r
 workstation_ram <- datos_con_interpolacion[['workstation_ram']]
@@ -443,7 +454,8 @@ workstation_ram <- datos_con_interpolacion[['workstation_ram']]
     ## Desviación Estándar:  10.11205
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-43-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-43-2.png)
-\### Potencia Workstation RAM
+
+### Potencia Workstation RAM
 
 ``` r
 workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
