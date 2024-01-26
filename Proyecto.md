@@ -171,6 +171,8 @@ summary(datos_con_interpolacion)
     ##  3rd Qu.:14.63        3rd Qu.:49.66   3rd Qu.: 9.427       
     ##  Max.   :39.85        Max.   :62.50   Max.   :23.360
 
+### Variables Energeticas
+
 ### Voltaje
 
 ``` r
@@ -213,7 +215,16 @@ boxplot(voltaje)
 ```
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-4-2.png)
-###corriente
+
+    ## Métricas de Voltaje:
+
+    ## Media:  119.5054
+
+    ## Mediana:  119.5033
+
+    ## Desviación Estándar:  0.03832439
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-5-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-5-2.png)
 
 ``` r
 corriente <- datos_con_interpolacion[['corriente']]
@@ -250,13 +261,13 @@ cat('Media: ', mean_corriente, '\nMediana: ', median_corriente, '\nDesviación E
 hist(corriente)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 ``` r
 boxplot(corriente)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-5-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-6-2.png)
 ###potencia
 
 ``` r
@@ -294,13 +305,13 @@ cat('Media: ', mean_potencia, '\nMediana: ', median_potencia, '\nDesviación Est
 hist(potencia)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 ``` r
 boxplot(potencia)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-6-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-7-2.png)
 ###frecuencia
 
 ``` r
@@ -338,13 +349,13 @@ cat('Media: ', mean_frecuencia, '\nMediana: ', median_frecuencia, '\nDesviación
 hist(frecuencia)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 ``` r
 boxplot(frecuencia)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-7-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-2.png)
 ###energia
 
 ``` r
@@ -382,13 +393,13 @@ cat('Media: ', mean_energia, '\nMediana: ', median_energia, '\nDesviación Está
 hist(energia)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 ``` r
 boxplot(energia)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-2.png) ###fp
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-9-2.png) ###fp
 
 ``` r
 fp <- datos_con_interpolacion[['fp']]
@@ -425,13 +436,13 @@ cat('Media: ', mean_fp, '\nMediana: ', median_fp, '\nDesviación Estándar: ', s
 hist(fp)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 ``` r
 boxplot(fp)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-9-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-10-2.png)
 ###esp32_temp
 
 ``` r
@@ -469,14 +480,14 @@ cat('Media: ', mean_esp32_temp, '\nMediana: ', median_esp32_temp, '\nDesviación
 hist(esp32_temp)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
 ``` r
 boxplot(esp32_temp)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-10-2.png)
-###workstation_cpu
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-2.png) \###
+Variables de Rendimiento ###workstation_cpu
 
 ``` r
 workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
@@ -513,13 +524,13 @@ cat('Media: ', mean_workstation_cpu, '\nMediana: ', median_workstation_cpu, '\nD
 hist(workstation_cpu)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-1.png)
 
 ``` r
 boxplot(workstation_cpu)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-2.png)
 ###workstation_cpu_power
 
 ``` r
@@ -557,13 +568,13 @@ cat('Media: ', mean_workstation_cpu_power, '\nMediana: ', median_workstation_cpu
 hist(workstation_cpu_power)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-13-1.png)
 
 ``` r
 boxplot(workstation_cpu_power)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-13-2.png)
 ###workstation_cpu_temp
 
 ``` r
@@ -601,13 +612,13 @@ cat('Media: ', mean_workstation_cpu_temp, '\nMediana: ', median_workstation_cpu_
 hist(workstation_cpu_temp)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-1.png)
 
 ``` r
 boxplot(workstation_cpu_temp)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-13-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-2.png)
 ###workstation_gpu
 
 ``` r
@@ -645,13 +656,13 @@ cat('Media: ', mean_workstation_gpu, '\nMediana: ', median_workstation_gpu, '\nD
 hist(workstation_gpu)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-15-1.png)
 
 ``` r
 boxplot(workstation_gpu)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-15-2.png)
 ###workstation_gpu_power
 
 ``` r
@@ -689,13 +700,13 @@ cat('Media: ', mean_workstation_gpu_power, '\nMediana: ', median_workstation_gpu
 hist(workstation_gpu_power)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
 ``` r
 boxplot(workstation_gpu_power)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-15-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-2.png)
 ###workstation_gpu_temp
 
 ``` r
@@ -733,13 +744,13 @@ cat('Media: ', mean_workstation_gpu_temp, '\nMediana: ', median_workstation_gpu_
 hist(workstation_gpu_temp)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
 ``` r
 boxplot(workstation_gpu_temp)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-17-2.png)
 ###workstation_ram
 
 ``` r
@@ -777,13 +788,13 @@ cat('Media: ', mean_workstation_ram, '\nMediana: ', median_workstation_ram, '\nD
 hist(workstation_ram)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-17-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-18-1.png)
 
 ``` r
 boxplot(workstation_ram)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-17-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-18-2.png)
 ###workstation_ram_power
 
 ``` r
@@ -821,13 +832,13 @@ cat('Media: ', mean_workstation_ram_power, '\nMediana: ', median_workstation_ram
 hist(workstation_ram_power)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-18-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-1.png)
 
 ``` r
 boxplot(workstation_ram_power)
 ```
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-18-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-2.png)
 
 ### Prueba de bondad de ajuste
 

@@ -50,6 +50,7 @@ head(datos_con_interpolacion)
 summary(datos_con_interpolacion)
 ```
 
+### Variables Energeticas
 ### Voltaje 
 ```{r}
 voltaje <- datos_con_interpolacion[['voltaje']]
@@ -66,6 +67,24 @@ hist(voltaje)
 boxplot(voltaje)
 
 ```
+
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'voltaje'
+mean_voltaje <- mean(voltaje, na.rm = TRUE)
+median_voltaje <- median(voltaje, na.rm = TRUE)
+sd_voltaje <- sd(voltaje, na.rm = TRUE)
+
+# Print the metrics without showing the cat command in the output
+cat('Métricas de Voltaje:\n')
+cat('Media: ', mean_voltaje, '\n')
+cat('Mediana: ', median_voltaje, '\n')
+cat('Desviación Estándar: ', sd_voltaje, '\n')
+
+# Create a histogram and boxplot for 'voltaje'
+hist(voltaje)
+boxplot(voltaje)
+
+
 ###corriente
 ```{r}
 corriente <- datos_con_interpolacion[['corriente']]
@@ -152,6 +171,7 @@ boxplot(esp32_temp)
 
 
 ```
+### Variables de Rendimiento
 ###workstation_cpu
 ```{r}
 workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
