@@ -67,6 +67,9 @@ sd_voltaje <- sd(voltaje, na.rm = TRUE)
 cat('Media: ', mean_voltaje, '\n')
 cat('Mediana: ', median_voltaje, '\n')
 cat('Desviación Estándar: ', sd_voltaje, '\n')
+```
+**Graficas de Voltaje**
+```{r echo=FALSE}
 hist(voltaje)
 boxplot(voltaje)
 ```
