@@ -181,41 +181,6 @@ voltaje <- datos_con_interpolacion[['voltaje']]
 
 **Ejemplos**
 
-``` r
-head(voltaje)
-```
-
-    ## [1] 119.4133 119.4100 119.4000 119.4067 119.4233 119.3967
-
-``` r
-mean_voltaje <- mean(voltaje, na.rm = TRUE)
-median_voltaje <- median(voltaje, na.rm = TRUE)
-sd_voltaje <- sd(voltaje, na.rm = TRUE)
-cat('Metricas de Voltaje :\n')
-```
-
-    ## Metricas de Voltaje :
-
-``` r
-cat('Media: ', mean_voltaje, '\nMediana: ', median_voltaje, '\nDesviacion Estandar: ', sd_voltaje)
-```
-
-    ## Media:  119.5054 
-    ## Mediana:  119.5033 
-    ## Desviacion Estandar:  0.03832439
-
-``` r
-hist(voltaje)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-4-1.png)
-
-``` r
-boxplot(voltaje)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-4-2.png)
-
     ## Métricas de Voltaje:
 
     ## Media:  119.5054
@@ -224,621 +189,246 @@ boxplot(voltaje)
 
     ## Desviación Estándar:  0.03832439
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-5-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-5-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-4-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-4-2.png)
+
+###Corriente
 
 ``` r
 corriente <- datos_con_interpolacion[['corriente']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(corriente))
-```
+    ## Métricas de corriente:
 
-    ## [1] 1.141783 1.080950 1.082900 1.068617 1.070567 1.185650
+    ## Media:  1.081759
 
-``` r
-mean_corriente <- mean(corriente, na.rm = TRUE)
-median_corriente <- median(corriente, na.rm = TRUE)
-sd_corriente <- sd(corriente, na.rm = TRUE)
-cat('Métricas de Corriente :\n')
-```
+    ## Mediana:  1.078017
 
-    ## Métricas de Corriente :
-
-``` r
-cat('Media: ', mean_corriente, '\nMediana: ', median_corriente, '\nDesviación Estándar: ', sd_corriente)
-```
-
-    ## Media:  1.081759 
-    ## Mediana:  1.078017 
     ## Desviación Estándar:  0.07263775
 
-``` r
-hist(corriente)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-6-1.png)
-
-``` r
-boxplot(corriente)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-6-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-6-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-6-2.png)
 ###potencia
 
 ``` r
 potencia <- datos_con_interpolacion[['potencia']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(potencia))
-```
+    ## Métricas de potencia:
 
-    ## [1] 124.9933 117.0683 117.4250 115.4533 115.7667 130.1133
+    ## Media:  117.4814
 
-``` r
-mean_potencia <- mean(potencia, na.rm = TRUE)
-median_potencia <- median(potencia, na.rm = TRUE)
-sd_potencia <- sd(potencia, na.rm = TRUE)
-cat('Métricas de Potencia :\n')
-```
+    ## Mediana:  116.8017
 
-    ## Métricas de Potencia :
-
-``` r
-cat('Media: ', mean_potencia, '\nMediana: ', median_potencia, '\nDesviación Estándar: ', sd_potencia)
-```
-
-    ## Media:  117.4814 
-    ## Mediana:  116.8017 
     ## Desviación Estándar:  8.242344
 
-``` r
-hist(potencia)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-7-1.png)
-
-``` r
-boxplot(potencia)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-7-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-2.png)
 ###frecuencia
 
 ``` r
 frecuencia <- datos_con_interpolacion[['frecuencia']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(frecuencia))
-```
+    ## Métricas de frecuencia:
 
-    ## [1] 59.92833 59.98833 60.00000 59.99833 59.95500 59.97833
+    ## Media:  59.96451
 
-``` r
-mean_frecuencia <- mean(frecuencia, na.rm = TRUE)
-median_frecuencia <- median(frecuencia, na.rm = TRUE)
-sd_frecuencia <- sd(frecuencia, na.rm = TRUE)
-cat('Métricas de Frecuencia :\n')
-```
+    ## Mediana:  59.96667
 
-    ## Métricas de Frecuencia :
-
-``` r
-cat('Media: ', mean_frecuencia, '\nMediana: ', median_frecuencia, '\nDesviación Estándar: ', sd_frecuencia)
-```
-
-    ## Media:  59.96451 
-    ## Mediana:  59.96667 
     ## Desviación Estándar:  0.02228845
 
-``` r
-hist(frecuencia)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-1.png)
-
-``` r
-boxplot(frecuencia)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-8-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-10-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-10-2.png)
 ###energia
 
 ``` r
 energia <- datos_con_interpolacion[['energia']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(energia))
-```
+    ## Métricas de energia:
 
-    ## [1] 0.000 0.002 0.002 0.001 0.002 0.003
+    ## Media:  0.001958704
 
-``` r
-mean_energia <- mean(energia, na.rm = TRUE)
-median_energia <- median(energia, na.rm = TRUE)
-sd_energia <- sd(energia, na.rm = TRUE)
-cat('Métricas de Energía :\n')
-```
+    ## Mediana:  0.002
 
-    ## Métricas de Energía :
-
-``` r
-cat('Media: ', mean_energia, '\nMediana: ', median_energia, '\nDesviación Estándar: ', sd_energia)
-```
-
-    ## Media:  0.001958704 
-    ## Mediana:  0.002 
     ## Desviación Estándar:  0.0003432561
 
-``` r
-hist(energia)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-9-1.png)
-
-``` r
-boxplot(energia)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-9-2.png) ###fp
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-2.png)
+###fp
 
 ``` r
 fp <- datos_con_interpolacion[['fp']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(fp))
-```
+    ## Métricas de fp:
 
-    ## [1] 0.9158333 0.9071667 0.9073333 0.9043333 0.9055000 0.9181667
+    ## Media:  0.90845
 
-``` r
-mean_fp <- mean(fp, na.rm = TRUE)
-median_fp <- median(fp, na.rm = TRUE)
-sd_fp <- sd(fp, na.rm = TRUE)
-cat('Métricas de FP :\n')
-```
+    ## Mediana:  0.9067925
 
-    ## Métricas de FP :
-
-``` r
-cat('Media: ', mean_fp, '\nMediana: ', median_fp, '\nDesviación Estándar: ', sd_fp)
-```
-
-    ## Media:  0.90845 
-    ## Mediana:  0.9067925 
     ## Desviación Estándar:  0.0151849
 
-``` r
-hist(fp)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-10-1.png)
-
-``` r
-boxplot(fp)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-10-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-2.png)
 ###esp32_temp
 
 ``` r
 esp32_temp <- datos_con_interpolacion[['esp32_temp']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(esp32_temp))
-```
+    ## Métricas de esp32_temp:
 
-    ## [1] 49.75923 49.79627 51.54627 49.78701 50.65738 48.02775
+    ## Media:  49.64942
 
-``` r
-mean_esp32_temp <- mean(esp32_temp, na.rm = TRUE)
-median_esp32_temp <- median(esp32_temp, na.rm = TRUE)
-sd_esp32_temp <- sd(esp32_temp, na.rm = TRUE)
-cat('Métricas de esp32_temp :\n')
-```
+    ## Mediana:  50.64812
 
-    ## Métricas de esp32_temp :
-
-``` r
-cat('Media: ', mean_esp32_temp, '\nMediana: ', median_esp32_temp, '\nDesviación Estándar: ', sd_esp32_temp)
-```
-
-    ## Media:  49.64942 
-    ## Mediana:  50.64812 
     ## Desviación Estándar:  3.221471
 
-``` r
-hist(esp32_temp)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-1.png)
-
-``` r
-boxplot(esp32_temp)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-11-2.png) \###
-Variables de Rendimiento ###workstation_cpu
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-2.png)
+\### Variables de Rendimiento ###workstation_cpu
 
 ``` r
 workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(workstation_cpu))
-```
+    ## Métricas de workstation_cpu:
 
-    ## [1] 14.33467 11.76633 11.34200 11.22467 11.42617 16.55817
+    ## Media:  10.68684
 
-``` r
-mean_workstation_cpu <- mean(workstation_cpu, na.rm = TRUE)
-median_workstation_cpu <- median(workstation_cpu, na.rm = TRUE)
-sd_workstation_cpu <- sd(workstation_cpu, na.rm = TRUE)
-cat('Métricas de workstation_cpu :\n')
-```
+    ## Mediana:  10.65092
 
-    ## Métricas de workstation_cpu :
-
-``` r
-cat('Media: ', mean_workstation_cpu, '\nMediana: ', median_workstation_cpu, '\nDesviación Estándar: ', sd_workstation_cpu)
-```
-
-    ## Media:  10.68684 
-    ## Mediana:  10.65092 
     ## Desviación Estándar:  3.811164
 
-``` r
-hist(workstation_cpu)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-1.png)
-
-``` r
-boxplot(workstation_cpu)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-18-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-18-2.png)
 ###workstation_cpu_power
 
 ``` r
 workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(workstation_cpu_power))
-```
+    ## Métricas de workstation_cpu_power:
 
-    ## [1] 41.89000 41.19183 41.89000 41.89000 41.89000 41.89000
+    ## Media:  41.04985
 
-``` r
-mean_workstation_cpu_power <- mean(workstation_cpu_power, na.rm = TRUE)
-median_workstation_cpu_power <- median(workstation_cpu_power, na.rm = TRUE)
-sd_workstation_cpu_power <- sd(workstation_cpu_power, na.rm = TRUE)
-cat('Métricas de workstation_cpu_power :\n')
-```
+    ## Mediana:  41.56
 
-    ## Métricas de workstation_cpu_power :
-
-``` r
-cat('Media: ', mean_workstation_cpu_power, '\nMediana: ', median_workstation_cpu_power, '\nDesviación Estándar: ', sd_workstation_cpu_power)
-```
-
-    ## Media:  41.04985 
-    ## Mediana:  41.56 
     ## Desviación Estándar:  5.643873
 
-``` r
-hist(workstation_cpu_power)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-13-1.png)
-
-``` r
-boxplot(workstation_cpu_power)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-13-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-20-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-20-2.png)
 ###workstation_cpu_temp
 
 ``` r
 workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(workstation_cpu_temp))
-```
+    ## Métricas de workstation_cpu_temp:
 
-    ## [1] 34.53333 30.76667 30.51667 30.00000 30.10000 39.25000
+    ## Media:  31.47522
 
-``` r
-mean_workstation_cpu_temp <- mean(workstation_cpu_temp, na.rm = TRUE)
-median_workstation_cpu_temp <- median(workstation_cpu_temp, na.rm = TRUE)
-sd_workstation_cpu_temp <- sd(workstation_cpu_temp, na.rm = TRUE)
-cat('Métricas de workstation_cpu_temp :\n')
-```
+    ## Mediana:  31.02326
 
-    ## Métricas de workstation_cpu_temp :
-
-``` r
-cat('Media: ', mean_workstation_cpu_temp, '\nMediana: ', median_workstation_cpu_temp, '\nDesviación Estándar: ', sd_workstation_cpu_temp)
-```
-
-    ## Media:  31.47522 
-    ## Mediana:  31.02326 
     ## Desviación Estándar:  5.916378
 
-``` r
-hist(workstation_cpu_temp)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-1.png)
-
-``` r
-boxplot(workstation_cpu_temp)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-22-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-22-2.png)
 ###workstation_gpu
 
 ``` r
 workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(workstation_gpu))
-```
+    ## Métricas de workstation_gpu:
 
-    ## [1] 0.01666667 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
+    ## Media:  0.2361078
 
-``` r
-mean_workstation_gpu <- mean(workstation_gpu, na.rm = TRUE)
-median_workstation_gpu <- median(workstation_gpu, na.rm = TRUE)
-sd_workstation_gpu <- sd(workstation_gpu, na.rm = TRUE)
-cat('Métricas de workstation_gpu :\n')
-```
+    ## Mediana:  0
 
-    ## Métricas de workstation_gpu :
-
-``` r
-cat('Media: ', mean_workstation_gpu, '\nMediana: ', median_workstation_gpu, '\nDesviación Estándar: ', sd_workstation_gpu)
-```
-
-    ## Media:  0.2361078 
-    ## Mediana:  0 
     ## Desviación Estándar:  1.154715
 
-``` r
-hist(workstation_gpu)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-15-1.png)
-
-``` r
-boxplot(workstation_gpu)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-15-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-24-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-24-2.png)
 ###workstation_gpu_power
 
 ``` r
 workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(workstation_gpu_power))
-```
+    ## Métricas de workstation_gpu_power:
 
-    ## [1] 35.00000 34.41667 35.00000 35.00000 35.00000 35.00000
+    ## Media:  34.7802
 
-``` r
-mean_workstation_gpu_power <- mean(workstation_gpu_power, na.rm = TRUE)
-median_workstation_gpu_power <- median(workstation_gpu_power, na.rm = TRUE)
-sd_workstation_gpu_power <- sd(workstation_gpu_power, na.rm = TRUE)
-cat('Métricas de workstation_gpu_power :\n')
-```
+    ## Mediana:  35.06667
 
-    ## Métricas de workstation_gpu_power :
-
-``` r
-cat('Media: ', mean_workstation_gpu_power, '\nMediana: ', median_workstation_gpu_power, '\nDesviación Estándar: ', sd_workstation_gpu_power)
-```
-
-    ## Media:  34.7802 
-    ## Mediana:  35.06667 
     ## Desviación Estándar:  4.719184
 
-``` r
-hist(workstation_gpu_power)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-1.png)
-
-``` r
-boxplot(workstation_gpu_power)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-16-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-26-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-26-2.png)
 ###workstation_gpu_temp
 
 ``` r
 workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(workstation_gpu_temp))
-```
+    ## Métricas de workstation_gpu_temp:
 
-    ## [1] 14.54300 14.28000 14.54233 14.54950 14.56000 14.52117
+    ## Media:  14.24204
 
-``` r
-mean_workstation_gpu_temp <- mean(workstation_gpu_temp, na.rm = TRUE)
-median_workstation_gpu_temp <- median(workstation_gpu_temp, na.rm = TRUE)
-sd_workstation_gpu_temp <- sd(workstation_gpu_temp, na.rm = TRUE)
-cat('Métricas de workstation_gpu_temp :\n')
-```
+    ## Mediana:  14.5275
 
-    ## Métricas de workstation_gpu_temp :
-
-``` r
-cat('Media: ', mean_workstation_gpu_temp, '\nMediana: ', median_workstation_gpu_temp, '\nDesviación Estándar: ', sd_workstation_gpu_temp)
-```
-
-    ## Media:  14.24204 
-    ## Mediana:  14.5275 
     ## Desviación Estándar:  1.959539
 
-``` r
-hist(workstation_gpu_temp)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-17-1.png)
-
-``` r
-boxplot(workstation_gpu_temp)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-17-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-28-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-28-2.png)
 ###workstation_ram
 
 ``` r
 workstation_ram <- datos_con_interpolacion[['workstation_ram']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(workstation_ram))
-```
+    ## Métricas de workstation_ram:
 
-    ## [1] 48.33317 47.18517 48.13800 47.94800 47.94333 47.90600
+    ## Media:  43.27864
 
-``` r
-mean_workstation_ram <- mean(workstation_ram, na.rm = TRUE)
-median_workstation_ram <- median(workstation_ram, na.rm = TRUE)
-sd_workstation_ram <- sd(workstation_ram, na.rm = TRUE)
-cat('Métricas de workstation_ram :\n')
-```
+    ## Mediana:  44.49967
 
-    ## Métricas de workstation_ram :
-
-``` r
-cat('Media: ', mean_workstation_ram, '\nMediana: ', median_workstation_ram, '\nDesviación Estándar: ', sd_workstation_ram)
-```
-
-    ## Media:  43.27864 
-    ## Mediana:  44.49967 
     ## Desviación Estándar:  10.11205
 
-``` r
-hist(workstation_ram)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-18-1.png)
-
-``` r
-boxplot(workstation_ram)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-18-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-30-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-30-2.png)
 ###workstation_ram_power
 
 ``` r
 workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
-cat("\nEjemplos:\n")
 ```
 
-    ## 
-    ## Ejemplos:
+**Ejemplos**
 
-``` r
-print(head(workstation_ram_power))
-```
+    ## Métricas de workstation_ram_power:
 
-    ## [1]  8.626667  6.558000  6.598000  6.428833  6.423167 11.830833
+    ## Media:  8.110815
 
-``` r
-mean_workstation_ram_power <- mean(workstation_ram_power, na.rm = TRUE)
-median_workstation_ram_power <- median(workstation_ram_power, na.rm = TRUE)
-sd_workstation_ram_power <- sd(workstation_ram_power, na.rm = TRUE)
-cat('Métricas de workstation_ram_power :\n')
-```
+    ## Mediana:  7.438917
 
-    ## Métricas de workstation_ram_power :
-
-``` r
-cat('Media: ', mean_workstation_ram_power, '\nMediana: ', median_workstation_ram_power, '\nDesviación Estándar: ', sd_workstation_ram_power)
-```
-
-    ## Media:  8.110815 
-    ## Mediana:  7.438917 
     ## Desviación Estándar:  2.592748
 
-``` r
-hist(workstation_ram_power)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-1.png)
-
-``` r
-boxplot(workstation_ram_power)
-```
-
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-19-2.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-32-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-32-2.png)
 
 ### Prueba de bondad de ajuste
 

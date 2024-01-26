@@ -56,239 +56,257 @@ summary(datos_con_interpolacion)
 voltaje <- datos_con_interpolacion[['voltaje']]
 ```
 **Ejemplos**
-```{r}
-head(voltaje)
-mean_voltaje <- mean(voltaje, na.rm = TRUE)
-median_voltaje <- median(voltaje, na.rm = TRUE)
-sd_voltaje <- sd(voltaje, na.rm = TRUE)
-cat('Metricas de Voltaje :\n')
-cat('Media: ', mean_voltaje, '\nMediana: ', median_voltaje, '\nDesviacion Estandar: ', sd_voltaje)
-hist(voltaje)
-boxplot(voltaje)
-
-```
-
 ```{r echo=FALSE}
 # Calculate and display basic statistics for 'voltaje'
 mean_voltaje <- mean(voltaje, na.rm = TRUE)
 median_voltaje <- median(voltaje, na.rm = TRUE)
 sd_voltaje <- sd(voltaje, na.rm = TRUE)
-
-# Print the metrics without showing the cat command in the output
 cat('Métricas de Voltaje:\n')
 cat('Media: ', mean_voltaje, '\n')
 cat('Mediana: ', median_voltaje, '\n')
 cat('Desviación Estándar: ', sd_voltaje, '\n')
-
-# Create a histogram and boxplot for 'voltaje'
 hist(voltaje)
 boxplot(voltaje)
+```
 
-
-###corriente
+###Corriente
 ```{r}
 corriente <- datos_con_interpolacion[['corriente']]
-cat("\nEjemplos:\n")
-print(head(corriente))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'corriente'
 mean_corriente <- mean(corriente, na.rm = TRUE)
 median_corriente <- median(corriente, na.rm = TRUE)
 sd_corriente <- sd(corriente, na.rm = TRUE)
-cat('Métricas de Corriente :\n')
-cat('Media: ', mean_corriente, '\nMediana: ', median_corriente, '\nDesviación Estándar: ', sd_corriente)
+cat('Métricas de corriente:\n')
+cat('Media: ', mean_corriente, '\n')
+cat('Mediana: ', median_corriente, '\n')
+cat('Desviación Estándar: ', sd_corriente, '\n')
 hist(corriente)
 boxplot(corriente)
-
 ```
 ###potencia
 ```{r}
 potencia <- datos_con_interpolacion[['potencia']]
-cat("\nEjemplos:\n")
-print(head(potencia))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'potencia'
 mean_potencia <- mean(potencia, na.rm = TRUE)
 median_potencia <- median(potencia, na.rm = TRUE)
 sd_potencia <- sd(potencia, na.rm = TRUE)
-cat('Métricas de Potencia :\n')
-cat('Media: ', mean_potencia, '\nMediana: ', median_potencia, '\nDesviación Estándar: ', sd_potencia)
+cat('Métricas de potencia:\n')
+cat('Media: ', mean_potencia, '\n')
+cat('Mediana: ', median_potencia, '\n')
+cat('Desviación Estándar: ', sd_potencia, '\n')
 hist(potencia)
 boxplot(potencia)
-
 ```
 ###frecuencia
 ```{r}
 frecuencia <- datos_con_interpolacion[['frecuencia']]
-cat("\nEjemplos:\n")
-print(head(frecuencia))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'frecuencia'
 mean_frecuencia <- mean(frecuencia, na.rm = TRUE)
 median_frecuencia <- median(frecuencia, na.rm = TRUE)
 sd_frecuencia <- sd(frecuencia, na.rm = TRUE)
-cat('Métricas de Frecuencia :\n')
-cat('Media: ', mean_frecuencia, '\nMediana: ', median_frecuencia, '\nDesviación Estándar: ', sd_frecuencia)
+cat('Métricas de frecuencia:\n')
+cat('Media: ', mean_frecuencia, '\n')
+cat('Mediana: ', median_frecuencia, '\n')
+cat('Desviación Estándar: ', sd_frecuencia, '\n')
 hist(frecuencia)
 boxplot(frecuencia)
-
 ```
 ###energia
 ```{r}
 energia <- datos_con_interpolacion[['energia']]
-cat("\nEjemplos:\n")
-print(head(energia))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'energia'
 mean_energia <- mean(energia, na.rm = TRUE)
 median_energia <- median(energia, na.rm = TRUE)
 sd_energia <- sd(energia, na.rm = TRUE)
-cat('Métricas de Energía :\n')
-cat('Media: ', mean_energia, '\nMediana: ', median_energia, '\nDesviación Estándar: ', sd_energia)
+cat('Métricas de energia:\n')
+cat('Media: ', mean_energia, '\n')
+cat('Mediana: ', median_energia, '\n')
+cat('Desviación Estándar: ', sd_energia, '\n')
 hist(energia)
 boxplot(energia)
-
 ```
 ###fp
 ```{r}
-
 fp <- datos_con_interpolacion[['fp']]
-cat("\nEjemplos:\n")
-print(head(fp))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'fp'
 mean_fp <- mean(fp, na.rm = TRUE)
 median_fp <- median(fp, na.rm = TRUE)
 sd_fp <- sd(fp, na.rm = TRUE)
-cat('Métricas de FP :\n')
-cat('Media: ', mean_fp, '\nMediana: ', median_fp, '\nDesviación Estándar: ', sd_fp)
+cat('Métricas de fp:\n')
+cat('Media: ', mean_fp, '\n')
+cat('Mediana: ', median_fp, '\n')
+cat('Desviación Estándar: ', sd_fp, '\n')
 hist(fp)
 boxplot(fp)
-
 ```
 ###esp32_temp
 ```{r}
 esp32_temp <- datos_con_interpolacion[['esp32_temp']]
-cat("\nEjemplos:\n")
-print(head(esp32_temp))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'esp32_temp'
 mean_esp32_temp <- mean(esp32_temp, na.rm = TRUE)
 median_esp32_temp <- median(esp32_temp, na.rm = TRUE)
 sd_esp32_temp <- sd(esp32_temp, na.rm = TRUE)
-cat('Métricas de esp32_temp :\n')
-cat('Media: ', mean_esp32_temp, '\nMediana: ', median_esp32_temp, '\nDesviación Estándar: ', sd_esp32_temp)
+cat('Métricas de esp32_temp:\n')
+cat('Media: ', mean_esp32_temp, '\n')
+cat('Mediana: ', median_esp32_temp, '\n')
+cat('Desviación Estándar: ', sd_esp32_temp, '\n')
 hist(esp32_temp)
 boxplot(esp32_temp)
-
-
 ```
 ### Variables de Rendimiento
 ###workstation_cpu
 ```{r}
 workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
-cat("\nEjemplos:\n")
-print(head(workstation_cpu))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'workstation_cpu'
 mean_workstation_cpu <- mean(workstation_cpu, na.rm = TRUE)
 median_workstation_cpu <- median(workstation_cpu, na.rm = TRUE)
 sd_workstation_cpu <- sd(workstation_cpu, na.rm = TRUE)
-cat('Métricas de workstation_cpu :\n')
-cat('Media: ', mean_workstation_cpu, '\nMediana: ', median_workstation_cpu, '\nDesviación Estándar: ', sd_workstation_cpu)
+cat('Métricas de workstation_cpu:\n')
+cat('Media: ', mean_workstation_cpu, '\n')
+cat('Mediana: ', median_workstation_cpu, '\n')
+cat('Desviación Estándar: ', sd_workstation_cpu, '\n')
 hist(workstation_cpu)
 boxplot(workstation_cpu)
-
 ```
 ###workstation_cpu_power
 ```{r}
 workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
-cat("\nEjemplos:\n")
-print(head(workstation_cpu_power))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'workstation_cpu_power'
 mean_workstation_cpu_power <- mean(workstation_cpu_power, na.rm = TRUE)
 median_workstation_cpu_power <- median(workstation_cpu_power, na.rm = TRUE)
 sd_workstation_cpu_power <- sd(workstation_cpu_power, na.rm = TRUE)
-cat('Métricas de workstation_cpu_power :\n')
-cat('Media: ', mean_workstation_cpu_power, '\nMediana: ', median_workstation_cpu_power, '\nDesviación Estándar: ', sd_workstation_cpu_power)
+cat('Métricas de workstation_cpu_power:\n')
+cat('Media: ', mean_workstation_cpu_power, '\n')
+cat('Mediana: ', median_workstation_cpu_power, '\n')
+cat('Desviación Estándar: ', sd_workstation_cpu_power, '\n')
 hist(workstation_cpu_power)
 boxplot(workstation_cpu_power)
-
-
 ```
 ###workstation_cpu_temp
 ```{r}
-
 workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
-cat("\nEjemplos:\n")
-print(head(workstation_cpu_temp))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'workstation_cpu_temp'
 mean_workstation_cpu_temp <- mean(workstation_cpu_temp, na.rm = TRUE)
 median_workstation_cpu_temp <- median(workstation_cpu_temp, na.rm = TRUE)
 sd_workstation_cpu_temp <- sd(workstation_cpu_temp, na.rm = TRUE)
-cat('Métricas de workstation_cpu_temp :\n')
-cat('Media: ', mean_workstation_cpu_temp, '\nMediana: ', median_workstation_cpu_temp, '\nDesviación Estándar: ', sd_workstation_cpu_temp)
+cat('Métricas de workstation_cpu_temp:\n')
+cat('Media: ', mean_workstation_cpu_temp, '\n')
+cat('Mediana: ', median_workstation_cpu_temp, '\n')
+cat('Desviación Estándar: ', sd_workstation_cpu_temp, '\n')
 hist(workstation_cpu_temp)
 boxplot(workstation_cpu_temp)
-
 ```
 ###workstation_gpu
 ```{r}
 workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
-cat("\nEjemplos:\n")
-print(head(workstation_gpu))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'workstation_gpu'
 mean_workstation_gpu <- mean(workstation_gpu, na.rm = TRUE)
 median_workstation_gpu <- median(workstation_gpu, na.rm = TRUE)
 sd_workstation_gpu <- sd(workstation_gpu, na.rm = TRUE)
-cat('Métricas de workstation_gpu :\n')
-cat('Media: ', mean_workstation_gpu, '\nMediana: ', median_workstation_gpu, '\nDesviación Estándar: ', sd_workstation_gpu)
+cat('Métricas de workstation_gpu:\n')
+cat('Media: ', mean_workstation_gpu, '\n')
+cat('Mediana: ', median_workstation_gpu, '\n')
+cat('Desviación Estándar: ', sd_workstation_gpu, '\n')
 hist(workstation_gpu)
 boxplot(workstation_gpu)
-
 ```
 ###workstation_gpu_power
 ```{r}
 workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
-cat("\nEjemplos:\n")
-print(head(workstation_gpu_power))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'workstation_gpu_power'
 mean_workstation_gpu_power <- mean(workstation_gpu_power, na.rm = TRUE)
 median_workstation_gpu_power <- median(workstation_gpu_power, na.rm = TRUE)
 sd_workstation_gpu_power <- sd(workstation_gpu_power, na.rm = TRUE)
-cat('Métricas de workstation_gpu_power :\n')
-cat('Media: ', mean_workstation_gpu_power, '\nMediana: ', median_workstation_gpu_power, '\nDesviación Estándar: ', sd_workstation_gpu_power)
+cat('Métricas de workstation_gpu_power:\n')
+cat('Media: ', mean_workstation_gpu_power, '\n')
+cat('Mediana: ', median_workstation_gpu_power, '\n')
+cat('Desviación Estándar: ', sd_workstation_gpu_power, '\n')
 hist(workstation_gpu_power)
 boxplot(workstation_gpu_power)
-
-
 ```
 ###workstation_gpu_temp
 ```{r}
-
 workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
-cat("\nEjemplos:\n")
-print(head(workstation_gpu_temp))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'workstation_gpu_temp'
 mean_workstation_gpu_temp <- mean(workstation_gpu_temp, na.rm = TRUE)
 median_workstation_gpu_temp <- median(workstation_gpu_temp, na.rm = TRUE)
 sd_workstation_gpu_temp <- sd(workstation_gpu_temp, na.rm = TRUE)
-cat('Métricas de workstation_gpu_temp :\n')
-cat('Media: ', mean_workstation_gpu_temp, '\nMediana: ', median_workstation_gpu_temp, '\nDesviación Estándar: ', sd_workstation_gpu_temp)
+cat('Métricas de workstation_gpu_temp:\n')
+cat('Media: ', mean_workstation_gpu_temp, '\n')
+cat('Mediana: ', median_workstation_gpu_temp, '\n')
+cat('Desviación Estándar: ', sd_workstation_gpu_temp, '\n')
 hist(workstation_gpu_temp)
 boxplot(workstation_gpu_temp)
-
-
 ```
 ###workstation_ram
 ```{r}
 workstation_ram <- datos_con_interpolacion[['workstation_ram']]
-cat("\nEjemplos:\n")
-print(head(workstation_ram))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'workstation_ram'
 mean_workstation_ram <- mean(workstation_ram, na.rm = TRUE)
 median_workstation_ram <- median(workstation_ram, na.rm = TRUE)
 sd_workstation_ram <- sd(workstation_ram, na.rm = TRUE)
-cat('Métricas de workstation_ram :\n')
-cat('Media: ', mean_workstation_ram, '\nMediana: ', median_workstation_ram, '\nDesviación Estándar: ', sd_workstation_ram)
+cat('Métricas de workstation_ram:\n')
+cat('Media: ', mean_workstation_ram, '\n')
+cat('Mediana: ', median_workstation_ram, '\n')
+cat('Desviación Estándar: ', sd_workstation_ram, '\n')
 hist(workstation_ram)
 boxplot(workstation_ram)
-
-
 ```
 ###workstation_ram_power
 ```{r}
 workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
-cat("\nEjemplos:\n")
-print(head(workstation_ram_power))
+```
+**Ejemplos**
+```{r echo=FALSE}
+# Calculate and display basic statistics for 'workstation_ram_power'
 mean_workstation_ram_power <- mean(workstation_ram_power, na.rm = TRUE)
 median_workstation_ram_power <- median(workstation_ram_power, na.rm = TRUE)
 sd_workstation_ram_power <- sd(workstation_ram_power, na.rm = TRUE)
-cat('Métricas de workstation_ram_power :\n')
-cat('Media: ', mean_workstation_ram_power, '\nMediana: ', median_workstation_ram_power, '\nDesviación Estándar: ', sd_workstation_ram_power)
+cat('Métricas de workstation_ram_power:\n')
+cat('Media: ', mean_workstation_ram_power, '\n')
+cat('Mediana: ', median_workstation_ram_power, '\n')
+cat('Desviación Estándar: ', sd_workstation_ram_power, '\n')
 hist(workstation_ram_power)
 boxplot(workstation_ram_power)
-
 ```
 
 
