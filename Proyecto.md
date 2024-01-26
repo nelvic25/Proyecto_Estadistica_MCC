@@ -627,24 +627,7 @@ de tiempo de ‘energía’ cambia después de aplicar la interpolación.*
 
 ### Matriz de Correlacion
 
-``` r
-library(ggplot2)
-library(corrplot)
-```
-
     ## corrplot 0.92 loaded
-
-``` r
-variables_interes <- datos_con_interpolacion[, c("workstation_ram", "workstation_ram_power",
-                                                 "workstation_cpu", "workstation_cpu_power",
-                                                 "workstation_cpu_temp", "workstation_gpu",
-                                                 "workstation_gpu_power", "workstation_gpu_temp",
-                                                 "voltaje", "corriente", "potencia",
-                                                 "frecuencia", "energia", "fp", "esp32_temp")]
-
-matriz_correlacion <- cor(variables_interes, use = "complete.obs")
-corrplot(matriz_correlacion, method = "circle")
-```
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-51-1.png) \###
 Regresion Lineal Multiple

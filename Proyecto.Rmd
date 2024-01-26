@@ -403,7 +403,7 @@ f_test_result
 
 ```
 ### Matriz de Correlacion
-```{r}
+```{r echo=FALSE}
 library(ggplot2)
 library(corrplot)
 variables_interes <- datos_con_interpolacion[, c("workstation_ram", "workstation_ram_power",
