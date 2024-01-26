@@ -60,6 +60,7 @@ voltaje <- datos_con_interpolacion[['voltaje']]
 head(voltaje)
 ```
 **Métricas de Voltaje**
+```{r echo=FALSE}
 mean_voltaje <- mean(voltaje, na.rm = TRUE)
 median_voltaje <- median(voltaje, na.rm = TRUE)
 sd_voltaje <- sd(voltaje, na.rm = TRUE)
