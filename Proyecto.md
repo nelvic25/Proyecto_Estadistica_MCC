@@ -181,6 +181,8 @@ voltaje <- datos_con_interpolacion[['voltaje']]
 
 **Ejemplos**
 
+    ## [1] 119.4133 119.4100 119.4000 119.4067 119.4233 119.3967
+
     ## Métricas de Voltaje:
 
     ## Media:  119.5054
@@ -199,6 +201,8 @@ corriente <- datos_con_interpolacion[['corriente']]
 
 **Ejemplos**
 
+    ## [1] 1.141783 1.080950 1.082900 1.068617 1.070567 1.185650
+
     ## Métricas de corriente:
 
     ## Media:  1.081759
@@ -215,6 +219,8 @@ potencia <- datos_con_interpolacion[['potencia']]
 ```
 
 **Ejemplos**
+
+    ## [1] 124.9933 117.0683 117.4250 115.4533 115.7667 130.1133
 
     ## Métricas de potencia:
 
@@ -233,6 +239,8 @@ frecuencia <- datos_con_interpolacion[['frecuencia']]
 
 **Ejemplos**
 
+    ## [1] 59.92833 59.98833 60.00000 59.99833 59.95500 59.97833
+
     ## Métricas de frecuencia:
 
     ## Media:  59.96451
@@ -250,6 +258,8 @@ energia <- datos_con_interpolacion[['energia']]
 
 **Ejemplos**
 
+    ## [1] 0.000 0.002 0.002 0.001 0.002 0.003
+
     ## Métricas de energia:
 
     ## Media:  0.001958704
@@ -259,13 +269,15 @@ energia <- datos_con_interpolacion[['energia']]
     ## Desviación Estándar:  0.0003432561
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-12-2.png)
-###fp
+###Factor de Potencia
 
 ``` r
 fp <- datos_con_interpolacion[['fp']]
 ```
 
 **Ejemplos**
+
+    ## [1] 0.9158333 0.9071667 0.9073333 0.9043333 0.9055000 0.9181667
 
     ## Métricas de fp:
 
@@ -276,13 +288,15 @@ fp <- datos_con_interpolacion[['fp']]
     ## Desviación Estándar:  0.0151849
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-14-2.png)
-###esp32_temp
+###Temperatura ESP32 (Sensor)
 
 ``` r
 esp32_temp <- datos_con_interpolacion[['esp32_temp']]
 ```
 
 **Ejemplos**
+
+    ## [1] 49.75923 49.79627 51.54627 49.78701 50.65738 48.02775
 
     ## Métricas de esp32_temp:
 
@@ -301,6 +315,8 @@ workstation_cpu <- datos_con_interpolacion[['workstation_cpu']]
 
 **Ejemplos**
 
+    ## [1] 14.33467 11.76633 11.34200 11.22467 11.42617 16.55817
+
     ## Métricas de workstation_cpu:
 
     ## Media:  10.68684
@@ -317,6 +333,8 @@ workstation_cpu_power <- datos_con_interpolacion[['workstation_cpu_power']]
 ```
 
 **Ejemplos**
+
+    ## [1] 41.89000 41.19183 41.89000 41.89000 41.89000 41.89000
 
     ## Métricas de workstation_cpu_power:
 
@@ -335,6 +353,8 @@ workstation_cpu_temp <- datos_con_interpolacion[['workstation_cpu_temp']]
 
 **Ejemplos**
 
+    ## [1] 34.53333 30.76667 30.51667 30.00000 30.10000 39.25000
+
     ## Métricas de workstation_cpu_temp:
 
     ## Media:  31.47522
@@ -351,6 +371,8 @@ workstation_gpu <- datos_con_interpolacion[['workstation_gpu']]
 ```
 
 **Ejemplos**
+
+    ## [1] 0.01666667 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000
 
     ## Métricas de workstation_gpu:
 
@@ -369,6 +391,8 @@ workstation_gpu_power <- datos_con_interpolacion[['workstation_gpu_power']]
 
 **Ejemplos**
 
+    ## [1] 35.00000 34.41667 35.00000 35.00000 35.00000 35.00000
+
     ## Métricas de workstation_gpu_power:
 
     ## Media:  34.7802
@@ -385,6 +409,8 @@ workstation_gpu_temp <- datos_con_interpolacion[['workstation_gpu_temp']]
 ```
 
 **Ejemplos**
+
+    ## [1] 14.54300 14.28000 14.54233 14.54950 14.56000 14.52117
 
     ## Métricas de workstation_gpu_temp:
 
@@ -403,6 +429,8 @@ workstation_ram <- datos_con_interpolacion[['workstation_ram']]
 
 **Ejemplos**
 
+    ## [1] 48.33317 47.18517 48.13800 47.94800 47.94333 47.90600
+
     ## Métricas de workstation_ram:
 
     ## Media:  43.27864
@@ -419,6 +447,8 @@ workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
 ```
 
 **Ejemplos**
+
+    ## [1]  8.626667  6.558000  6.598000  6.428833  6.423167 11.830833
 
     ## Métricas de workstation_ram_power:
 
