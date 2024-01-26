@@ -547,9 +547,8 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
 
 *Hipotesis Nula: La media de la variable ‘energía’ en la serie de tiempo
 no experimenta un cambio significativo después de aplicar la
-interpolación.* *Hipotesis Alternativa: La media de la variable
-‘energía’ cambia significativamente después de aplicar la
-interpolación.*
+interpolación.*Hipotesis Alternativa: La media de la variable ‘energía’
+cambia significativamente después de aplicar la interpolación.
 
 ``` r
 t_test_result <- t.test(energia_sin_interpolacion, energia_con_interpolacion)
@@ -577,9 +576,9 @@ directamente en la precisión de las predicciones de consumo energético.
 ### Prueba de significancia sobre la Varianza
 
 *Hipotesis Nula: La varianza de la serie de tiempo no cambia
-significativamente después de aplicar la interpolación.* *Hipotesis
+significativamente después de aplicar la interpolación.*Hipotesis
 Alternativa: La varianza de la serie de tiempo cambia significativamente
-después de la interpolación.*
+después de la interpolación.
 
 ``` r
 #Levene Test 
