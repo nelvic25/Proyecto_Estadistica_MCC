@@ -10,7 +10,7 @@ output:
 ### Descripcion del Dataset \n
 El archivo junio2022_minuto_sin_interpolación.csv y el archivo junio2022_minuto_con_interpolación.csv contienen datos medidos clasificados en \n: 
 
-*Variables Energéticas:* 
+*Variables Energéticas:* <br>
 - **Voltaje**<br>
 - **Corriente**<br>
 - **Potencia**<br>
@@ -19,7 +19,7 @@ El archivo junio2022_minuto_sin_interpolación.csv y el archivo junio2022_minuto
 - **Factor de Potencia (fp)**<br>
 - **Temperatura (esp32_temp)**<br>
 
-*Variables de Rendimiento:* 
+*Variables de Rendimiento:* <br>
 - **CPU (workstation_cpu)**<br>
 - **Potencia CPU (workstation_cpu_power)**<br>
 - **Temperatura CPU (workstation_cpu_temp)**<br>
