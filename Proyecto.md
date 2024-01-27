@@ -521,8 +521,9 @@ los datos antes y después de aplicar esta técnica.
 Es esencial asegurar que la interpolación no haya sesgado
 significativamente la media, ya que cambios notables podrían llevar a
 interpretaciones erróneas de las tendencias en la serie de tiempo,
-afectando las predicciones sobre el consumo. \### Prueba de bondad de
-ajuste
+afectando las predicciones sobre el consumo.
+
+### Prueba de bondad de ajuste
 
 ``` r
 energia_sin_interpolacion <- na.omit(datos_sin_interpolacion[['energia']])
@@ -557,6 +558,12 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
     ## D = 0.3063, p-value < 2.2e-16
     ## alternative hypothesis: two-sided
 
+*Dado el tamaño considerable de nuestra muestra, podemos aplicar el
+Teorema del Límite Central para asumir que la distribución de la media
+de la muestra se aproxima a una normal. Esto nos permite realizar
+pruebas de significancia que presuponen normalidad en la distribución de
+la variable de interés.*
+
 ### Prueba de significancia sobre la Media
 
 -   *Hipótesis Nula:* La media de la variable ‘energía’ en la serie de
@@ -587,13 +594,20 @@ t_test_result
 ‘energía’ cambia significativamente después de aplicar la interpolación.
 Las medias de ambas muestras son estadísticamente similares.*
 
+*Para evaluar la igualdad de varianzas entre las dos muestras,
+emplearemos la prueba de Levene. Esta elección se justifica porque la
+prueba de bondad de ajuste no confirmó que la variable de interés
+siguiera una distribución normal. La prueba de Levene es preferible en
+este contexto ya que es menos sensible a desviaciones de la normalidad
+en comparación con otras pruebas que comparan varianzas.*
+
 ### Comparacion de Varianzas
 
 La alteración significativa de la varianza por la interpolación puede
 distorsionar la volatilidad de la serie de tiempo, impactando
 directamente en la precisión de las predicciones de consumo energético.
 
-### Prueba de significancia sobre la Varianza
+### Prueba de Levene sobre la Varianza
 
 -   *Hipótesis Nula:* La varianza de la serie de tiempo no cambia
     significativamente después de aplicar la interpolación.
@@ -602,39 +616,38 @@ directamente en la precisión de las predicciones de consumo energético.
     significativamente después de la interpolación.
 
 ``` r
-f_test_result <- var.test(energia_sin_interpolacion, energia_con_interpolacion)
-f_test_result
+energia_con_interpolacion <- as.data.frame(energia_con_interpolacion)
+energia_sin_interpolacion <- as.data.frame(energia_sin_interpolacion)
+energia_con_interpolacion$grupo <- 'Con Interpolacion'
+energia_sin_interpolacion$grupo <- 'Sin Interpolacion'
+
+names(energia_con_interpolacion)[names(energia_con_interpolacion) == 'energia_con_interpolacion'] <- 'energia'
+names(energia_sin_interpolacion)[names(energia_sin_interpolacion) == 'energia_sin_interpolacion'] <- 'energia'
+
+datos_combinados <- rbind(energia_con_interpolacion, energia_sin_interpolacion)
+leveneTest(energia ~ grupo, data = datos_combinados)
 ```
 
-    ## 
-    ##  F test to compare two variances
-    ## 
-    ## data:  energia_sin_interpolacion and energia_con_interpolacion
-    ## F = 1.7044, num df = 8919, denom df = 9465, p-value < 2.2e-16
-    ## alternative hypothesis: true ratio of variances is not equal to 1
-    ## 95 percent confidence interval:
-    ##  1.636094 1.775576
-    ## sample estimates:
-    ## ratio of variances 
-    ##           1.704387
+    ## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+    ## factor.
 
-*Hay evidencia significativa de que la varianza de la serie temporal de
-‘energía’ varía tras la interpolación. Este cambio podría influir en un
-modelo de regresión lineal múltiple destinado a predecir la energía
-utilizando múltiples variables. Por tanto, se compararán los modelos de
-regresión lineal múltiple, tanto con los datos originales como con los
-interpolados, para evaluar el impacto de la variabilidad en la
-varianza.*
+    ## Levene's Test for Homogeneity of Variance (center = median)
+    ##          Df F value Pr(>F)
+    ## group     1   6e-04 0.9812
+    ##       18384
+
+*Según el valor p obtenido (0.9812), no hay evidencia suficiente para
+rechazar la hipótesis nula. Esto significa que no hay una diferencia
+estadísticamente significativa en las varianzas entre los dos grupos.*
 
 ### Análisis y Ajuste de Datos Interpolados para la Regresión Lineal Múltiple
 
-*Se analizará la regresión sobre los datos interpolados, que son de
-interés para el proyecto. Tras este análisis, se harán ajustes
-correspondientes en ambos conjuntos de datos (interpolados y no
-interpolados), con el objetivo de calcular la regresión lineal múltiple
-definitiva de la variable energía*
-
-### Mixed Selection
+*Se analizarán los datos interpolados, relevantes para el proyecto, los
+cuales, como se verificó previamente, no presentan diferencias
+significativas en media y varianza en comparación con los datos antes de
+la interpolación. Tras este análisis, se realizarán los ajustes
+necesarios con miras a establecer la regresión lineal múltiple
+definitiva de la variable energía.*
 
 ### Matriz de Correlacion para los datos interpolados
 
@@ -642,7 +655,7 @@ definitiva de la variable energía*
 
     ## corrplot 0.92 loaded
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-51-1.png) \###
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-50-1.png) \###
 Regresion Lineal entre variables *Primero normalizamos todas las
 columnas*
 
