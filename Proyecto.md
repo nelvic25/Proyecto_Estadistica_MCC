@@ -721,70 +721,278 @@ variable energía.
 
 ### Energia ~ workstation_ram
 
-modelo_energia_workstation_ram \<- lm(energia ~ workstation_ram,
-variables_interes_interpoladas) summary(modelo_energia_workstation_ram)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_ram, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002076 -0.002027 -0.002005  0.001187  0.008002 
+    ## 
+    ## Coefficients:
+    ##                  Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)     1.791e-03  4.447e-04   4.027 5.69e-05 ***
+    ## workstation_ram 4.341e-06  8.299e-06   0.523    0.601    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002954 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  2.89e-05,   Adjusted R-squared:  -7.676e-05 
+    ## F-statistic: 0.2736 on 1 and 9464 DF,  p-value: 0.601
 
 ### Energia ~ workstation_ram_power
 
-modelo_energia_workstation_ram_power \<- lm(energia ~
-workstation_ram_power, variables_interes_interpoladas)
-summary(modelo_energia_workstation_ram_power)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_ram_power, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002325 -0.002011 -0.001955  0.001202  0.008056 
+    ## 
+    ## Coefficients:
+    ##                        Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)           1.511e-03  2.102e-04   7.189 7.02e-13 ***
+    ## workstation_ram_power 4.836e-05  1.965e-05   2.461   0.0139 *  
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002953 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.0006397,  Adjusted R-squared:  0.0005341 
+    ## F-statistic: 6.058 on 1 and 9464 DF,  p-value: 0.01386
 
 ### Energia ~ workstation_cpu
 
-modelo_energia_workstation_cpu \<- lm(energia ~ workstation_cpu,
-variables_interes_interpoladas) summary(modelo_energia_workstation_cpu)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_cpu, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002448 -0.001994 -0.001962  0.001193  0.008055 
+    ## 
+    ## Coefficients:
+    ##                  Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)     1.685e-03  1.245e-04  13.539  < 2e-16 ***
+    ## workstation_cpu 2.860e-05  1.023e-05   2.796  0.00519 ** 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002953 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.0008251,  Adjusted R-squared:  0.0007195 
+    ## F-statistic: 7.815 on 1 and 9464 DF,  p-value: 0.005192
 
 ### Energia ~ workstation_cpu_power
 
-modelo_energia_workstation_cpu_power \<- lm(energia ~
-workstation_cpu_power, variables_interes_interpoladas)
-summary(modelo_energia_workstation_cpu_power)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_cpu_power, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002032 -0.002025 -0.002015  0.001193  0.007990 
+    ## 
+    ## Coefficients:
+    ##                         Estimate Std. Error t value Pr(>|t|)
+    ## (Intercept)           -0.0036469  0.0239722  -0.152    0.879
+    ## workstation_cpu_power  0.0001312  0.0005548   0.237    0.813
+    ## 
+    ## Residual standard error: 0.002954 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  5.911e-06,  Adjusted R-squared:  -9.975e-05 
+    ## F-statistic: 0.05594 on 1 and 9464 DF,  p-value: 0.813
 
 ### Energia ~ workstation_cpu_temp
 
-modelo_energia_workstation_cpu_temp \<- lm(energia ~
-workstation_cpu_temp, variables_interes_interpoladas)
-summary(modelo_energia_workstation_cpu_temp)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_cpu_temp, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002547 -0.001993 -0.001964  0.001194  0.008060 
+    ## 
+    ## Coefficients:
+    ##                       Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)          1.109e-03  3.123e-04   3.552 0.000384 ***
+    ## workstation_cpu_temp 2.583e-05  8.783e-06   2.941 0.003284 ** 
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002953 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.0009129,  Adjusted R-squared:  0.0008073 
+    ## F-statistic: 8.647 on 1 and 9464 DF,  p-value: 0.003284
 
 ### Energia ~ workstation_gpu
 
-modelo_energia_workstation_gpu \<- lm(energia ~ workstation_gpu,
-variables_interes_interpoladas) summary(modelo_energia_workstation_gpu)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_gpu, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002095 -0.002022 -0.002021  0.001186  0.007979 
+    ## 
+    ## Coefficients:
+    ##                  Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)     2.021e-03  3.239e-05  62.396   <2e-16 ***
+    ## workstation_gpu 3.519e-06  2.371e-05   0.148    0.882    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002954 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  2.327e-06,  Adjusted R-squared:  -0.0001033 
+    ## F-statistic: 0.02202 on 1 and 9464 DF,  p-value: 0.882
 
 ### Energia ~ workstation_gpu_power
 
-modelo_energia_workstation_gpu_power \<- lm(energia ~
-workstation_gpu_power, variables_interes_interpoladas)
-summary(modelo_energia_workstation_gpu_power)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_gpu_power, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002041 -0.002027 -0.002015  0.001187  0.007990 
+    ## 
+    ## Coefficients:
+    ##                        Estimate Std. Error t value Pr(>|t|)
+    ## (Intercept)           1.582e-03  2.452e-03   0.645    0.519
+    ## workstation_gpu_power 1.239e-05  6.885e-05   0.180    0.857
+    ## 
+    ## Residual standard error: 0.002954 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  3.423e-06,  Adjusted R-squared:  -0.0001022 
+    ## F-statistic: 0.03239 on 1 and 9464 DF,  p-value: 0.8572
 
 ### Energia ~ workstation_gpu_temp
 
-modelo_energia_workstation_gpu_temp \<- lm(energia ~
-workstation_gpu_temp, variables_interes_interpoladas)
-summary(modelo_energia_workstation_gpu_temp)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_gpu_temp, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002093 -0.002023 -0.002021  0.001187  0.007984 
+    ## 
+    ## Coefficients:
+    ##                       Estimate Std. Error t value Pr(>|t|)
+    ## (Intercept)          1.934e-03  1.271e-03   1.522    0.128
+    ## workstation_gpu_temp 6.151e-06  8.760e-05   0.070    0.944
+    ## 
+    ## Residual standard error: 0.002954 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  5.21e-07,   Adjusted R-squared:  -0.0001051 
+    ## F-statistic: 0.004931 on 1 and 9464 DF,  p-value: 0.944
 
 ### Energia ~ voltaje
 
-modelo_energia_voltaje \<- lm(energia ~ voltaje,
-variables_interes_interpoladas) summary(modelo_energia_voltaje)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ voltaje, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002065 -0.002028 -0.001992  0.001190  0.008032 
+    ## 
+    ## Coefficients:
+    ##               Estimate Std. Error t value Pr(>|t|)
+    ## (Intercept)  0.0458521  0.0830848   0.552    0.581
+    ## voltaje     -0.0003670  0.0006958  -0.528    0.598
+    ## 
+    ## Residual standard error: 0.002954 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  2.94e-05,   Adjusted R-squared:  -7.626e-05 
+    ## F-statistic: 0.2783 on 1 and 9464 DF,  p-value: 0.5978
 
 ### Energia ~ corriente
 
-modelo_energia_corriente \<- lm(energia ~ corriente,
-variables_interes_interpoladas) summary(modelo_energia_corriente)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ corriente, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002585 -0.001985 -0.001967  0.001192  0.008050 
+    ## 
+    ## Coefficients:
+    ##               Estimate Std. Error t value Pr(>|t|)   
+    ## (Intercept) -0.0003126  0.0007185  -0.435  0.66352   
+    ## corriente    0.0021065  0.0006474   3.254  0.00114 **
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002953 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.001117,   Adjusted R-squared:  0.001012 
+    ## F-statistic: 10.59 on 1 and 9464 DF,  p-value: 0.001143
 
 ### Energia ~ potencia
 
-modelo_energia_potencia \<- lm(energia ~ potencia,
-variables_interes_interpoladas) summary(modelo_energia_potencia)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ potencia, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002586 -0.001984 -0.001968  0.001191  0.008042 
+    ## 
+    ## Coefficients:
+    ##               Estimate Std. Error t value Pr(>|t|)   
+    ## (Intercept) -8.209e-05  6.477e-04  -0.127  0.89914   
+    ## potencia     1.735e-05  5.334e-06   3.254  0.00114 **
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002953 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.001117,   Adjusted R-squared:  0.001012 
+    ## F-statistic: 10.59 on 1 and 9464 DF,  p-value: 0.001143
 
 ### Energia ~ fp
 
-modelo_energia_fp \<- lm(energia ~ fp, variables_interes_interpoladas)
-summary(modelo_energia_fp)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ fp, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002417 -0.002006 -0.001929  0.001188  0.008145 
+    ## 
+    ## Coefficients:
+    ##              Estimate Std. Error t value Pr(>|t|)   
+    ## (Intercept) -0.014939   0.006097  -2.450  0.01429 * 
+    ## fp           0.018523   0.006657   2.782  0.00541 **
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002953 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.0008173,  Adjusted R-squared:  0.0007117 
+    ## F-statistic: 7.741 on 1 and 9464 DF,  p-value: 0.005409
 
 ### Energia ~ esp32_temp
 
-modelo_energia_esp32_temp \<- lm(energia ~ esp32_temp,
-variables_interes_interpoladas) summary(modelo_energia_esp32_temp)
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ esp32_temp, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002207 -0.002021 -0.001992  0.001182  0.008028 
+    ## 
+    ## Coefficients:
+    ##               Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  2.729e-03  8.164e-04   3.342 0.000834 ***
+    ## esp32_temp  -1.419e-05  1.640e-05  -0.865 0.386984    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002954 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  7.908e-05,  Adjusted R-squared:  -2.658e-05 
+    ## F-statistic: 0.7485 on 1 and 9464 DF,  p-value: 0.387
