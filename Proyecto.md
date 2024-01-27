@@ -684,35 +684,37 @@ variable energía.
     ## 4           0.08944659               0             0.6557377
     ## 5           0.09781210               0             0.6448087
     ## 6           0.13899614               0             0.6557377
-    ##   workstation_gpu_temp   voltaje  corriente  potencia frecuencia energia
-    ## 1           0.10386967 0.4052632 0.07749343 0.1060575    0.60625      NA
-    ## 2           0.10694258 0.4052632 0.10262087 0.1320770    0.73750      NA
-    ## 3           0.11058503 0.3684211 0.10818186 0.1326956    0.72000      NA
-    ## 4           0.11384338 0.3807018 0.09397044 0.1202425    0.74625      NA
-    ## 5           0.11042609 0.3929825 0.10303280 0.1292318    0.68500      NA
-    ## 6           0.09772385 0.3929825 0.09870758 0.1258092    0.62375      NA
-    ##          fp esp32_temp
-    ## 1 0.3750000  0.7595292
-    ## 2 0.4062500  0.7331840
-    ## 3 0.3839286  0.6799329
-    ## 4 0.3883929  0.6804934
-    ## 5 0.3794643  0.8133409
-    ## 6 0.3928571  0.8402467
+    ##   workstation_gpu_temp   voltaje  corriente  potencia frecuencia        fp
+    ## 1           0.10386967 0.4052632 0.07749343 0.1060575    0.60625 0.3750000
+    ## 2           0.10694258 0.4052632 0.10262087 0.1320770    0.73750 0.4062500
+    ## 3           0.11058503 0.3684211 0.10818186 0.1326956    0.72000 0.3839286
+    ## 4           0.11384338 0.3807018 0.09397044 0.1202425    0.74625 0.3883929
+    ## 5           0.11042609 0.3929825 0.10303280 0.1292318    0.68500 0.3794643
+    ## 6           0.09772385 0.3929825 0.09870758 0.1258092    0.62375 0.3928571
+    ##   esp32_temp
+    ## 1  0.7595292
+    ## 2  0.7331840
+    ## 3  0.6799329
+    ## 4  0.6804934
+    ## 5  0.8133409
+    ## 6  0.8402467
 
 ### Energia ~ Frecuencia
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ frecuencia, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ frecuencia, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
     ## -0.002278 -0.002025 -0.001962  0.001216  0.008052 
     ## 
     ## Coefficients:
-    ##              Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)  0.127916   0.079302   1.613    0.107
-    ## frecuencia  -0.002099   0.001322  -1.588    0.112
+    ##               Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  0.0022783  0.0001637  13.919   <2e-16 ***
+    ## frecuencia  -0.0003999  0.0002519  -1.588    0.112    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Residual standard error: 0.002954 on 9464 degrees of freedom
     ##   (614 observations deleted due to missingness)
@@ -723,7 +725,7 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ workstation_ram, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ workstation_ram, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
@@ -731,8 +733,8 @@ variable energía.
     ## 
     ## Coefficients:
     ##                  Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)     1.791e-03  4.447e-04   4.027 5.69e-05 ***
-    ## workstation_ram 4.341e-06  8.299e-06   0.523    0.601    
+    ## (Intercept)     1.986e-03  7.683e-05  25.851   <2e-16 ***
+    ## workstation_ram 9.028e-05  1.726e-04   0.523    0.601    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -745,7 +747,7 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ workstation_ram_power, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ workstation_ram_power, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
@@ -753,8 +755,8 @@ variable energía.
     ## 
     ## Coefficients:
     ##                        Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)           1.511e-03  2.102e-04   7.189 7.02e-13 ***
-    ## workstation_ram_power 4.836e-05  1.965e-05   2.461   0.0139 *  
+    ## (Intercept)           1.855e-03  7.458e-05  24.876   <2e-16 ***
+    ## workstation_ram_power 4.877e-04  1.981e-04   2.461   0.0139 *  
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -767,7 +769,7 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ workstation_cpu, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ workstation_cpu, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
@@ -775,8 +777,8 @@ variable energía.
     ## 
     ## Coefficients:
     ##                  Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)     1.685e-03  1.245e-04  13.539  < 2e-16 ***
-    ## workstation_cpu 2.860e-05  1.023e-05   2.796  0.00519 ** 
+    ## (Intercept)     1.911e-03  5.022e-05  38.051  < 2e-16 ***
+    ## workstation_cpu 5.484e-04  1.962e-04   2.796  0.00519 ** 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -789,16 +791,18 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ workstation_cpu_power, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ workstation_cpu_power, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
     ## -0.002032 -0.002025 -0.002015  0.001193  0.007990 
     ## 
     ## Coefficients:
-    ##                         Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)           -0.0036469  0.0239722  -0.152    0.879
-    ## workstation_cpu_power  0.0001312  0.0005548   0.237    0.813
+    ##                        Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)           2.006e-03  7.844e-05  25.571   <2e-16 ***
+    ## workstation_cpu_power 2.624e-05  1.110e-04   0.237    0.813    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Residual standard error: 0.002954 on 9464 degrees of freedom
     ##   (614 observations deleted due to missingness)
@@ -809,7 +813,7 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ workstation_cpu_temp, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ workstation_cpu_temp, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
@@ -817,8 +821,8 @@ variable energía.
     ## 
     ## Coefficients:
     ##                       Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)          1.109e-03  3.123e-04   3.552 0.000384 ***
-    ## workstation_cpu_temp 2.583e-05  8.783e-06   2.941 0.003284 ** 
+    ## (Intercept)          0.0018839  0.0000562  33.523  < 2e-16 ***
+    ## workstation_cpu_temp 0.0006689  0.0002275   2.941  0.00328 ** 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -831,7 +835,7 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ workstation_gpu, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ workstation_gpu, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
@@ -840,7 +844,7 @@ variable energía.
     ## Coefficients:
     ##                  Estimate Std. Error t value Pr(>|t|)    
     ## (Intercept)     2.021e-03  3.239e-05  62.396   <2e-16 ***
-    ## workstation_gpu 3.519e-06  2.371e-05   0.148    0.882    
+    ## workstation_gpu 7.354e-05  4.956e-04   0.148    0.882    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -853,16 +857,18 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ workstation_gpu_power, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ workstation_gpu_power, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
     ## -0.002041 -0.002027 -0.002015  0.001187  0.007990 
     ## 
     ## Coefficients:
-    ##                        Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)           1.582e-03  2.452e-03   0.645    0.519
-    ## workstation_gpu_power 1.239e-05  6.885e-05   0.180    0.857
+    ##                        Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)           0.0020030  0.0001150   17.41   <2e-16 ***
+    ## workstation_gpu_power 0.0000378  0.0002100    0.18    0.857    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Residual standard error: 0.002954 on 9464 degrees of freedom
     ##   (614 observations deleted due to missingness)
@@ -873,16 +879,18 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ workstation_gpu_temp, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ workstation_gpu_temp, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
     ## -0.002093 -0.002023 -0.002021  0.001187  0.007984 
     ## 
     ## Coefficients:
-    ##                       Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)          1.934e-03  1.271e-03   1.522    0.128
-    ## workstation_gpu_temp 6.151e-06  8.760e-05   0.070    0.944
+    ##                       Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)          0.0020160  0.0001036   19.46   <2e-16 ***
+    ## workstation_gpu_temp 0.0000774  0.0011023    0.07    0.944    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Residual standard error: 0.002954 on 9464 degrees of freedom
     ##   (614 observations deleted due to missingness)
@@ -893,16 +901,18 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ voltaje, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ voltaje, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
     ## -0.002065 -0.002028 -0.001992  0.001190  0.008032 
     ## 
     ## Coefficients:
-    ##               Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)  0.0458521  0.0830848   0.552    0.581
-    ## voltaje     -0.0003670  0.0006958  -0.528    0.598
+    ##               Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)  2.066e-03  8.688e-05  23.780   <2e-16 ***
+    ## voltaje     -9.962e-05  1.889e-04  -0.528    0.598    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
     ## Residual standard error: 0.002954 on 9464 degrees of freedom
     ##   (614 observations deleted due to missingness)
@@ -913,16 +923,16 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ corriente, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ corriente, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
     ## -0.002585 -0.001985 -0.001967  0.001192  0.008050 
     ## 
     ## Coefficients:
-    ##               Estimate Std. Error t value Pr(>|t|)   
-    ## (Intercept) -0.0003126  0.0007185  -0.435  0.66352   
-    ## corriente    0.0021065  0.0006474   3.254  0.00114 **
+    ##              Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept) 1.903e-03  4.763e-05  39.960  < 2e-16 ***
+    ## corriente   6.818e-04  2.096e-04   3.254  0.00114 ** 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -935,16 +945,16 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ potencia, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ potencia, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
     ## -0.002586 -0.001984 -0.001968  0.001191  0.008042 
     ## 
     ## Coefficients:
-    ##               Estimate Std. Error t value Pr(>|t|)   
-    ## (Intercept) -8.209e-05  6.477e-04  -0.127  0.89914   
-    ## potencia     1.735e-05  5.334e-06   3.254  0.00114 **
+    ##              Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept) 1.884e-03  5.233e-05  36.007  < 2e-16 ***
+    ## potencia    7.015e-04  2.156e-04   3.254  0.00114 ** 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -957,16 +967,16 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ fp, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ fp, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
     ## -0.002417 -0.002006 -0.001929  0.001188  0.008145 
     ## 
     ## Coefficients:
-    ##              Estimate Std. Error t value Pr(>|t|)   
-    ## (Intercept) -0.014939   0.006097  -2.450  0.01429 * 
-    ## fp           0.018523   0.006657   2.782  0.00541 **
+    ##              Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept) 0.0017316  0.0001090  15.883  < 2e-16 ***
+    ## fp          0.0006915  0.0002485   2.782  0.00541 ** 
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
@@ -979,7 +989,7 @@ variable energía.
 
     ## 
     ## Call:
-    ## lm(formula = energia ~ esp32_temp, data = variables_interes_interpoladas)
+    ## lm(formula = energia ~ esp32_temp, data = variables_interes_interpoladas_normalizadas)
     ## 
     ## Residuals:
     ##       Min        1Q    Median        3Q       Max 
@@ -987,8 +997,8 @@ variable energía.
     ## 
     ## Coefficients:
     ##               Estimate Std. Error t value Pr(>|t|)    
-    ## (Intercept)  2.729e-03  8.164e-04   3.342 0.000834 ***
-    ## esp32_temp  -1.419e-05  1.640e-05  -0.865 0.386984    
+    ## (Intercept)  0.0022065  0.0002144  10.292   <2e-16 ***
+    ## esp32_temp  -0.0002343  0.0002709  -0.865    0.387    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 

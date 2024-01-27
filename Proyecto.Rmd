@@ -423,7 +423,7 @@ variables_interes_interpoladas <- datos_con_interpolacion[, c("workstation_ram",
                                                  "workstation_cpu_temp", "workstation_gpu",
                                                  "workstation_gpu_power", "workstation_gpu_temp",
                                                  "voltaje", "corriente", "potencia",
-                                                 "frecuencia", "energia", "fp", "esp32_temp")]
+                                                 "frecuencia", "fp", "esp32_temp")]
 
 matriz_correlacion_interpolados <- cor(variables_interes_interpoladas, use = "complete.obs")
 corrplot(matriz_correlacion_interpolados, method = "circle")
@@ -441,83 +441,84 @@ head(variables_interes_interpoladas_normalizadas)
 ```
 ### Energia ~ Frecuencia
 ```{r echo=FALSE}
-modelo_energia_frecuencia<-lm(energia ~ frecuencia,variables_interes_interpoladas)
+modelo_energia_frecuencia<-lm(energia ~ frecuencia,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_frecuencia)
 ```
+
 ### Energia ~ workstation_ram
 ```{r echo=FALSE}
-modelo_energia_workstation_ram <- lm(energia ~ workstation_ram, variables_interes_interpoladas)
+modelo_energia_workstation_ram <- lm(energia ~ workstation_ram, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_ram)
 ```
 
 ### Energia ~ workstation_ram_power
 ```{r echo=FALSE}
-modelo_energia_workstation_ram_power <- lm(energia ~ workstation_ram_power, variables_interes_interpoladas)
+modelo_energia_workstation_ram_power <- lm(energia ~ workstation_ram_power, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_ram_power)
 ```
 
 ### Energia ~ workstation_cpu
 ```{r echo=FALSE}
-modelo_energia_workstation_cpu <- lm(energia ~ workstation_cpu, variables_interes_interpoladas)
+modelo_energia_workstation_cpu <- lm(energia ~ workstation_cpu, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu)
 ```
 
 ### Energia ~ workstation_cpu_power
 ```{r echo=FALSE}
-modelo_energia_workstation_cpu_power <- lm(energia ~ workstation_cpu_power, variables_interes_interpoladas)
+modelo_energia_workstation_cpu_power <- lm(energia ~ workstation_cpu_power, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu_power)
 ```
 
 ### Energia ~ workstation_cpu_temp
 ```{r echo=FALSE}
-modelo_energia_workstation_cpu_temp <- lm(energia ~ workstation_cpu_temp, variables_interes_interpoladas)
+modelo_energia_workstation_cpu_temp <- lm(energia ~ workstation_cpu_temp, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu_temp)
 ```
 
 ### Energia ~ workstation_gpu
 ```{r echo=FALSE}
-modelo_energia_workstation_gpu <- lm(energia ~ workstation_gpu, variables_interes_interpoladas)
+modelo_energia_workstation_gpu <- lm(energia ~ workstation_gpu, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu)
 ```
 
 ### Energia ~ workstation_gpu_power
 ```{r echo=FALSE}
-modelo_energia_workstation_gpu_power <- lm(energia ~ workstation_gpu_power, variables_interes_interpoladas)
+modelo_energia_workstation_gpu_power <- lm(energia ~ workstation_gpu_power, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu_power)
 ```
 
 ### Energia ~ workstation_gpu_temp
 ```{r echo=FALSE}
-modelo_energia_workstation_gpu_temp <- lm(energia ~ workstation_gpu_temp, variables_interes_interpoladas)
+modelo_energia_workstation_gpu_temp <- lm(energia ~ workstation_gpu_temp, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu_temp)
 ```
 
 ### Energia ~ voltaje
 ```{r echo=FALSE}
-modelo_energia_voltaje <- lm(energia ~ voltaje, variables_interes_interpoladas)
+modelo_energia_voltaje <- lm(energia ~ voltaje, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_voltaje)
 ```
 
 ### Energia ~ corriente
 ```{r echo=FALSE}
-modelo_energia_corriente <- lm(energia ~ corriente, variables_interes_interpoladas)
+modelo_energia_corriente <- lm(energia ~ corriente, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_corriente)
 ```
 
 ### Energia ~ potencia
 ```{r echo=FALSE}
-modelo_energia_potencia <- lm(energia ~ potencia, variables_interes_interpoladas)
+modelo_energia_potencia <- lm(energia ~ potencia, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_potencia)
 ```
 
 ### Energia ~ fp
 ```{r echo=FALSE}
-modelo_energia_fp <- lm(energia ~ fp, variables_interes_interpoladas)
+modelo_energia_fp <- lm(energia ~ fp, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_fp)
 ```
 
 ### Energia ~ esp32_temp
 ```{r echo=FALSE}
-modelo_energia_esp32_temp <- lm(energia ~ esp32_temp, variables_interes_interpoladas)
+modelo_energia_esp32_temp <- lm(energia ~ esp32_temp, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_esp32_temp)
 ```
