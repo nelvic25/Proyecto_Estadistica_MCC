@@ -618,17 +618,79 @@ f_test_result
     ## ratio of variances 
     ##           1.704387
 
-*Hay evidencia estadística significativa de que la varianza de la serie
-de tiempo de ‘energía’ cambia después de aplicar la interpolación.*
+*Hay evidencia significativa de que la varianza de la serie temporal de
+‘energía’ varía tras la interpolación. Este cambio podría influir en un
+modelo de regresión lineal múltiple destinado a predecir la energía
+utilizando múltiples variables. Por tanto, se compararán los modelos de
+regresión lineal múltiple, tanto con los datos originales como con los
+interpolados, para evaluar el impacto de la variabilidad en la
+varianza.*
 
-### Regresion
+### Análisis y Ajuste de Datos Interpolados para la Regresión Lineal Múltiple
+
+*Se analizará la regresión sobre los datos interpolados, que son de
+interés para el proyecto. Tras este análisis, se harán ajustes
+correspondientes en ambos conjuntos de datos (interpolados y no
+interpolados), con el objetivo de calcular la regresión lineal múltiple
+definitiva de la variable energía*
 
 ### Mixed Selection
 
-### Matriz de Correlacion
+### Matriz de Correlacion para los datos interpolados
+
+    ## Warning: package 'corrplot' was built under R version 4.3.2
 
     ## corrplot 0.92 loaded
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-51-1.png)
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-51-1.png) \###
+Regresion Lineal entre variables *Primero normalizamos todas las
+columnas*
 
-### Regresion Lineal Multiple
+    ##   workstation_ram workstation_ram_power workstation_cpu workstation_cpu_power
+    ## 1       0.1067597             0.1874793      0.12968918                   0.1
+    ## 2       0.1075690             0.2604449      0.12962834                   0.1
+    ## 3       0.1068398             0.1827857      0.09561763                   0.1
+    ## 4       0.1097887             0.1771336      0.08329277                   0.1
+    ## 5       0.1097807             0.2119720      0.09477454                   0.1
+    ## 6       0.1097887             0.2786243      0.13410458                   0.1
+    ##   workstation_cpu_temp workstation_gpu workstation_gpu_power
+    ## 1           0.12934363               0             0.6557377
+    ## 2           0.13256113               0             0.6557377
+    ## 3           0.09909910               0             0.6557377
+    ## 4           0.08944659               0             0.6557377
+    ## 5           0.09781210               0             0.6448087
+    ## 6           0.13899614               0             0.6557377
+    ##   workstation_gpu_temp   voltaje  corriente  potencia frecuencia energia
+    ## 1           0.10386967 0.4052632 0.07749343 0.1060575    0.60625      NA
+    ## 2           0.10694258 0.4052632 0.10262087 0.1320770    0.73750      NA
+    ## 3           0.11058503 0.3684211 0.10818186 0.1326956    0.72000      NA
+    ## 4           0.11384338 0.3807018 0.09397044 0.1202425    0.74625      NA
+    ## 5           0.11042609 0.3929825 0.10303280 0.1292318    0.68500      NA
+    ## 6           0.09772385 0.3929825 0.09870758 0.1258092    0.62375      NA
+    ##          fp esp32_temp
+    ## 1 0.3750000  0.7595292
+    ## 2 0.4062500  0.7331840
+    ## 3 0.3839286  0.6799329
+    ## 4 0.3883929  0.6804934
+    ## 5 0.3794643  0.8133409
+    ## 6 0.3928571  0.8402467
+
+### Energia ~ Frecuencia
+
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ frecuencia, data = variables_interes_interpoladas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002278 -0.002025 -0.001962  0.001216  0.008052 
+    ## 
+    ## Coefficients:
+    ##              Estimate Std. Error t value Pr(>|t|)
+    ## (Intercept)  0.127916   0.079302   1.613    0.107
+    ## frecuencia  -0.002099   0.001322  -1.588    0.112
+    ## 
+    ## Residual standard error: 0.002954 on 9464 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.0002662,  Adjusted R-squared:  0.0001606 
+    ## F-statistic:  2.52 on 1 and 9464 DF,  p-value: 0.1124

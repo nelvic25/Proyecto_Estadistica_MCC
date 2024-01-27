@@ -395,26 +395,40 @@ La alteración significativa de la varianza por la interpolación puede distorsi
 f_test_result <- var.test(energia_sin_interpolacion, energia_con_interpolacion)
 f_test_result
 ```
-*Hay evidencia estadística significativa de que la varianza de la serie de tiempo de 'energía' cambia después de aplicar la interpolación.*
+*Hay evidencia significativa de que la varianza de la serie temporal de 'energía' varía tras la interpolación. Este cambio podría influir en un modelo de regresión lineal múltiple destinado a predecir la energía utilizando múltiples variables. Por tanto, se compararán los modelos de regresión lineal múltiple, tanto con los datos originales como con los interpolados, para evaluar el impacto de la variabilidad en la varianza.*
 
-### Regresion
+### Análisis y Ajuste de Datos Interpolados para la Regresión Lineal Múltiple
+*Se analizará la regresión sobre los datos interpolados, que son de interés para el proyecto. Tras este análisis, se harán ajustes correspondientes en ambos conjuntos de datos (interpolados y no interpolados), con el objetivo de calcular la regresión lineal múltiple definitiva de la variable energía*
+
 ### Mixed Selection
 ```{r}
 
 ```
-### Matriz de Correlacion
+### Matriz de Correlacion para los datos interpolados
 ```{r echo=FALSE}
 library(ggplot2)
 library(corrplot)
-variables_interes <- datos_con_interpolacion[, c("workstation_ram", "workstation_ram_power",
+variables_interes_interpoladas <- datos_con_interpolacion[, c("workstation_ram", "workstation_ram_power",
                                                  "workstation_cpu", "workstation_cpu_power",
                                                  "workstation_cpu_temp", "workstation_gpu",
                                                  "workstation_gpu_power", "workstation_gpu_temp",
                                                  "voltaje", "corriente", "potencia",
                                                  "frecuencia", "energia", "fp", "esp32_temp")]
 
-matriz_correlacion <- cor(variables_interes, use = "complete.obs")
-corrplot(matriz_correlacion, method = "circle")
+matriz_correlacion_interpolados <- cor(variables_interes_interpoladas, use = "complete.obs")
+corrplot(matriz_correlacion_interpolados, method = "circle")
 ```
-
-### Regresion Lineal Multiple
+### Regresion Lineal entre variables
+*Primero normalizamos todas las columnas*
+```{r echo=FALSE}
+normalize <- function(x) {
+  return ((x - min(x)) / (max(x) - min(x)))
+}
+variables_interes_interpoladas_normalizadas <- as.data.frame(lapply(variables_interes_interpoladas, normalize))
+head(variables_interes_interpoladas_normalizadas)
+```
+### Energia ~ Frecuencia
+```{r echo=FALSE}
+modelo_energia_frecuencia<-lm(energia ~ frecuencia,variables_interes_interpoladas)
+summary(modelo_energia_frecuencia)
+```
