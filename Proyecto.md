@@ -514,16 +514,18 @@ El enfoque principal de nuestro análisis será la variable ‘energía’,
 debido a su relevancia para el proyecto. Esta variable es crucial ya que
 sobre ella se realizarán cálculos de predicción. Con el fin de evaluar
 el impacto de la interpolación, compararemos las medias y varianzas de
-los datos antes y después de aplicar esta técnica.
-
-### Comparacion de Medias
-
-Es esencial asegurar que la interpolación no haya sesgado
-significativamente la media, ya que cambios notables podrían llevar a
-interpretaciones erróneas de las tendencias en la serie de tiempo,
-afectando las predicciones sobre el consumo.
+los datos antes y después de aplicar esta técnica. Es esencial asegurar
+que la interpolación no haya sesgado significativamente la media o la
+varianza.
 
 ### Prueba de bondad de ajuste
+
+*Se realizarán pruebas de bondad de ajuste en la variable de energía
+(tanto como para el set de datos sin interpolar como el set interpolado)
+para determinar si sigue una distribución normal. Confirmar la
+normalidad nos permitirá emplear pruebas estadísticas que presuponen
+esta condición, facilitando la realización de tests de significancia
+tanto para la media como para la varianza.*
 
 ``` r
 energia_sin_interpolacion <- na.omit(datos_sin_interpolacion[['energia']])
@@ -558,11 +560,27 @@ ks.test(energia_con_interpolacion, "pnorm", mean=mean(energia_con_interpolacion)
     ## D = 0.3063, p-value < 2.2e-16
     ## alternative hypothesis: two-sided
 
-*Dado el tamaño considerable de nuestra muestra, podemos aplicar el
+*Los resultados de las pruebas de Kolmogorov-Smirnov, tanto para la
+variable `energia_sin_interpolacion` como para
+`energia_con_interpolacion`, muestran valores de D significativos y
+valores p extremadamente bajos (menores que 2.2e-16), lo que indica un
+rechazo firme de la hipótesis nula de normalidad. En consecuencia, se
+concluye que la variable energía, tanto en su forma interpolada como sin
+interpolar, no se ajusta a una distribución normal.*
+
+### Comparacion de Medias
+
+Las notables variaciones en la serie de tiempo podrían resultar en
+interpretaciones incorrectas de las tendencias, impactando las
+proyecciones sobre el consumo. Por esta razón, se efectuarán
+comparaciones de las medias entre ambos conjuntos de datos para asegurar
+la precisión en el análisis.
+
+Dado el tamaño considerable de nuestra muestra, podemos aplicar el
 Teorema del Límite Central para asumir que la distribución de la media
 de la muestra se aproxima a una normal. Esto nos permite realizar
 pruebas de significancia que presuponen normalidad en la distribución de
-la variable de interés.*
+la variable de interés.
 
 ### Prueba de significancia sobre la Media
 
@@ -594,20 +612,20 @@ t_test_result
 ‘energía’ cambia significativamente después de aplicar la interpolación.
 Las medias de ambas muestras son estadísticamente similares.*
 
-*Para evaluar la igualdad de varianzas entre las dos muestras,
-emplearemos la prueba de Levene. Esta elección se justifica porque la
-prueba de bondad de ajuste no confirmó que la variable de interés
-siguiera una distribución normal. La prueba de Levene es preferible en
-este contexto ya que es menos sensible a desviaciones de la normalidad
-en comparación con otras pruebas que comparan varianzas.*
-
 ### Comparacion de Varianzas
 
 La alteración significativa de la varianza por la interpolación puede
 distorsionar la volatilidad de la serie de tiempo, impactando
 directamente en la precisión de las predicciones de consumo energético.
 
-### Prueba de Levene sobre la Varianza
+Para evaluar la igualdad de varianzas entre las dos muestras,
+emplearemos la prueba de Levene. Esta elección se justifica porque la
+prueba de bondad de ajuste no confirmó que la variable de interés
+siguiera una distribución normal. La prueba de Levene es preferible en
+este contexto ya que es menos sensible a desviaciones de la normalidad
+en comparación con otras pruebas que comparan varianzas.
+
+**Prueba de Levene sobre la Varianza**
 
 -   *Hipótesis Nula:* La varianza de la serie de tiempo no cambia
     significativamente después de aplicar la interpolación.
@@ -642,12 +660,12 @@ estadísticamente significativa en las varianzas entre los dos grupos.*
 
 ### Análisis y Ajuste de Datos Interpolados para la Regresión Lineal Múltiple
 
-*Se analizarán los datos interpolados, relevantes para el proyecto, los
+Se analizarán los datos interpolados, relevantes para el proyecto, los
 cuales, como se verificó previamente, no presentan diferencias
 significativas en media y varianza en comparación con los datos antes de
 la interpolación. Tras este análisis, se realizarán los ajustes
 necesarios con miras a establecer la regresión lineal múltiple
-definitiva de la variable energía.*
+definitiva de la variable energía.
 
 ### Matriz de Correlacion para los datos interpolados
 
