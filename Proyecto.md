@@ -510,22 +510,23 @@ workstation_ram_power <- datos_con_interpolacion[['workstation_ram_power']]
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-46-1.png)![](Proyecto_files/figure-markdown_github/unnamed-chunk-46-2.png)
 
-El enfoque principal de nuestro análisis será la variable ‘energía’,
-debido a su relevancia para el proyecto. Esta variable es crucial ya que
-sobre ella se realizarán cálculos de predicción. Con el fin de evaluar
-el impacto de la interpolación, compararemos las medias y varianzas de
-los datos antes y después de aplicar esta técnica. Es esencial asegurar
-que la interpolación no haya sesgado significativamente la media o la
-varianza.
+Nuestro análisis se centrará en la variable ‘energía’, esencial para las
+predicciones en el proyecto. Examinaremos cómo la interpolación influye
+en esta variable, comparando medias y varianzas antes y después de su
+aplicación. Esta comparación es crucial para garantizar que la
+interpolación no introduzca sesgos significativos en la media o altere
+la varianza, ya que tales distorsiones podrían llevar a interpretaciones
+incorrectas de tendencias y afectar la precisión de nuestras
+proyecciones de consumo energético.
 
 ### Prueba de bondad de ajuste
 
-*Se realizarán pruebas de bondad de ajuste en la variable de energía
+Se realizarán pruebas de bondad de ajuste en la variable de energía
 (tanto como para el set de datos sin interpolar como el set interpolado)
 para determinar si sigue una distribución normal. Confirmar la
 normalidad nos permitirá emplear pruebas estadísticas que presuponen
 esta condición, facilitando la realización de tests de significancia
-tanto para la media como para la varianza.*
+tanto para la media como para la varianza.
 
 ``` r
 energia_sin_interpolacion <- na.omit(datos_sin_interpolacion[['energia']])
@@ -570,12 +571,6 @@ interpolar, no se ajusta a una distribución normal.*
 
 ### Comparacion de Medias
 
-Las notables variaciones en la serie de tiempo podrían resultar en
-interpretaciones incorrectas de las tendencias, impactando las
-proyecciones sobre el consumo. Por esta razón, se efectuarán
-comparaciones de las medias entre ambos conjuntos de datos para asegurar
-la precisión en el análisis.
-
 Dado el tamaño considerable de nuestra muestra, podemos aplicar el
 Teorema del Límite Central para asumir que la distribución de la media
 de la muestra se aproxima a una normal. Esto nos permite realizar
@@ -613,10 +608,6 @@ t_test_result
 Las medias de ambas muestras son estadísticamente similares.*
 
 ### Comparacion de Varianzas
-
-La alteración significativa de la varianza por la interpolación puede
-distorsionar la volatilidad de la serie de tiempo, impactando
-directamente en la precisión de las predicciones de consumo energético.
 
 Para evaluar la igualdad de varianzas entre las dos muestras,
 emplearemos la prueba de Levene. Esta elección se justifica porque la
@@ -664,8 +655,8 @@ Se analizarán los datos interpolados, relevantes para el proyecto, los
 cuales, como se verificó previamente, no presentan diferencias
 significativas en media y varianza en comparación con los datos antes de
 la interpolación. Tras este análisis, se realizarán los ajustes
-necesarios con miras a establecer la regresión lineal múltiple
-definitiva de la variable energía.
+necesarios para establecer la regresión lineal múltiple optima de la
+variable energía.
 
 ### Matriz de Correlacion para los datos interpolados
 
@@ -673,9 +664,11 @@ definitiva de la variable energía.
 
     ## corrplot 0.92 loaded
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-50-1.png) \###
-Regresion Lineal entre variables *Primero normalizamos todas las
-columnas*
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-50-1.png)
+
+### Regresion Lineal entre variables
+
+*Primero normalizamos todas las columnas*
 
     ##   workstation_ram workstation_ram_power workstation_cpu workstation_cpu_power
     ## 1       0.1067597             0.1874793      0.12968918                   0.1
@@ -725,3 +718,73 @@ columnas*
     ##   (614 observations deleted due to missingness)
     ## Multiple R-squared:  0.0002662,  Adjusted R-squared:  0.0001606 
     ## F-statistic:  2.52 on 1 and 9464 DF,  p-value: 0.1124
+
+### Energia ~ workstation_ram
+
+modelo_energia_workstation_ram \<- lm(energia ~ workstation_ram,
+variables_interes_interpoladas) summary(modelo_energia_workstation_ram)
+
+### Energia ~ workstation_ram_power
+
+modelo_energia_workstation_ram_power \<- lm(energia ~
+workstation_ram_power, variables_interes_interpoladas)
+summary(modelo_energia_workstation_ram_power)
+
+### Energia ~ workstation_cpu
+
+modelo_energia_workstation_cpu \<- lm(energia ~ workstation_cpu,
+variables_interes_interpoladas) summary(modelo_energia_workstation_cpu)
+
+### Energia ~ workstation_cpu_power
+
+modelo_energia_workstation_cpu_power \<- lm(energia ~
+workstation_cpu_power, variables_interes_interpoladas)
+summary(modelo_energia_workstation_cpu_power)
+
+### Energia ~ workstation_cpu_temp
+
+modelo_energia_workstation_cpu_temp \<- lm(energia ~
+workstation_cpu_temp, variables_interes_interpoladas)
+summary(modelo_energia_workstation_cpu_temp)
+
+### Energia ~ workstation_gpu
+
+modelo_energia_workstation_gpu \<- lm(energia ~ workstation_gpu,
+variables_interes_interpoladas) summary(modelo_energia_workstation_gpu)
+
+### Energia ~ workstation_gpu_power
+
+modelo_energia_workstation_gpu_power \<- lm(energia ~
+workstation_gpu_power, variables_interes_interpoladas)
+summary(modelo_energia_workstation_gpu_power)
+
+### Energia ~ workstation_gpu_temp
+
+modelo_energia_workstation_gpu_temp \<- lm(energia ~
+workstation_gpu_temp, variables_interes_interpoladas)
+summary(modelo_energia_workstation_gpu_temp)
+
+### Energia ~ voltaje
+
+modelo_energia_voltaje \<- lm(energia ~ voltaje,
+variables_interes_interpoladas) summary(modelo_energia_voltaje)
+
+### Energia ~ corriente
+
+modelo_energia_corriente \<- lm(energia ~ corriente,
+variables_interes_interpoladas) summary(modelo_energia_corriente)
+
+### Energia ~ potencia
+
+modelo_energia_potencia \<- lm(energia ~ potencia,
+variables_interes_interpoladas) summary(modelo_energia_potencia)
+
+### Energia ~ fp
+
+modelo_energia_fp \<- lm(energia ~ fp, variables_interes_interpoladas)
+summary(modelo_energia_fp)
+
+### Energia ~ esp32_temp
+
+modelo_energia_esp32_temp \<- lm(energia ~ esp32_temp,
+variables_interes_interpoladas) summary(modelo_energia_esp32_temp)
