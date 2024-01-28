@@ -1006,3 +1006,17 @@ variable energía.
     ##   (614 observations deleted due to missingness)
     ## Multiple R-squared:  7.908e-05,  Adjusted R-squared:  -2.658e-05 
     ## F-statistic: 0.7485 on 1 and 9464 DF,  p-value: 0.387
+
+La probabilidad observada sugiere que, bajo la hipótesis nula de que el
+coeficiente es en realidad cero, es poco probable que valores tan
+distantes de cero ocurran por casualidad, sugiriendo que las variables
+no ejercen una influencia significativa en la predicción de energía. Sin
+embargo, para variables como frecuencia, workstation_ram,
+workstation_cpu_power, workstation_gpu, workstation_gpu_power,
+workstation_gpu_temp, voltaje y esp32_temp, existe una mayor
+probabilidad de que el coeficiente sea cero, indicando una influencia
+menos pronunciada en el modelo. Por otro lado, variables como
+workstation_ram_power, workstation_cpu, workstation_cpu_temp, corriente,
+potencia y fp muestran probabilidades más bajas, lo que refleja una
+mayor certeza en el coeficiente calculado y sugiere una influencia más
+significativa en la predicción de energía.
