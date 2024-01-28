@@ -721,6 +721,8 @@ variable energía.
     ## Multiple R-squared:  0.0002662,  Adjusted R-squared:  0.0001606 
     ## F-statistic:  2.52 on 1 and 9464 DF,  p-value: 0.1124
 
+    ## Desviación estándar de los residuos: 0.002953811
+
 ### Energia ~ workstation_ram
 
     ## 
@@ -742,6 +744,8 @@ variable energía.
     ##   (614 observations deleted due to missingness)
     ## Multiple R-squared:  2.89e-05,   Adjusted R-squared:  -7.676e-05 
     ## F-statistic: 0.2736 on 1 and 9464 DF,  p-value: 0.601
+
+    ## Desviación estándar de los residuos: 0.002954162
 
 ### Energia ~ workstation_ram_power
 
@@ -765,6 +769,8 @@ variable energía.
     ## Multiple R-squared:  0.0006397,  Adjusted R-squared:  0.0005341 
     ## F-statistic: 6.058 on 1 and 9464 DF,  p-value: 0.01386
 
+    ## Desviación estándar de los residuos: 0.002953259
+
 ### Energia ~ workstation_cpu
 
     ## 
@@ -786,6 +792,8 @@ variable energía.
     ##   (614 observations deleted due to missingness)
     ## Multiple R-squared:  0.0008251,  Adjusted R-squared:  0.0007195 
     ## F-statistic: 7.815 on 1 and 9464 DF,  p-value: 0.005192
+
+    ## Desviación estándar de los residuos: 0.002952985
 
 ### Energia ~ workstation_cpu_power
 
@@ -809,6 +817,8 @@ variable energía.
     ## Multiple R-squared:  5.911e-06,  Adjusted R-squared:  -9.975e-05 
     ## F-statistic: 0.05594 on 1 and 9464 DF,  p-value: 0.813
 
+    ## Desviación estándar de los residuos: 0.002954195
+
 ### Energia ~ workstation_cpu_temp
 
     ## 
@@ -830,6 +840,8 @@ variable energía.
     ##   (614 observations deleted due to missingness)
     ## Multiple R-squared:  0.0009129,  Adjusted R-squared:  0.0008073 
     ## F-statistic: 8.647 on 1 and 9464 DF,  p-value: 0.003284
+
+    ## Desviación estándar de los residuos: 0.002952856
 
 ### Energia ~ workstation_gpu
 
@@ -853,6 +865,8 @@ variable energía.
     ## Multiple R-squared:  2.327e-06,  Adjusted R-squared:  -0.0001033 
     ## F-statistic: 0.02202 on 1 and 9464 DF,  p-value: 0.882
 
+    ## Desviación estándar de los residuos: 0.002954201
+
 ### Energia ~ workstation_gpu_power
 
     ## 
@@ -874,6 +888,8 @@ variable energía.
     ##   (614 observations deleted due to missingness)
     ## Multiple R-squared:  3.423e-06,  Adjusted R-squared:  -0.0001022 
     ## F-statistic: 0.03239 on 1 and 9464 DF,  p-value: 0.8572
+
+    ## Desviación estándar de los residuos: 0.002954199
 
 ### Energia ~ workstation_gpu_temp
 
@@ -897,6 +913,8 @@ variable energía.
     ## Multiple R-squared:  5.21e-07,   Adjusted R-squared:  -0.0001051 
     ## F-statistic: 0.004931 on 1 and 9464 DF,  p-value: 0.944
 
+    ## Desviación estándar de los residuos: 0.002954203
+
 ### Energia ~ voltaje
 
     ## 
@@ -918,6 +936,8 @@ variable energía.
     ##   (614 observations deleted due to missingness)
     ## Multiple R-squared:  2.94e-05,   Adjusted R-squared:  -7.626e-05 
     ## F-statistic: 0.2783 on 1 and 9464 DF,  p-value: 0.5978
+
+    ## Desviación estándar de los residuos: 0.002954161
 
 ### Energia ~ corriente
 
@@ -941,6 +961,8 @@ variable energía.
     ## Multiple R-squared:  0.001117,   Adjusted R-squared:  0.001012 
     ## F-statistic: 10.59 on 1 and 9464 DF,  p-value: 0.001143
 
+    ## Desviación estándar de los residuos: 0.002952553
+
 ### Energia ~ potencia
 
     ## 
@@ -962,6 +984,8 @@ variable energía.
     ##   (614 observations deleted due to missingness)
     ## Multiple R-squared:  0.001117,   Adjusted R-squared:  0.001012 
     ## F-statistic: 10.59 on 1 and 9464 DF,  p-value: 0.001143
+
+    ## Desviación estándar de los residuos: 0.002952553
 
 ### Energia ~ fp
 
@@ -985,6 +1009,8 @@ variable energía.
     ## Multiple R-squared:  0.0008173,  Adjusted R-squared:  0.0007117 
     ## F-statistic: 7.741 on 1 and 9464 DF,  p-value: 0.005409
 
+    ## Desviación estándar de los residuos: 0.002952997
+
 ### Energia ~ esp32_temp
 
     ## 
@@ -1007,6 +1033,8 @@ variable energía.
     ## Multiple R-squared:  7.908e-05,  Adjusted R-squared:  -2.658e-05 
     ## F-statistic: 0.7485 on 1 and 9464 DF,  p-value: 0.387
 
+    ## Desviación estándar de los residuos: 0.002954087
+
 La probabilidad observada sugiere que, bajo la hipótesis nula de que el
 coeficiente es en realidad cero, es poco probable que valores tan
 distantes de cero ocurran por casualidad, sugiriendo que las variables
@@ -1020,3 +1048,5 @@ workstation_ram_power, workstation_cpu, workstation_cpu_temp, corriente,
 potencia y fp muestran probabilidades más bajas, lo que refleja una
 mayor certeza en el coeficiente calculado y sugiere una influencia más
 significativa en la predicción de energía.
+
+### Desviacion estandar de los residuos

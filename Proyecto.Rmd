@@ -450,83 +450,103 @@ head(variables_interes_interpoladas_normalizadas)
 ```{r echo=FALSE}
 modelo_energia_frecuencia<-lm(energia ~ frecuencia,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_frecuencia)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_frecuencia)$sigma, '\n')
 ```
+
 
 ### Energia ~ workstation_ram
 ```{r echo=FALSE}
 modelo_energia_workstation_ram <- lm(energia ~ workstation_ram, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_ram)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_ram)$sigma, '\n')
 ```
 
 ### Energia ~ workstation_ram_power
 ```{r echo=FALSE}
 modelo_energia_workstation_ram_power <- lm(energia ~ workstation_ram_power, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_ram_power)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_ram_power)$sigma, '\n')
 ```
 
 ### Energia ~ workstation_cpu
 ```{r echo=FALSE}
 modelo_energia_workstation_cpu <- lm(energia ~ workstation_cpu, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu)$sigma, '\n')
 ```
 
 ### Energia ~ workstation_cpu_power
 ```{r echo=FALSE}
 modelo_energia_workstation_cpu_power <- lm(energia ~ workstation_cpu_power, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu_power)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu_power)$sigma, '\n')
 ```
 
 ### Energia ~ workstation_cpu_temp
 ```{r echo=FALSE}
 modelo_energia_workstation_cpu_temp <- lm(energia ~ workstation_cpu_temp, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu_temp)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu_temp)$sigma, '\n')
 ```
 
 ### Energia ~ workstation_gpu
 ```{r echo=FALSE}
 modelo_energia_workstation_gpu <- lm(energia ~ workstation_gpu, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu)$sigma, '\n')
 ```
 
 ### Energia ~ workstation_gpu_power
 ```{r echo=FALSE}
 modelo_energia_workstation_gpu_power <- lm(energia ~ workstation_gpu_power, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu_power)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu_power)$sigma, '\n')
 ```
 
 ### Energia ~ workstation_gpu_temp
 ```{r echo=FALSE}
 modelo_energia_workstation_gpu_temp <- lm(energia ~ workstation_gpu_temp, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu_temp)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu_temp)$sigma, '\n')
 ```
 
 ### Energia ~ voltaje
 ```{r echo=FALSE}
 modelo_energia_voltaje <- lm(energia ~ voltaje, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_voltaje)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_voltaje)$sigma, '\n')
 ```
 
 ### Energia ~ corriente
 ```{r echo=FALSE}
 modelo_energia_corriente <- lm(energia ~ corriente, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_corriente)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_corriente)$sigma, '\n')
 ```
 
 ### Energia ~ potencia
 ```{r echo=FALSE}
 modelo_energia_potencia <- lm(energia ~ potencia, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_potencia)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_potencia)$sigma, '\n')
 ```
 
 ### Energia ~ fp
 ```{r echo=FALSE}
 modelo_energia_fp <- lm(energia ~ fp, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_fp)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_fp)$sigma, '\n')
 ```
 
 ### Energia ~ esp32_temp
 ```{r echo=FALSE}
 modelo_energia_esp32_temp <- lm(energia ~ esp32_temp, variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_esp32_temp)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_esp32_temp)$sigma, '\n')
 ```
 La probabilidad observada sugiere que, bajo la hipótesis nula de que el coeficiente es en realidad cero, es poco probable que valores tan distantes de cero ocurran por casualidad, sugiriendo que las variables no ejercen una influencia significativa en la predicción de energía. Sin embargo, para variables como frecuencia, workstation_ram, workstation_cpu_power, workstation_gpu, workstation_gpu_power, workstation_gpu_temp, voltaje y esp32_temp, existe una mayor probabilidad de que el coeficiente sea cero, indicando una influencia menos pronunciada en el modelo. Por otro lado, variables como workstation_ram_power, workstation_cpu, workstation_cpu_temp, corriente, potencia y fp muestran probabilidades más bajas, lo que refleja una mayor certeza en el coeficiente calculado y sugiere una influencia más significativa en la predicción de energía.
+
+### Desviacion estandar de los residuos
+```{r echo=FALSE}
+
+```
