@@ -781,8 +781,9 @@ variable energía.
 
     ## Grafico de residuos:
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-54-1.png) \###
-Energia ~ workstation_cpu
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-54-1.png)
+
+### Energia ~ workstation_cpu
 
     ## 
     ## Call:
@@ -1088,8 +1089,9 @@ Energia ~ workstation_cpu
 
     ## Grafico de residuos:
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-65-1.png) La
-probabilidad observada sugiere que, bajo la hipótesis nula de que el
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-65-1.png)
+
+La probabilidad observada sugiere que, bajo la hipótesis nula de que el
 coeficiente es en realidad cero, es poco probable que valores tan
 distantes de cero ocurran por casualidad, sugiriendo que las variables
 no ejercen una influencia significativa en la predicción de energía. Sin
