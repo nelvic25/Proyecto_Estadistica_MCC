@@ -691,13 +691,13 @@ variable energía.
     ## 4           0.11384338 0.3807018 0.09397044 0.1202425    0.74625 0.3883929
     ## 5           0.11042609 0.3929825 0.10303280 0.1292318    0.68500 0.3794643
     ## 6           0.09772385 0.3929825 0.09870758 0.1258092    0.62375 0.3928571
-    ##   esp32_temp
-    ## 1  0.7595292
-    ## 2  0.7331840
-    ## 3  0.6799329
-    ## 4  0.6804934
-    ## 5  0.8133409
-    ## 6  0.8402467
+    ##   esp32_temp     energia
+    ## 1  0.7595292 0.001916667
+    ## 2  0.7331840 0.002000000
+    ## 3  0.6799329 0.002000000
+    ## 4  0.6804934 0.001933333
+    ## 5  0.8133409 0.002000000
+    ## 6  0.8402467 0.001933333
 
 ### Energia ~ Frecuencia
 
@@ -723,6 +723,10 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002953811
 
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-52-1.png)
+
 ### Energia ~ workstation_ram
 
     ## 
@@ -746,6 +750,10 @@ variable energía.
     ## F-statistic: 0.2736 on 1 and 9464 DF,  p-value: 0.601
 
     ## Desviación estándar de los residuos: 0.002954162
+
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-53-1.png)
 
 ### Energia ~ workstation_ram_power
 
@@ -771,7 +779,10 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002953259
 
-### Energia ~ workstation_cpu
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-54-1.png) \###
+Energia ~ workstation_cpu
 
     ## 
     ## Call:
@@ -794,6 +805,10 @@ variable energía.
     ## F-statistic: 7.815 on 1 and 9464 DF,  p-value: 0.005192
 
     ## Desviación estándar de los residuos: 0.002952985
+
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-55-1.png)
 
 ### Energia ~ workstation_cpu_power
 
@@ -819,6 +834,10 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002954195
 
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-56-1.png)
+
 ### Energia ~ workstation_cpu_temp
 
     ## 
@@ -842,6 +861,10 @@ variable energía.
     ## F-statistic: 8.647 on 1 and 9464 DF,  p-value: 0.003284
 
     ## Desviación estándar de los residuos: 0.002952856
+
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-57-1.png)
 
 ### Energia ~ workstation_gpu
 
@@ -867,6 +890,10 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002954201
 
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-58-1.png)
+
 ### Energia ~ workstation_gpu_power
 
     ## 
@@ -890,6 +917,10 @@ variable energía.
     ## F-statistic: 0.03239 on 1 and 9464 DF,  p-value: 0.8572
 
     ## Desviación estándar de los residuos: 0.002954199
+
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-59-1.png)
 
 ### Energia ~ workstation_gpu_temp
 
@@ -915,6 +946,10 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002954203
 
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-60-1.png)
+
 ### Energia ~ voltaje
 
     ## 
@@ -938,6 +973,10 @@ variable energía.
     ## F-statistic: 0.2783 on 1 and 9464 DF,  p-value: 0.5978
 
     ## Desviación estándar de los residuos: 0.002954161
+
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-61-1.png)
 
 ### Energia ~ corriente
 
@@ -963,6 +1002,10 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002952553
 
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-62-1.png)
+
 ### Energia ~ potencia
 
     ## 
@@ -986,6 +1029,10 @@ variable energía.
     ## F-statistic: 10.59 on 1 and 9464 DF,  p-value: 0.001143
 
     ## Desviación estándar de los residuos: 0.002952553
+
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-63-1.png)
 
 ### Energia ~ fp
 
@@ -1011,6 +1058,10 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002952997
 
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-64-1.png)
+
 ### Energia ~ esp32_temp
 
     ## 
@@ -1035,7 +1086,10 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002954087
 
-La probabilidad observada sugiere que, bajo la hipótesis nula de que el
+    ## Grafico de residuos:
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-65-1.png) La
+probabilidad observada sugiere que, bajo la hipótesis nula de que el
 coeficiente es en realidad cero, es poco probable que valores tan
 distantes de cero ocurran por casualidad, sugiriendo que las variables
 no ejercen una influencia significativa en la predicción de energía. Sin

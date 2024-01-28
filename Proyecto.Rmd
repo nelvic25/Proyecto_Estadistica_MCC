@@ -444,105 +444,259 @@ normalize <- function(x) {
   return ((x - min(x)) / (max(x) - min(x)))
 }
 variables_interes_interpoladas_normalizadas <- as.data.frame(lapply(variables_interes_interpoladas, normalize))
+variables_interes_interpoladas_normalizadas$energia <- variables_interes_interpoladas_correlacion$energia
 head(variables_interes_interpoladas_normalizadas)
+
 ```
 ### Energia ~ Frecuencia
 ```{r echo=FALSE}
 modelo_energia_frecuencia<-lm(energia ~ frecuencia,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_frecuencia)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_frecuencia)$sigma, '\n')
-```
+cat('Grafico de residuos: \n')
 
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$frecuencia, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "Frecuencia", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. Frecuencia")
+segments(variables_interes_interpoladas_normalizadas$frecuencia, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$frecuencia, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_frecuencia, col = 'blue')
+```
 
 ### Energia ~ workstation_ram
 ```{r echo=FALSE}
-modelo_energia_workstation_ram <- lm(energia ~ workstation_ram, variables_interes_interpoladas_normalizadas)
+modelo_energia_workstation_ram<-lm(energia ~ workstation_ram,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_ram)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_ram)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$workstation_ram, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "workstation_ram", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. workstation_ram")
+segments(variables_interes_interpoladas_normalizadas$workstation_ram, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$workstation_ram, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_workstation_ram, col = 'blue')
 ```
 
 ### Energia ~ workstation_ram_power
 ```{r echo=FALSE}
-modelo_energia_workstation_ram_power <- lm(energia ~ workstation_ram_power, variables_interes_interpoladas_normalizadas)
+modelo_energia_workstation_ram_power<-lm(energia ~ workstation_ram_power,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_ram_power)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_ram_power)$sigma, '\n')
-```
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+plot(variables_interes_interpoladas_normalizadas$workstation_ram_power, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "workstation_ram_power", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. workstation_ram_power")
+segments(variables_interes_interpoladas_normalizadas$workstation_ram_power, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$workstation_ram_power, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
 
+abline(modelo_energia_workstation_ram_power, col = 'blue')
+```
 ### Energia ~ workstation_cpu
 ```{r echo=FALSE}
-modelo_energia_workstation_cpu <- lm(energia ~ workstation_cpu, variables_interes_interpoladas_normalizadas)
+modelo_energia_workstation_cpu<-lm(energia ~ workstation_cpu,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$workstation_cpu, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "workstation_cpu", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. workstation_cpu")
+segments(variables_interes_interpoladas_normalizadas$workstation_cpu, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$workstation_cpu, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_workstation_cpu, col = 'blue')
 ```
 
 ### Energia ~ workstation_cpu_power
 ```{r echo=FALSE}
-modelo_energia_workstation_cpu_power <- lm(energia ~ workstation_cpu_power, variables_interes_interpoladas_normalizadas)
+modelo_energia_workstation_cpu_power<-lm(energia ~ workstation_cpu_power,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu_power)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu_power)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$workstation_cpu_power, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "workstation_cpu_power", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. workstation_cpu_power")
+segments(variables_interes_interpoladas_normalizadas$workstation_cpu_power, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$workstation_cpu_power, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_workstation_cpu_power, col = 'blue')
 ```
 
 ### Energia ~ workstation_cpu_temp
 ```{r echo=FALSE}
-modelo_energia_workstation_cpu_temp <- lm(energia ~ workstation_cpu_temp, variables_interes_interpoladas_normalizadas)
+modelo_energia_workstation_cpu_temp<-lm(energia ~ workstation_cpu_temp,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu_temp)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu_temp)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$workstation_cpu_temp, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "workstation_cpu_temp", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. workstation_cpu_temp")
+segments(variables_interes_interpoladas_normalizadas$workstation_cpu_temp, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$workstation_cpu_temp, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_workstation_cpu_temp, col = 'blue')
 ```
 
 ### Energia ~ workstation_gpu
 ```{r echo=FALSE}
-modelo_energia_workstation_gpu <- lm(energia ~ workstation_gpu, variables_interes_interpoladas_normalizadas)
+modelo_energia_workstation_gpu<-lm(energia ~ workstation_gpu,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$workstation_gpu, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "workstation_gpu", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. workstation_gpu")
+segments(variables_interes_interpoladas_normalizadas$workstation_gpu, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$workstation_gpu, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_workstation_gpu, col = 'blue')
 ```
 
 ### Energia ~ workstation_gpu_power
 ```{r echo=FALSE}
-modelo_energia_workstation_gpu_power <- lm(energia ~ workstation_gpu_power, variables_interes_interpoladas_normalizadas)
+modelo_energia_workstation_gpu_power<-lm(energia ~ workstation_gpu_power,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu_power)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu_power)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$workstation_gpu_power, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "workstation_gpu_power", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. workstation_gpu_power")
+segments(variables_interes_interpoladas_normalizadas$workstation_gpu_power, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$workstation_gpu_power, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_workstation_gpu_power, col = 'blue')
 ```
 
 ### Energia ~ workstation_gpu_temp
 ```{r echo=FALSE}
-modelo_energia_workstation_gpu_temp <- lm(energia ~ workstation_gpu_temp, variables_interes_interpoladas_normalizadas)
+modelo_energia_workstation_gpu_temp<-lm(energia ~ workstation_gpu_temp,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu_temp)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu_temp)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$workstation_gpu_temp, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "workstation_gpu_temp", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. workstation_gpu_temp")
+segments(variables_interes_interpoladas_normalizadas$workstation_gpu_temp, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$workstation_gpu_temp, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_workstation_gpu_temp, col = 'blue')
 ```
 
 ### Energia ~ voltaje
 ```{r echo=FALSE}
-modelo_energia_voltaje <- lm(energia ~ voltaje, variables_interes_interpoladas_normalizadas)
+modelo_energia_voltaje<-lm(energia ~ voltaje,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_voltaje)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_voltaje)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$voltaje, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "voltaje", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. voltaje")
+segments(variables_interes_interpoladas_normalizadas$voltaje, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$voltaje, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_voltaje, col = 'blue')
 ```
 
 ### Energia ~ corriente
 ```{r echo=FALSE}
-modelo_energia_corriente <- lm(energia ~ corriente, variables_interes_interpoladas_normalizadas)
+modelo_energia_corriente<-lm(energia ~ corriente,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_corriente)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_corriente)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$corriente, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "corriente", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. corriente")
+segments(variables_interes_interpoladas_normalizadas$corriente, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$corriente, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_corriente, col = 'blue')
 ```
 
 ### Energia ~ potencia
 ```{r echo=FALSE}
-modelo_energia_potencia <- lm(energia ~ potencia, variables_interes_interpoladas_normalizadas)
+modelo_energia_potencia<-lm(energia ~ potencia,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_potencia)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_potencia)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$potencia, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "potencia", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. potencia")
+segments(variables_interes_interpoladas_normalizadas$potencia, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$potencia, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_potencia, col = 'blue')
 ```
 
 ### Energia ~ fp
 ```{r echo=FALSE}
-modelo_energia_fp <- lm(energia ~ fp, variables_interes_interpoladas_normalizadas)
+modelo_energia_fp<-lm(energia ~ fp,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_fp)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_fp)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$fp, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "fp", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. fp")
+segments(variables_interes_interpoladas_normalizadas$fp, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$fp, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_fp, col = 'blue')
 ```
 
 ### Energia ~ esp32_temp
 ```{r echo=FALSE}
-modelo_energia_esp32_temp <- lm(energia ~ esp32_temp, variables_interes_interpoladas_normalizadas)
+modelo_energia_esp32_temp<-lm(energia ~ esp32_temp,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_esp32_temp)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_esp32_temp)$sigma, '\n')
+cat('Grafico de residuos: \n')
+valores_ajustados <- fitted(modelo_energia_frecuencia)
+
+plot(variables_interes_interpoladas_normalizadas$esp32_temp, variables_interes_interpoladas_normalizadas$energia,
+     xlab = "esp32_temp", ylab = "Energia", pch = 19, col = 'red', main = "Energia vs. esp32_temp")
+segments(variables_interes_interpoladas_normalizadas$esp32_temp, valores_ajustados,
+         variables_interes_interpoladas_normalizadas$esp32_temp, variables_interes_interpoladas_normalizadas$energia,
+         col = 'gray')
+# Añadimos la línea de regresión
+
+abline(modelo_energia_esp32_temp, col = 'blue')
 ```
 La probabilidad observada sugiere que, bajo la hipótesis nula de que el coeficiente es en realidad cero, es poco probable que valores tan distantes de cero ocurran por casualidad, sugiriendo que las variables no ejercen una influencia significativa en la predicción de energía. Sin embargo, para variables como frecuencia, workstation_ram, workstation_cpu_power, workstation_gpu, workstation_gpu_power, workstation_gpu_temp, voltaje y esp32_temp, existe una mayor probabilidad de que el coeficiente sea cero, indicando una influencia menos pronunciada en el modelo. Por otro lado, variables como workstation_ram_power, workstation_cpu, workstation_cpu_temp, corriente, potencia y fp muestran probabilidades más bajas, lo que refleja una mayor certeza en el coeficiente calculado y sugiere una influencia más significativa en la predicción de energía.
 
