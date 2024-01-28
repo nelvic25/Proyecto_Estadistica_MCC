@@ -723,6 +723,8 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002953811
 
+    ## Varianza de los residuos: 0.0002662197
+
     ## Grafico de residuos:
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-52-1.png)
@@ -750,6 +752,8 @@ variable energía.
     ## F-statistic: 0.2736 on 1 and 9464 DF,  p-value: 0.601
 
     ## Desviación estándar de los residuos: 0.002954162
+
+    ## Varianza de los residuos: 2.890374e-05
 
     ## Grafico de residuos:
 
@@ -779,6 +783,8 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002953259
 
+    ## Varianza de los residuos: 0.0006396669
+
     ## Grafico de residuos:
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-54-1.png)
@@ -806,6 +812,8 @@ variable energía.
     ## F-statistic: 7.815 on 1 and 9464 DF,  p-value: 0.005192
 
     ## Desviación estándar de los residuos: 0.002952985
+
+    ## Varianza de los residuos: 0.0008250709
 
     ## Grafico de residuos:
 
@@ -835,6 +843,8 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002954195
 
+    ## Varianza de los residuos: 5.910735e-06
+
     ## Grafico de residuos:
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-56-1.png)
@@ -862,6 +872,8 @@ variable energía.
     ## F-statistic: 8.647 on 1 and 9464 DF,  p-value: 0.003284
 
     ## Desviación estándar de los residuos: 0.002952856
+
+    ## Varianza de los residuos: 0.000912854
 
     ## Grafico de residuos:
 
@@ -891,6 +903,8 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002954201
 
+    ## Varianza de los residuos: 2.326501e-06
+
     ## Grafico de residuos:
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-58-1.png)
@@ -918,6 +932,8 @@ variable energía.
     ## F-statistic: 0.03239 on 1 and 9464 DF,  p-value: 0.8572
 
     ## Desviación estándar de los residuos: 0.002954199
+
+    ## Varianza de los residuos: 3.422702e-06
 
     ## Grafico de residuos:
 
@@ -947,6 +963,8 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002954203
 
+    ## Varianza de los residuos: 5.210187e-07
+
     ## Grafico de residuos:
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-60-1.png)
@@ -974,6 +992,8 @@ variable energía.
     ## F-statistic: 0.2783 on 1 and 9464 DF,  p-value: 0.5978
 
     ## Desviación estándar de los residuos: 0.002954161
+
+    ## Varianza de los residuos: 2.94033e-05
 
     ## Grafico de residuos:
 
@@ -1003,6 +1023,8 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002952553
 
+    ## Varianza de los residuos: 0.001117331
+
     ## Grafico de residuos:
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-62-1.png)
@@ -1030,6 +1052,8 @@ variable energía.
     ## F-statistic: 10.59 on 1 and 9464 DF,  p-value: 0.001143
 
     ## Desviación estándar de los residuos: 0.002952553
+
+    ## Varianza de los residuos: 0.001117406
 
     ## Grafico de residuos:
 
@@ -1059,6 +1083,8 @@ variable energía.
 
     ## Desviación estándar de los residuos: 0.002952997
 
+    ## Varianza de los residuos: 0.000817254
+
     ## Grafico de residuos:
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-64-1.png)
@@ -1086,6 +1112,8 @@ variable energía.
     ## F-statistic: 0.7485 on 1 and 9464 DF,  p-value: 0.387
 
     ## Desviación estándar de los residuos: 0.002954087
+
+    ## Varianza de los residuos: 7.907935e-05
 
     ## Grafico de residuos:
 

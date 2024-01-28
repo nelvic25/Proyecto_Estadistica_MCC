@@ -453,6 +453,7 @@ head(variables_interes_interpoladas_normalizadas)
 modelo_energia_frecuencia<-lm(energia ~ frecuencia,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_frecuencia)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_frecuencia)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_frecuencia)$r.squared, '\n')
 cat('Grafico de residuos: \n')
 
 valores_ajustados <- fitted(modelo_energia_frecuencia)
@@ -472,6 +473,8 @@ abline(modelo_energia_frecuencia, col = 'blue')
 modelo_energia_workstation_ram<-lm(energia ~ workstation_ram,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_ram)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_ram)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_workstation_ram)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -490,6 +493,8 @@ abline(modelo_energia_workstation_ram, col = 'blue')
 modelo_energia_workstation_ram_power<-lm(energia ~ workstation_ram_power,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_ram_power)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_ram_power)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_workstation_ram_power)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 plot(variables_interes_interpoladas_normalizadas$workstation_ram_power, variables_interes_interpoladas_normalizadas$energia,
@@ -507,6 +512,8 @@ abline(modelo_energia_workstation_ram_power, col = 'blue')
 modelo_energia_workstation_cpu<-lm(energia ~ workstation_cpu,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_workstation_cpu)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -525,6 +532,8 @@ abline(modelo_energia_workstation_cpu, col = 'blue')
 modelo_energia_workstation_cpu_power<-lm(energia ~ workstation_cpu_power,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu_power)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu_power)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_workstation_cpu_power)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -543,6 +552,8 @@ abline(modelo_energia_workstation_cpu_power, col = 'blue')
 modelo_energia_workstation_cpu_temp<-lm(energia ~ workstation_cpu_temp,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_cpu_temp)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_cpu_temp)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_workstation_cpu_temp)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -561,6 +572,8 @@ abline(modelo_energia_workstation_cpu_temp, col = 'blue')
 modelo_energia_workstation_gpu<-lm(energia ~ workstation_gpu,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_workstation_gpu)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -579,6 +592,8 @@ abline(modelo_energia_workstation_gpu, col = 'blue')
 modelo_energia_workstation_gpu_power<-lm(energia ~ workstation_gpu_power,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu_power)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu_power)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_workstation_gpu_power)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -597,6 +612,8 @@ abline(modelo_energia_workstation_gpu_power, col = 'blue')
 modelo_energia_workstation_gpu_temp<-lm(energia ~ workstation_gpu_temp,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_workstation_gpu_temp)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_workstation_gpu_temp)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_workstation_gpu_temp)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -615,6 +632,8 @@ abline(modelo_energia_workstation_gpu_temp, col = 'blue')
 modelo_energia_voltaje<-lm(energia ~ voltaje,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_voltaje)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_voltaje)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_voltaje)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -633,6 +652,8 @@ abline(modelo_energia_voltaje, col = 'blue')
 modelo_energia_corriente<-lm(energia ~ corriente,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_corriente)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_corriente)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_corriente)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -651,6 +672,8 @@ abline(modelo_energia_corriente, col = 'blue')
 modelo_energia_potencia<-lm(energia ~ potencia,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_potencia)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_potencia)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_potencia)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -669,6 +692,8 @@ abline(modelo_energia_potencia, col = 'blue')
 modelo_energia_fp<-lm(energia ~ fp,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_fp)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_fp)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_fp)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
@@ -687,6 +712,8 @@ abline(modelo_energia_fp, col = 'blue')
 modelo_energia_esp32_temp<-lm(energia ~ esp32_temp,variables_interes_interpoladas_normalizadas)
 summary(modelo_energia_esp32_temp)
 cat('Desviación estándar de los residuos:', summary(modelo_energia_esp32_temp)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_esp32_temp)$r.squared, '\n')
+
 cat('Grafico de residuos: \n')
 valores_ajustados <- fitted(modelo_energia_frecuencia)
 
