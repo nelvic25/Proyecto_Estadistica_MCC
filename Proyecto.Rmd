@@ -742,12 +742,15 @@ cat('Varianza de los residuos:', summary(modelo_energia_multiple)$r.squared, '\n
 matriz_correlacion_interpolados <- cor(variables_interes_interpoladas_correlacion, use = "complete.obs")
 corrplot(matriz_correlacion_interpolados, method = "circle")
 ```
+
 Implementamos un enfoque iterativo de regresión múltiple utilizando la función regsubsets para identificar la combinación óptima de variables. Nos limitaremos a seleccionar seis variables, que corresponde a la mitad del total disponible, para nuestro modelo final.
 
 ```{r echo=FALSE}
 models <- regsubsets(energia~., data=variables_interes_interpoladas_normalizadas, nvmax=6)
 summary(models)
 ```
+### Conclusion
+
 Las variables seleccionadas como resultado del proceso iterativo son: temperatura de la CPU de la estación de trabajo (workstation_cpu_temp), corriente, potencia, frecuencia, factor de potencia (fp) y la temperatura registrada por el sensor (esp32_temp).
 
 ```{r echo=FALSE}

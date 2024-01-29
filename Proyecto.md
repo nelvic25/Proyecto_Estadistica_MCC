@@ -1179,6 +1179,7 @@ del dataset.
     ## Varianza de los residuos: 0.001692369
 
 ![](Proyecto_files/figure-markdown_github/unnamed-chunk-66-1.png)
+
 Implementamos un enfoque iterativo de regresión múltiple utilizando la
 función regsubsets para identificar la combinación óptima de variables.
 Nos limitaremos a seleccionar seis variables, que corresponde a la mitad
@@ -1233,6 +1234,8 @@ del total disponible, para nuestro modelo final.
     ## 4  ( 1 ) "*"        " " "*"       
     ## 5  ( 1 ) "*"        "*" "*"       
     ## 6  ( 1 ) "*"        "*" "*"
+
+### Conclusion
 
 Las variables seleccionadas como resultado del proceso iterativo son:
 temperatura de la CPU de la estación de trabajo (workstation_cpu_temp),
