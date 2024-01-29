@@ -664,8 +664,6 @@ variable energía.
 
     ## corrplot 0.92 loaded
 
-![](Proyecto_files/figure-markdown_github/unnamed-chunk-50-1.png)
-
 ### Regresion Lineal entre variables
 
 *Primero normalizamos todas las columnas*
@@ -1133,4 +1131,140 @@ potencia y fp muestran probabilidades más bajas, lo que refleja una
 mayor certeza en el coeficiente calculado y sugiere una influencia más
 significativa en la predicción de energía.
 
-### Desviacion estandar de los residuos
+Los pares de variables que mejor representan la variabilidad en relación
+con la energía por medio de la varianza en los residuos son la corriente
+y la potencia, ambos con valores de R-squared de 0.00111.
+
+### Regresion lineal multiple
+
+Realizamos la regresion lineal multiple considerando todas las variables
+del dataset.
+
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_cpu + workstation_cpu_power + 
+    ##     workstation_cpu_temp + workstation_gpu + workstation_gpu_power + 
+    ##     workstation_gpu_temp + voltaje + corriente + potencia + frecuencia + 
+    ##     fp + esp32_temp, data = variables_interes_interpoladas_normalizadas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002639 -0.002004 -0.001900  0.001210  0.008119 
+    ## 
+    ## Coefficients:
+    ##                         Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)            2.501e-03  6.197e-04   4.037 5.46e-05 ***
+    ## workstation_cpu       -2.744e-04  8.591e-04  -0.319    0.749    
+    ## workstation_cpu_power  2.842e-05  1.398e-04   0.203    0.839    
+    ## workstation_cpu_temp  -8.473e-04  1.276e-03  -0.664    0.507    
+    ## workstation_gpu        1.520e-04  6.087e-04   0.250    0.803    
+    ## workstation_gpu_power -5.315e-05  2.391e-04  -0.222    0.824    
+    ## workstation_gpu_temp  -4.051e-04  1.283e-03  -0.316    0.752    
+    ## voltaje                1.812e-05  3.877e-04   0.047    0.963    
+    ## corriente             -1.000e-02  1.794e-02  -0.558    0.577    
+    ## potencia               1.312e-02  2.011e-02   0.652    0.514    
+    ## frecuencia            -3.767e-04  2.727e-04  -1.381    0.167    
+    ## fp                    -1.354e-03  2.281e-03  -0.594    0.553    
+    ## esp32_temp            -3.094e-04  2.911e-04  -1.063    0.288    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002953 on 9453 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.001692,   Adjusted R-squared:  0.0004251 
+    ## F-statistic: 1.335 on 12 and 9453 DF,  p-value: 0.1903
+
+    ## Desviación estándar de los residuos: 0.00295342
+
+    ## Varianza de los residuos: 0.001692369
+
+![](Proyecto_files/figure-markdown_github/unnamed-chunk-66-1.png)
+Implementamos un enfoque iterativo de regresión múltiple utilizando la
+función regsubsets para identificar la combinación óptima de variables.
+Nos limitaremos a seleccionar seis variables, que corresponde a la mitad
+del total disponible, para nuestro modelo final.
+
+    ## Subset selection object
+    ## Call: regsubsets.formula(energia ~ ., data = variables_interes_interpoladas_normalizadas, 
+    ##     nvmax = 6)
+    ## 14 Variables  (and intercept)
+    ##                       Forced in Forced out
+    ## workstation_ram           FALSE      FALSE
+    ## workstation_ram_power     FALSE      FALSE
+    ## workstation_cpu           FALSE      FALSE
+    ## workstation_cpu_power     FALSE      FALSE
+    ## workstation_cpu_temp      FALSE      FALSE
+    ## workstation_gpu           FALSE      FALSE
+    ## workstation_gpu_power     FALSE      FALSE
+    ## workstation_gpu_temp      FALSE      FALSE
+    ## voltaje                   FALSE      FALSE
+    ## corriente                 FALSE      FALSE
+    ## potencia                  FALSE      FALSE
+    ## frecuencia                FALSE      FALSE
+    ## fp                        FALSE      FALSE
+    ## esp32_temp                FALSE      FALSE
+    ## 1 subsets of each size up to 6
+    ## Selection Algorithm: exhaustive
+    ##          workstation_ram workstation_ram_power workstation_cpu
+    ## 1  ( 1 ) " "             " "                   " "            
+    ## 2  ( 1 ) " "             " "                   " "            
+    ## 3  ( 1 ) " "             " "                   " "            
+    ## 4  ( 1 ) " "             " "                   " "            
+    ## 5  ( 1 ) " "             " "                   " "            
+    ## 6  ( 1 ) " "             " "                   " "            
+    ##          workstation_cpu_power workstation_cpu_temp workstation_gpu
+    ## 1  ( 1 ) " "                   " "                  " "            
+    ## 2  ( 1 ) " "                   " "                  " "            
+    ## 3  ( 1 ) " "                   " "                  " "            
+    ## 4  ( 1 ) " "                   "*"                  " "            
+    ## 5  ( 1 ) " "                   "*"                  " "            
+    ## 6  ( 1 ) " "                   "*"                  " "            
+    ##          workstation_gpu_power workstation_gpu_temp voltaje corriente potencia
+    ## 1  ( 1 ) " "                   " "                  " "     " "       "*"     
+    ## 2  ( 1 ) " "                   " "                  " "     "*"       " "     
+    ## 3  ( 1 ) " "                   " "                  " "     "*"       " "     
+    ## 4  ( 1 ) " "                   " "                  " "     "*"       " "     
+    ## 5  ( 1 ) " "                   " "                  " "     " "       "*"     
+    ## 6  ( 1 ) " "                   " "                  " "     "*"       "*"     
+    ##          frecuencia fp  esp32_temp
+    ## 1  ( 1 ) " "        " " " "       
+    ## 2  ( 1 ) "*"        " " " "       
+    ## 3  ( 1 ) "*"        " " "*"       
+    ## 4  ( 1 ) "*"        " " "*"       
+    ## 5  ( 1 ) "*"        "*" "*"       
+    ## 6  ( 1 ) "*"        "*" "*"
+
+Las variables seleccionadas como resultado del proceso iterativo son:
+temperatura de la CPU de la estación de trabajo (workstation_cpu_temp),
+corriente, potencia, frecuencia, factor de potencia (fp) y la
+temperatura registrada por el sensor (esp32_temp).
+
+    ## 
+    ## Call:
+    ## lm(formula = energia ~ workstation_cpu_temp + corriente + potencia + 
+    ##     frecuencia + fp + esp32_temp, data = variables_interes_interpoladas_normalizadas)
+    ## 
+    ## Residuals:
+    ##       Min        1Q    Median        3Q       Max 
+    ## -0.002682 -0.002003 -0.001901  0.001216  0.008183 
+    ## 
+    ## Coefficients:
+    ##                        Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)           0.0025013  0.0003336   7.499 7.02e-14 ***
+    ## workstation_cpu_temp -0.0009558  0.0009758  -0.980    0.327    
+    ## corriente            -0.0095377  0.0174211  -0.547    0.584    
+    ## potencia              0.0124804  0.0195544   0.638    0.523    
+    ## frecuencia           -0.0003872  0.0002547  -1.520    0.129    
+    ## fp                   -0.0014019  0.0021357  -0.656    0.512    
+    ## esp32_temp           -0.0003046  0.0002738  -1.113    0.266    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.002953 on 9459 degrees of freedom
+    ##   (614 observations deleted due to missingness)
+    ## Multiple R-squared:  0.001651,   Adjusted R-squared:  0.001018 
+    ## F-statistic: 2.607 on 6 and 9459 DF,  p-value: 0.01586
+
+    ## Desviación estándar de los residuos: 0.002952544
+
+    ## Varianza de los residuos: 0.001651052

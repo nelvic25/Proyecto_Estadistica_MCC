@@ -432,8 +432,7 @@ variables_interes_interpoladas_correlacion <- datos_con_interpolacion[, c("works
                                                  "voltaje", "corriente", "potencia",
                                                  "frecuencia", "energia", "fp", "esp32_temp")]
 
-matriz_correlacion_interpolados <- cor(variables_interes_interpoladas_correlacion, use = "complete.obs")
-corrplot(matriz_correlacion_interpolados, method = "circle")
+
 ```
 
 
@@ -729,7 +728,31 @@ abline(modelo_energia_esp32_temp, col = 'blue')
 
 La probabilidad observada sugiere que, bajo la hipótesis nula de que el coeficiente es en realidad cero, es poco probable que valores tan distantes de cero ocurran por casualidad, sugiriendo que las variables no ejercen una influencia significativa en la predicción de energía. Sin embargo, para variables como frecuencia, workstation_ram, workstation_cpu_power, workstation_gpu, workstation_gpu_power, workstation_gpu_temp, voltaje y esp32_temp, existe una mayor probabilidad de que el coeficiente sea cero, indicando una influencia menos pronunciada en el modelo. Por otro lado, variables como workstation_ram_power, workstation_cpu, workstation_cpu_temp, corriente, potencia y fp muestran probabilidades más bajas, lo que refleja una mayor certeza en el coeficiente calculado y sugiere una influencia más significativa en la predicción de energía.
 
-### Desviacion estandar de los residuos
-```{r echo=FALSE}
+Los pares de variables que mejor representan la variabilidad en relación con la energía por medio de la varianza en los residuos son la corriente y la potencia, ambos con valores de R-squared de 0.00111.
 
+### Regresion lineal multiple
+Realizamos la regresion lineal multiple considerando todas las variables del dataset.
+
+```{r echo=FALSE}
+modelo_energia_multiple<-lm(energia ~ workstation_cpu + workstation_cpu_power + workstation_cpu_temp + workstation_gpu + workstation_gpu_power + workstation_gpu_temp + voltaje + corriente + potencia + frecuencia + fp + esp32_temp ,variables_interes_interpoladas_normalizadas)
+summary(modelo_energia_multiple)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_multiple)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_multiple)$r.squared, '\n')
+
+matriz_correlacion_interpolados <- cor(variables_interes_interpoladas_correlacion, use = "complete.obs")
+corrplot(matriz_correlacion_interpolados, method = "circle")
+```
+Implementamos un enfoque iterativo de regresión múltiple utilizando la función regsubsets para identificar la combinación óptima de variables. Nos limitaremos a seleccionar seis variables, que corresponde a la mitad del total disponible, para nuestro modelo final.
+
+```{r echo=FALSE}
+models <- regsubsets(energia~., data=variables_interes_interpoladas_normalizadas, nvmax=6)
+summary(models)
+```
+Las variables seleccionadas como resultado del proceso iterativo son: temperatura de la CPU de la estación de trabajo (workstation_cpu_temp), corriente, potencia, frecuencia, factor de potencia (fp) y la temperatura registrada por el sensor (esp32_temp).
+
+```{r echo=FALSE}
+modelo_energia_multiple_final<-lm(energia ~ workstation_cpu_temp + corriente + potencia + frecuencia + fp + esp32_temp ,variables_interes_interpoladas_normalizadas)
+summary(modelo_energia_multiple_final)
+cat('Desviación estándar de los residuos:', summary(modelo_energia_multiple_final)$sigma, '\n')
+cat('Varianza de los residuos:', summary(modelo_energia_multiple_final)$r.squared, '\n')
 ```
